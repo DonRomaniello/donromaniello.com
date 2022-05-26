@@ -14,6 +14,7 @@ import { Logo } from './Logo';
 import Header from './Header'
 
 function App() {
+
   return (
     <ChakraProvider theme={theme}>
       <Box textAlign="center" fontSize="xl">
