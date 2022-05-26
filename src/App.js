@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   ChakraProvider,
   Box,
@@ -7,6 +7,7 @@ import {
   VStack,
   Code,
   Grid,
+  GridItem,
   theme,
 } from '@chakra-ui/react';
 
@@ -15,15 +16,22 @@ import Header from './Header'
 
 function App() {
 
+  const [isHeaderHorizontal, setIsHeaderHorizontal] = useState(true);
+
+  const changeNavOrientation = () => {
+   setIsHeaderHorizontal(!isHeaderHorizontal)
+  }
+
+
   return (
     <ChakraProvider theme={theme}>
       <Box textAlign="center" fontSize="xl">
         <Grid minH="100vh" p={3}>
           <VStack spacing={8}>
-            <Header />
+            <Header orientation={isHeaderHorizontal}/>
             <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
+            <Text onClick={changeNavOrientation}>
+              Edit <Code fontSize="xl">src/App.js</Code> and {String(isHeaderHorizontal)}.
             </Text>
             <Link
               color="teal.500"

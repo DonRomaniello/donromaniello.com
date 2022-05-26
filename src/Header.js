@@ -7,6 +7,7 @@ import {
   Stack,
   Code,
   Grid,
+  GridItem,
   theme,
   useFocusEffect,
 } from '@chakra-ui/react';
@@ -14,17 +15,11 @@ import { ColorModeSwitcher } from './ColorModeSwitcher';
 
 function Header(props) {
 
-  const [isHeaderHorizontal, setIsHeaderHorizontal] = useState(true);
-
-  const changeNavOrientation = () => {
-   setIsHeaderHorizontal(!isHeaderHorizontal)
-  }
-
+  const {orientation} = props;
 
   return (
-    <Stack direction={(isHeaderHorizontal) ? 'column' : 'row'}>
-      <Box h='40px' w='40px' bg='yellow.200'
-      onClick={changeNavOrientation}>
+    <Stack direction={(orientation) ? 'column' : 'row'}>
+      <Box h='40px' w='40px' bg='yellow.200'>
         1
       </Box>
       <Box h='40px' w='40px' bg='gray.200'>
@@ -32,7 +27,6 @@ function Header(props) {
       </Box>
       <ColorModeSwitcher justifySelf="flex-end" />
     </Stack>
-
   )
 }
 
