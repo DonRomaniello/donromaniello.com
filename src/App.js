@@ -12,14 +12,14 @@ import {
 } from '@chakra-ui/react';
 
 import { Logo } from './Logo';
-import Header from './Header'
+import Navver from './Navver'
 
 function App() {
 
-  const [isHeaderHorizontal, setIsHeaderHorizontal] = useState(true);
+  const [isNavverHorizontal, setIsNavverHorizontal] = useState(true);
 
   const changeNavOrientation = () => {
-   setIsHeaderHorizontal(!isHeaderHorizontal)
+   setIsNavverHorizontal(!isNavverHorizontal)
   }
 
 
@@ -28,10 +28,10 @@ function App() {
       <Box textAlign="center" fontSize="xl">
         <Grid minH="100vh" p={3}>
           <VStack spacing={8}>
-            <Header orientation={isHeaderHorizontal}/>
+            <Navver isNavverHorizontal={isNavverHorizontal}/>
             <Logo h="40vmin" pointerEvents="none" />
             <Text onClick={changeNavOrientation}>
-              Edit <Code fontSize="xl">src/App.js</Code> and {String(isHeaderHorizontal)}.
+              Edit <Code fontSize="xl">src/App.js</Code> and {String(isNavverHorizontal)}.
             </Text>
             <Link
               color="teal.500"
