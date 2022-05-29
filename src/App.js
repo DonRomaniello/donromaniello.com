@@ -4,9 +4,11 @@ import {
   Box,
   Text,
   Link,
-  VStack,
+  Spacer,
   Code,
-  Grid,
+  Flex,
+  SimpleGrid,
+  Container,
   GridItem,
   theme,
 } from '@chakra-ui/react';
@@ -25,26 +27,28 @@ function App() {
 
   return (
     <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <VStack spacing={8}>
-            <Navver isNavverHorizontal={isNavverHorizontal}/>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text onClick={changeNavOrientation}>
-              Edit <Code fontSize="xl">src/App.js</Code> and {String(isNavverHorizontal)}.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
-      </Box>
+      <Flex color='white' gap='2'>
+          <Box bg='red.200' w='10vh' h='10vh'>1</Box>
+          <Box bg='green.200' flex='1' h='10vh'>2</Box>
+          {/* <Box bg='blue.200' w='10vh' h='90vh'></Box>
+          <Box bg='yellow.200' grow='1' h='90vh'></Box> */}
+      </Flex>
+      <Box w="100%" h='2' />
+      <Flex color='white' gap='2'>
+          <Box bg='blue.200' w='10vh' h='90vh'>3</Box>
+          <Box bg='yellow.200' flex='1' h='90vh'>4</Box>
+      </Flex>
+
+
+      {/* <Grid
+        // minH="100vh"
+        gap="2vh"
+        >
+        <GridItem h='10vh' colSpan={2} bg='yellow.200' />
+        <GridItem h='90vh' w='10vw' rowSpan={2} colSpan={1} bg='blue.200' />
+        <GridItem w='90vw' rowSpan={2} bg='red.200' />
+      </Grid> */}
+      {/* </Box> */}
     </ChakraProvider>
   );
 }
