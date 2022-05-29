@@ -20,7 +20,7 @@ function App() {
 
   const divGap = 2;
 
-  const navverMinDimension = 50
+  const navverMinDimension = 100
 
   const [isNavverHorizontal, setIsNavverHorizontal] = useState(true);
 
@@ -33,8 +33,8 @@ function App() {
     <ChakraProvider theme={theme}>
       <Flex color='white' gap={divGap}>
           <Box bg='red.200'
-            w='10vh'
-            h='10vh'
+            w='5vw'
+            h='5vw'
             minWidth={navverMinDimension}
             minHeight={navverMinDimension}
             >
@@ -44,7 +44,7 @@ function App() {
           <Box
            bg='green.200'
            flex='1'
-           h='10vh'
+           h='5vw'
            minHeight={navverMinDimension}
            >2</Box>
 
@@ -55,15 +55,15 @@ function App() {
       <Flex color='white' gap={divGap}>
           <Box
            bg='blue.200'
-           w='10vh'
-           h='90vh'
+           w='5vw'
+           h='100vh'
            minWidth={navverMinDimension}
            >
              3
           </Box>
           <Box
            bg='yellow.200'
-           h='90vh'
+           h='100vh'
            flex='1'
            >
              4
