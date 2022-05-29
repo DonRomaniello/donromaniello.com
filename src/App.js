@@ -18,6 +18,10 @@ import Navver from './Navver'
 
 function App() {
 
+  const divGap = 2;
+
+  const navverMinDimension = 50
+
   const [isNavverHorizontal, setIsNavverHorizontal] = useState(true);
 
   const changeNavOrientation = () => {
@@ -27,16 +31,43 @@ function App() {
 
   return (
     <ChakraProvider theme={theme}>
-      <Flex color='white' gap='2'>
-          <Box bg='red.200' w='10vh' h='10vh'>1</Box>
-          <Box bg='green.200' flex='1' h='10vh'>2</Box>
-          {/* <Box bg='blue.200' w='10vh' h='90vh'></Box>
-          <Box bg='yellow.200' grow='1' h='90vh'></Box> */}
+      <Flex color='white' gap={divGap}>
+          <Box bg='red.200'
+            w='10vh'
+            h='10vh'
+            minWidth={navverMinDimension}
+            minHeight={navverMinDimension}
+            >
+              1
+          </Box>
+
+          <Box
+           bg='green.200'
+           flex='1'
+           h='10vh'
+           minHeight={navverMinDimension}
+           >2</Box>
+
       </Flex>
-      <Box w="100%" h='2' />
-      <Flex color='white' gap='2'>
-          <Box bg='blue.200' w='10vh' h='90vh'>3</Box>
-          <Box bg='yellow.200' flex='1' h='90vh'>4</Box>
+
+      <Box w="100%" h={divGap} />
+
+      <Flex color='white' gap={divGap}>
+          <Box
+           bg='blue.200'
+           w='10vh'
+           h='90vh'
+           minWidth={navverMinDimension}
+           >
+             3
+          </Box>
+          <Box
+           bg='yellow.200'
+           h='90vh'
+           flex='1'
+           >
+             4
+          </Box>
       </Flex>
 
 
