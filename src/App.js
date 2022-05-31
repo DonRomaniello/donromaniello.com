@@ -11,6 +11,7 @@ import {
   Container,
   GridItem,
   theme,
+  useDisclosure
 } from '@chakra-ui/react';
 
 import { Logo } from './Logo';
@@ -24,21 +25,28 @@ function App() {
 
   const [isNavverHorizontal, setIsNavverHorizontal] = useState(true);
 
+  const [contentLinks, setContentLinks] = useState(['Go Here',
+                                                   'Further Reading'])
+
   const changeNavOrientation = () => {
    setIsNavverHorizontal(!isNavverHorizontal)
   }
 
+  const { sideOpen, sideOpenToggle } = useDisclosure()
+
 
   return (
     <ChakraProvider theme={theme}>
+      <Box margin='10px' h='100vh'>
       <Flex color='white' gap={divGap}>
           <Box bg='red.200'
             w='5vw'
             h='5vw'
             minWidth={navverMinDimension}
             minHeight={navverMinDimension}
+            borderRadius="10px"
             >
-              1
+
           </Box>
 
           <Box
@@ -46,6 +54,7 @@ function App() {
            flex='1'
            h='5vw'
            minHeight={navverMinDimension}
+           borderRadius="10px"
            >2</Box>
 
       </Flex>
@@ -58,6 +67,8 @@ function App() {
            w='5vw'
            h='100vh'
            minWidth={navverMinDimension}
+          //  onMouseEnter={sidebarActive}
+           borderRadius="10px"
            >
              3
           </Box>
@@ -65,10 +76,12 @@ function App() {
            bg='yellow.200'
            h='100vh'
            flex='1'
+           borderRadius="10px"
            >
              4
           </Box>
       </Flex>
+      </Box>
 
 
       {/* <Grid
