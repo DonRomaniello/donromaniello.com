@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {
-  ChakraProvider,
   Box,
-  Text,
-  Link,
   Stack,
-  Code,
-  Grid,
-  GridItem,
-  theme,
-  useFocusEffect,
 } from '@chakra-ui/react';
 
 import { ColorModeSwitcher } from './ColorModeSwitcher';
@@ -17,8 +9,6 @@ import { ColorModeSwitcher } from './ColorModeSwitcher';
 function Navver(props) {
 
   const boxContents = [1, 2, 3, 4, 5, 6]
-
-
 
   const {isNavverHorizontal} = props;
 

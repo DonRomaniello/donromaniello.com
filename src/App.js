@@ -2,20 +2,14 @@ import React, {useState, useEffect} from 'react';
 import {
   ChakraProvider,
   Box,
-  Text,
-  Link,
-  Spacer,
-  Code,
   Flex,
-  SimpleGrid,
-  Container,
-  GridItem,
-  theme,
-  useDisclosure
+  Fade,
+  theme
 } from '@chakra-ui/react';
 
 import { Logo } from './Logo';
 import Navver from './Navver'
+import FadeBar from './FadeBar'
 
 function App() {
 
@@ -26,14 +20,12 @@ function App() {
   const [isNavverHorizontal, setIsNavverHorizontal] = useState(true);
 
   const [contentLinks, setContentLinks] = useState(['Go Here',
-                                                   'Further Reading'])
+                                                   'Further Reading',
+                                                  'Undsoweider'])
 
   const changeNavOrientation = () => {
    setIsNavverHorizontal(!isNavverHorizontal)
   }
-
-  const { sideOpen, sideOpenToggle } = useDisclosure()
-
 
   return (
     <ChakraProvider theme={theme}>
@@ -45,6 +37,7 @@ function App() {
             minWidth={navverMinDimension}
             minHeight={navverMinDimension}
             borderRadius="10px"
+            shadow='sm'
             >
 
           </Box>
@@ -55,6 +48,7 @@ function App() {
            h='5vw'
            minHeight={navverMinDimension}
            borderRadius="10px"
+           shadow='sm'
            >2</Box>
 
       </Flex>
@@ -68,17 +62,19 @@ function App() {
            h='100vh'
            minWidth={navverMinDimension}
           //  onMouseEnter={sidebarActive}
-           borderRadius="10px"
+          shadow='sm'
+          borderRadius="10px"
            >
-             3
+             Side
           </Box>
           <Box
            bg='yellow.200'
            h='100vh'
            flex='1'
            borderRadius="10px"
+           shadow='sm'
            >
-             4
+             <FadeBar />
           </Box>
       </Flex>
       </Box>
