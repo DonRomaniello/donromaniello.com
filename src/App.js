@@ -10,6 +10,7 @@ import {
 import { Logo } from './Logo';
 import Navver from './Navver'
 import FadeBar from './FadeBar'
+import NavDrawer from './NavDrawer';
 
 function App() {
 
@@ -65,7 +66,7 @@ function App() {
           shadow='sm'
           borderRadius="10px"
            >
-             Side
+            <NavDrawer contentLinks={contentLinks}/>
           </Box>
           <Box
            bg='yellow.200'
@@ -74,7 +75,7 @@ function App() {
            borderRadius="10px"
            shadow='sm'
            >
-             <FadeBar />
+             Content
           </Box>
       </Flex>
       </Box>

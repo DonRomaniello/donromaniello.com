@@ -7,9 +7,11 @@ import {
   useDisclosure
 } from '@chakra-ui/react';
 
-function FadeBar () {
+function FadeBar (props) {
 
   const { isOpen, onToggle } = useDisclosure()
+
+  console.log(props.contentLinks)
 
   return (
     <>
