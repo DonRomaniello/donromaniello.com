@@ -38,11 +38,17 @@ function NavDrawer(props) {
         onMouseLeave={onToggle}
         bg="rgba(0, 0, 0, 0)"
         >
-          {/* <DrawerHeader>Create your account</DrawerHeader> */}
+          <DrawerHeader>
+            <Button
+              size='md'
+              margin='10px'
+              >Home
+            </Button>
+          </DrawerHeader>
 
           <DrawerBody>
             {contentLinks.map((content, idx) =>  {
-              return (<NavLinks content={content} id={idx} />)
+              return (<NavLinks key={idx} content={content} id={idx} />)
             })}
           </DrawerBody>
 

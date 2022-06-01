@@ -14,12 +14,12 @@ function NavLinks (props) {
 
   return (
     <>
-    <div key={idx}>
+    <div>
       <Button
-      size='lg'
+      size='md'
       margin='10px'
-      colorScheme='darkBlue'
-      >{content}</Button>
+      >{content}
+      </Button>
       </div>
     </>
   )

@@ -3,16 +3,17 @@ import {
   ChakraProvider,
   Box,
   Flex,
-  Fade,
-  useDisclosure
+  Text,
+  Button,
+  useDisclosure,
+  useColorMode
 } from '@chakra-ui/react';
 
 import theme from './config/theme'
 
-import { Logo } from './Logo';
-import Navver from './Navver'
-import FadeBar from './FadeBar'
 import NavDrawer from './NavDrawer';
+
+import { ColorModeSwitcher } from './ColorModeSwitcher';
 
 function App() {
 
@@ -26,7 +27,7 @@ function App() {
                                                    'Further Reading',
                                                   'Undsoweider'])
 
-  const { onToggle, isOpen } = useDisclosure()
+  const { isOpen, onToggle } = useDisclosure()
 
   const changeNavOrientation = () => {
    setIsNavverHorizontal(!isNavverHorizontal)
@@ -36,7 +37,7 @@ function App() {
     <ChakraProvider theme={theme}>
       <Box margin='10px' h='100vh'>
       <Flex color='white' gap={divGap}>
-          <Box bg='white'
+          <Box
             w='5vw'
             h='5vw'
             minWidth={navverMinDimension}
@@ -44,11 +45,10 @@ function App() {
             borderRadius="10px"
             shadow='sm'
             >
-
+            <ColorModeSwitcher justifySelf="flex-end" />
           </Box>
 
           <Box
-           bg='white'
            flex='1'
            h='5vw'
            minHeight={navverMinDimension}
@@ -60,9 +60,8 @@ function App() {
 
       <Box w="100%" h={divGap} />
 
-      <Flex color='white' gap={divGap}>
+      <Flex gap={divGap}>
           <Box
-           bg='white'
           // bgGradient='linear(to-l, white, lightBlue.200)'
            w='5vw'
            h='100vh'
@@ -76,7 +75,7 @@ function App() {
           </Box>
           <Box
           //  bg='lightBlue.200'
-           bgGradient='linear(white 50%, lightBlue.200)'
+          //  bgGradient='linear(white 50%, lightBlue.200)'
            h='100vh'
            flex='1'
            borderRadius="10px"
