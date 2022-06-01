@@ -1,12 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {
   Box,
-  Button,
-  Center,
   ChakraProvider,
-  CircularProgress,
   Flex,
-  Text,
   useDisclosure
 } from '@chakra-ui/react';
 
@@ -14,13 +10,15 @@ import theme from './config/theme'
 
 import NavDrawer from './NavDrawer';
 
+import TopBar from './TopBar'
+
 
 
 function App() {
 
   const divGap = 2;
 
-  const navverMinDimension = 100
+  const navverMinDimension = 10
 
   const [isNavverHorizontal, setIsNavverHorizontal] = useState(true);
 
@@ -37,53 +35,23 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <Box margin='10px' h='100vh'>
-      <Flex gap={divGap}
-        bg='white'
-        h='5vw'
-        minHeight={navverMinDimension}
-        // position='fixed'
-      >
-          <Box
-            bg='white'
-            w='5vw'
-            minWidth={navverMinDimension}
-            borderRadius="10px"
-            shadow='sm'
-            >
-              <Center w='100%' h='100%'>
-            <CircularProgress
-            padding="19%"
-            thickness='11px'
-            size="100%"
-            capIsRound='true'
-            value={80}
-             />
-            </Center>
-            {/* <CircularProgress isIndeterminate color="green.300" /> */}
-          </Box>
-
-          <Box
-           bg='white'
-           flex='1'
-           borderRadius="10px"
-           shadow='sm'
-           >2</Box>
-
-      </Flex>
+      <TopBar />
 
       <Box w="100%" h={divGap} />
 
       <Flex
+      mt='8vw'
       h='95vh'
       gap={divGap}>
           <Box
           // bgGradient='linear(to-l, white, lightBlue.200)'
-          w='5vw'
+           w='5vw'
+
           minWidth={navverMinDimension}
           onClick={onToggle}
           overflow="hidden"
           onMouseEnter={onToggle}
-          shadow='sm'
+          shadow='md'
           borderRadius="10px"
            >
             <NavDrawer contentLinks={contentLinks} onToggle={onToggle} isOpen={isOpen} />
@@ -94,7 +62,7 @@ function App() {
            flex='1'
            overflow="hidden"
            borderRadius="10px"
-           shadow='sm'
+           shadow='md'
            >
              Content
           </Box>

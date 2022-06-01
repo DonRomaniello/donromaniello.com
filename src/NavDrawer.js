@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 import {
   Drawer,
@@ -7,12 +7,12 @@ import {
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
-  useColorMode,
-  DrawerCloseButton,
-  Input,
   Button,
-  useDisclosure
 } from '@chakra-ui/react'
+
+import { db, storage } from './config/firebase';
+
+import { collection, getDocs } from "firebase/firestore";
 
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 
@@ -23,11 +23,43 @@ import NavLinks from './NavLinks';
 function NavDrawer(props) {
   // const { isOpen, onOpen, onClose } = useDisclosure()
 
+
+  const [posts, setPosts] = useState([]);
+
+
+
+
+
+  const getBlogPosts = async () => {
+
+    const blogPosts = await getDocs(collection(db, "blog"));
+
+    blogPosts.forEach((post) => {
+
+      console.log(post.data())
+
+    })
+
+  }
+
+  useEffect(() => {
+
+    getBlogPosts();
+
+  }, [])
+
+
+
+
+
+
+
+
+
+
   const { onToggle, isOpen, contentLinks } = props;
 
   const btnRef = React.useRef()
-
-
 
   return (
     <>
