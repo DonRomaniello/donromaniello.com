@@ -1,19 +1,20 @@
 import React, {useState, useEffect} from 'react';
 import {
-  ChakraProvider,
   Box,
+  Button,
+  Center,
+  ChakraProvider,
+  CircularProgress,
   Flex,
   Text,
-  Button,
-  useDisclosure,
-  useColorMode
+  useDisclosure
 } from '@chakra-ui/react';
 
 import theme from './config/theme'
 
 import NavDrawer from './NavDrawer';
 
-import { ColorModeSwitcher } from './ColorModeSwitcher';
+
 
 function App() {
 
@@ -45,7 +46,16 @@ function App() {
             borderRadius="10px"
             shadow='sm'
             >
-            <ColorModeSwitcher justifySelf="flex-end" />
+              <Center w='100%' h='100%'>
+            <CircularProgress
+            padding="19%"
+            thickness='11px'
+            size="100%"
+            capIsRound='true'
+            value={80}
+             />
+            </Center>
+            {/* <CircularProgress isIndeterminate color="green.300" /> */}
           </Box>
 
           <Box

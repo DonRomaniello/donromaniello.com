@@ -7,13 +7,17 @@ import {
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
+  useColorMode,
   DrawerCloseButton,
   Input,
   Button,
   useDisclosure
 } from '@chakra-ui/react'
 
+import { ColorModeSwitcher } from './ColorModeSwitcher';
+
 import NavLinks from './NavLinks';
+
 
 
 function NavDrawer(props) {
@@ -22,6 +26,8 @@ function NavDrawer(props) {
   const { onToggle, isOpen, contentLinks } = props;
 
   const btnRef = React.useRef()
+
+
 
   return (
     <>
@@ -39,7 +45,7 @@ function NavDrawer(props) {
         bg="rgba(0, 0, 0, 0)"
         shadow='none'
         >
-          <DrawerHeader>
+          <DrawerHeader >
             <Button
               w="62%"
               size='md'
@@ -54,12 +60,9 @@ function NavDrawer(props) {
             })}
           </DrawerBody>
 
-          {/* <DrawerFooter>
-            <Button variant='outline' mr={3} onClick={onClose}>
-              Cancel
-            </Button>
-            <Button colorScheme='blue'>Save</Button>
-          </DrawerFooter> */}
+          <DrawerFooter >
+            <ColorModeSwitcher justifySelf="flex-start" />
+          </DrawerFooter>
         </DrawerContent>
       </Drawer>
     </>
