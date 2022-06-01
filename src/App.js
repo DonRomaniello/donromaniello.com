@@ -4,9 +4,10 @@ import {
   Box,
   Flex,
   Fade,
-  theme,
   useDisclosure
 } from '@chakra-ui/react';
+
+import theme from './config/theme'
 
 import { Logo } from './Logo';
 import Navver from './Navver'
@@ -25,7 +26,7 @@ function App() {
                                                    'Further Reading',
                                                   'Undsoweider'])
 
-  const { isOpen, onToggle } = useDisclosure()
+  const { onToggle, isOpen } = useDisclosure()
 
   const changeNavOrientation = () => {
    setIsNavverHorizontal(!isNavverHorizontal)
@@ -47,7 +48,7 @@ function App() {
           </Box>
 
           <Box
-           bg='green.200'
+           bg='green.500'
            flex='1'
            h='5vw'
            minHeight={navverMinDimension}
@@ -65,7 +66,7 @@ function App() {
            w='5vw'
            h='100vh'
            minWidth={navverMinDimension}
-
+          onClick={onToggle}
           onMouseEnter={onToggle}
           shadow='sm'
           borderRadius="10px"

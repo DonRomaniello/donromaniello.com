@@ -9,14 +9,15 @@ import {
 
 function FadeBar (props) {
 
-  const { isOpen, onToggle } = useDisclosure()
+  const { content, idx } = props;
 
-  console.log(props.contentLinks)
+  const { isOpen, onToggle } = useDisclosure()
 
   return (
     <>
+    <div key={idx}>
       <Button onClick={onToggle}>Click Me</Button>
-      <Fade in={isOpen}>
+      <Fade in={isOpen} unmountOnExit={true} reverse={true}>
         <Box
           p='40px'
           color='white'
@@ -25,9 +26,10 @@ function FadeBar (props) {
           rounded='md'
           shadow='md'
         >
-          Fade
+          {content}
         </Box>
       </Fade>
+      </div>
     </>
   )
 }

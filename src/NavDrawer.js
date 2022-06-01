@@ -13,11 +13,13 @@ import {
   useDisclosure
 } from '@chakra-ui/react'
 
+import NavLinks from './NavLinks';
+
 
 function NavDrawer(props) {
   // const { isOpen, onOpen, onClose } = useDisclosure()
 
-  const { onToggle, isOpen } = props;
+  const { onToggle, isOpen, contentLinks } = props;
 
   const btnRef = React.useRef()
 
@@ -36,19 +38,20 @@ function NavDrawer(props) {
         onMouseLeave={onToggle}
         bg="rgba(0, 0, 0, 0)"
         >
-          <DrawerCloseButton />
-          <DrawerHeader>Create your account</DrawerHeader>
+          {/* <DrawerHeader>Create your account</DrawerHeader> */}
 
           <DrawerBody>
-            <Input placeholder='Type here...' />
+            {contentLinks.map((content, idx) =>  {
+              return (<NavLinks content={content} id={idx} />)
+            })}
           </DrawerBody>
 
-          <DrawerFooter>
-            {/* <Button variant='outline' mr={3} onClick={onClose}>
+          {/* <DrawerFooter>
+            <Button variant='outline' mr={3} onClick={onClose}>
               Cancel
-            </Button> */}
+            </Button>
             <Button colorScheme='blue'>Save</Button>
-          </DrawerFooter>
+          </DrawerFooter> */}
         </DrawerContent>
       </Drawer>
     </>
