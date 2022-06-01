@@ -36,7 +36,7 @@ function App() {
     <ChakraProvider theme={theme}>
       <Box margin='10px' h='100vh'>
       <Flex color='white' gap={divGap}>
-          <Box bg='red.200'
+          <Box bg='white'
             w='5vw'
             h='5vw'
             minWidth={navverMinDimension}
@@ -48,7 +48,7 @@ function App() {
           </Box>
 
           <Box
-           bg='green.500'
+           bg='white'
            flex='1'
            h='5vw'
            minHeight={navverMinDimension}
@@ -62,7 +62,8 @@ function App() {
 
       <Flex color='white' gap={divGap}>
           <Box
-           bg='blue.200'
+           bg='white'
+          // bgGradient='linear(to-l, white, lightBlue.200)'
            w='5vw'
            h='100vh'
            minWidth={navverMinDimension}
@@ -74,7 +75,8 @@ function App() {
             <NavDrawer contentLinks={contentLinks} onToggle={onToggle} isOpen={isOpen} />
           </Box>
           <Box
-           bg='yellow.200'
+          //  bg='lightBlue.200'
+           bgGradient='linear(white 50%, lightBlue.200)'
            h='100vh'
            flex='1'
            borderRadius="10px"
@@ -84,17 +86,6 @@ function App() {
           </Box>
       </Flex>
       </Box>
-
-
-      {/* <Grid
-        // minH="100vh"
-        gap="2vh"
-        >
-        <GridItem h='10vh' colSpan={2} bg='yellow.200' />
-        <GridItem h='90vh' w='10vw' rowSpan={2} colSpan={1} bg='blue.200' />
-        <GridItem w='90vw' rowSpan={2} bg='red.200' />
-      </Grid> */}
-      {/* </Box> */}
     </ChakraProvider>
   );
 }

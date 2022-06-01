@@ -8,10 +8,10 @@ const theme = extendTheme({
       500: '#66A182'
     },
     darkBlue: {
-      500: '#007EA7',
-      200: '#BEDCFE'
+      500: '#007EA7'
     },
     lightBlue: {
+      200: '#EBF4FF',
       500: '#BEDCFE'
     },
   },
