@@ -4,7 +4,8 @@ import {
   Box,
   Flex,
   Fade,
-  theme
+  theme,
+  useDisclosure
 } from '@chakra-ui/react';
 
 import { Logo } from './Logo';
@@ -23,6 +24,8 @@ function App() {
   const [contentLinks, setContentLinks] = useState(['Go Here',
                                                    'Further Reading',
                                                   'Undsoweider'])
+
+  const { isOpen, onToggle } = useDisclosure()
 
   const changeNavOrientation = () => {
    setIsNavverHorizontal(!isNavverHorizontal)
@@ -62,11 +65,12 @@ function App() {
            w='5vw'
            h='100vh'
            minWidth={navverMinDimension}
-          //  onMouseEnter={sidebarActive}
+
+          onMouseEnter={onToggle}
           shadow='sm'
           borderRadius="10px"
            >
-            <NavDrawer contentLinks={contentLinks}/>
+            <NavDrawer contentLinks={contentLinks} onToggle={onToggle} isOpen={isOpen} />
           </Box>
           <Box
            bg='yellow.200'

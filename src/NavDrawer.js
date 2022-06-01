@@ -14,23 +14,26 @@ import {
 } from '@chakra-ui/react'
 
 
-function NavDrawer() {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+function NavDrawer(props) {
+  // const { isOpen, onOpen, onClose } = useDisclosure()
+
+  const { onToggle, isOpen } = props;
+
   const btnRef = React.useRef()
 
   return (
     <>
-      <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
+      {/* <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
         Open
-      </Button>
+      </Button> */}
       <Drawer
         isOpen={isOpen}
         placement='left'
-        onClose={onClose}
         finalFocusRef={btnRef}
       >
         <DrawerOverlay />
         <DrawerContent
+        onMouseLeave={onToggle}
         bg="rgba(0, 0, 0, 0)"
         >
           <DrawerCloseButton />
@@ -41,9 +44,9 @@ function NavDrawer() {
           </DrawerBody>
 
           <DrawerFooter>
-            <Button variant='outline' mr={3} onClick={onClose}>
+            {/* <Button variant='outline' mr={3} onClick={onClose}>
               Cancel
-            </Button>
+            </Button> */}
             <Button colorScheme='blue'>Save</Button>
           </DrawerFooter>
         </DrawerContent>
