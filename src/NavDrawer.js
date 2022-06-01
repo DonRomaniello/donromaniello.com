@@ -37,9 +37,11 @@ function NavDrawer(props) {
         <DrawerContent
         onMouseLeave={onToggle}
         bg="rgba(0, 0, 0, 0)"
+        shadow='none'
         >
           <DrawerHeader>
             <Button
+              w="62%"
               size='md'
               margin='10px'
               >Home

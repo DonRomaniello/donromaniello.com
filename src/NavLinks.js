@@ -16,6 +16,7 @@ function NavLinks (props) {
     <>
     <div>
       <Button
+      w="62%"
       size='md'
       margin='10px'
       >{content}
