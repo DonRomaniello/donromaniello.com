@@ -37,12 +37,16 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <Box margin='10px' h='100vh'>
-      <Flex color='white' gap={divGap}>
+      <Flex gap={divGap}
+        bg='white'
+        h='5vw'
+        minHeight={navverMinDimension}
+        // position='fixed'
+      >
           <Box
+            bg='white'
             w='5vw'
-            h='5vw'
             minWidth={navverMinDimension}
-            minHeight={navverMinDimension}
             borderRadius="10px"
             shadow='sm'
             >
@@ -59,9 +63,8 @@ function App() {
           </Box>
 
           <Box
+           bg='white'
            flex='1'
-           h='5vw'
-           minHeight={navverMinDimension}
            borderRadius="10px"
            shadow='sm'
            >2</Box>
@@ -70,13 +73,15 @@ function App() {
 
       <Box w="100%" h={divGap} />
 
-      <Flex gap={divGap}>
+      <Flex
+      h='95vh'
+      gap={divGap}>
           <Box
           // bgGradient='linear(to-l, white, lightBlue.200)'
-           w='5vw'
-           h='100vh'
-           minWidth={navverMinDimension}
+          w='5vw'
+          minWidth={navverMinDimension}
           onClick={onToggle}
+          overflow="hidden"
           onMouseEnter={onToggle}
           shadow='sm'
           borderRadius="10px"
@@ -86,8 +91,8 @@ function App() {
           <Box
           //  bg='lightBlue.200'
           //  bgGradient='linear(white 50%, lightBlue.200)'
-           h='100vh'
            flex='1'
+           overflow="hidden"
            borderRadius="10px"
            shadow='sm'
            >
