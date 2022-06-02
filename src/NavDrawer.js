@@ -10,9 +10,9 @@ import {
   Button,
 } from '@chakra-ui/react'
 
-import { db, storage } from './config/firebase';
+import { db } from './config/firebase';
 
-import { collection, getDocs } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 
@@ -21,43 +21,35 @@ import NavLinks from './NavLinks';
 
 
 function NavDrawer(props) {
-  // const { isOpen, onOpen, onClose } = useDisclosure()
-
 
   const [posts, setPosts] = useState([]);
 
-
-
-
+  const [titles, setTitles] = useState([]);
 
   const getBlogPosts = async () => {
 
-    const blogPosts = await getDocs(collection(db, "blog"));
+    const unsub = onSnapshot(collection(db, "blog"), (doc) => {
+      setPosts(doc.docs.map((doc) => doc.data()))
+  });
 
-    blogPosts.forEach((post) => {
-
-      console.log(post.data())
-
-    })
+    return unsub
 
   }
 
   useEffect(() => {
-
     getBlogPosts();
-
   }, [])
 
+  useEffect(() => {
+    if (posts.length) {
+      setTitles(posts.map((post) => post.title))
+    }
 
+    console.log(posts)
 
+  }, [posts])
 
-
-
-
-
-
-
-  const { onToggle, isOpen, contentLinks } = props;
+  const { onToggle, isOpen } = props;
 
   const btnRef = React.useRef()
 
@@ -87,9 +79,9 @@ function NavDrawer(props) {
           </DrawerHeader>
 
           <DrawerBody>
-            {contentLinks.map((content, idx) =>  {
-              return (<NavLinks key={idx} content={content} id={idx} />)
-            })}
+            {posts.length ? posts.map((post, idx) =>  {
+              return (<NavLinks key={idx} post={post} id={idx} />)
+            }) : ''}
           </DrawerBody>
 
           <DrawerFooter >

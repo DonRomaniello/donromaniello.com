@@ -8,7 +8,7 @@ import {
 
 function NavLinks (props) {
 
-  const { content, idx } = props;
+  const { post } = props;
 
   // const { isOpen, onToggle } = useDisclosure()
 
@@ -19,7 +19,7 @@ function NavLinks (props) {
       w="62%"
       size='md'
       margin='10px'
-      >{content}
+      >{post.title}
       </Button>
       </div>
     </>
