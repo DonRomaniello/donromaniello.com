@@ -1,13 +1,14 @@
 import React, {useState, useEffect} from 'react';
 
 import {
+  Center,
   Drawer,
   DrawerBody,
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
-  Button,
+  Text
 } from '@chakra-ui/react'
 
 import { db } from './config/firebase';
@@ -65,18 +66,18 @@ function NavDrawer(props) {
       >
         <DrawerOverlay />
         <DrawerContent
+        backdropFilter='blur(20px)'
         onMouseLeave={onToggle}
-        bg="rgba(0, 0, 0, 0)"
+        // bg="rgba(0, 0, 0, 0)"
         shadow='none'
         >
-          <DrawerHeader >
-            <Button
+          <DrawerHeader
               w="62%"
               size='md'
               margin='10px'
               >Home
-            </Button>
           </DrawerHeader>
+
 
           <DrawerBody>
             {posts.length ? posts.map((post, idx) =>  {

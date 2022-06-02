@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import {
-  Box,
+  Text,
   Button,
   useDisclosure
 } from '@chakra-ui/react';
@@ -15,12 +15,14 @@ function NavLinks (props) {
   return (
     <>
     <div>
-      <Button
-      w="62%"
+      <Text
+      // w="62%"
+      // textShadow="0px 0px 1vh RGBA(255, 255, 255, 16)"
       size='md'
+      fontSize='2vw'
       margin='10px'
       >{post.title}
-      </Button>
+      </Text>
       </div>
     </>
   )
