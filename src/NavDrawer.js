@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
+import { Link } from "react-router-dom";
+
 import {
   Center,
   Drawer,
@@ -75,7 +77,10 @@ function NavDrawer(props) {
               w="62%"
               size='md'
               margin='10px'
-              >Home
+              >
+                <Link to='/'>
+                Home
+                </Link>
           </DrawerHeader>
 
 

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import { Link } from "react-router-dom";
+
 import {
   Text,
   Button,
@@ -15,6 +17,7 @@ function NavLinks (props) {
   return (
     <>
     <div>
+    <Link to={`/blog/${post.title}`}>
       <Text
       // w="62%"
       // textShadow="0px 0px 1vh RGBA(255, 255, 255, 16)"
@@ -23,6 +26,7 @@ function NavLinks (props) {
       margin='10px'
       >{post.title}
       </Text>
+      </Link>
       </div>
     </>
   )
