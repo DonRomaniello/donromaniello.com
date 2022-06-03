@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 
 import { Routes, Route } from 'react-router-dom';
 
+import { useParams } from 'react-router';
+
 import {
   Box,
   ChakraProvider,
@@ -21,7 +23,7 @@ import TopBar from './TopBar'
 
 import Home from './Home'
 
-
+import Post from './Post'
 
 
 function App() {
@@ -39,6 +41,8 @@ function App() {
   }
 
   const [posts, setPosts] = useState([]);
+
+  const [selectedPost, setSelectedPost] = useState();
 
   const [titles, setTitles] = useState([]);
 
@@ -87,7 +91,7 @@ function App() {
             shadow='md'
             borderRadius="10px"
             >
-              <NavDrawer posts={posts} onToggle={onToggle} isOpen={isOpen} />
+              <NavDrawer posts={posts} onToggle={onToggle} isOpen={isOpen} setSelectedPost={setSelectedPost} />
           </Box>
           <Box
            flex='1'
@@ -97,6 +101,8 @@ function App() {
            >
           <Routes>
             <Route exact path="/" element={<Home />} />
+            <Route path="/blog/:name"
+                   element={<Post post={selectedPost} />} />
           </Routes>
           </Box>
       </Flex>

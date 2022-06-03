@@ -21,7 +21,7 @@ import NavLinks from './NavLinks';
 
 function NavDrawer(props) {
 
-  const { onToggle, isOpen, posts } = props;
+  const { onToggle, isOpen, posts, setSelectedPost } = props;
 
   const btnRef = React.useRef()
 
@@ -55,7 +55,7 @@ function NavDrawer(props) {
 
           <DrawerBody>
             {posts.length ? posts.map((post, idx) =>  {
-              return (<NavLinks key={idx} post={post} id={idx} />)
+              return (<NavLinks key={idx} post={post} id={idx} setSelectedPost={setSelectedPost} />)
             }) : ''}
           </DrawerBody>
 

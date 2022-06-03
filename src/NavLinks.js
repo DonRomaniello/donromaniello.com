@@ -15,17 +15,13 @@ import {
 
 function NavLinks (props) {
 
-  const { post } = props;
-
-  // const { isOpen, onToggle } = useDisclosure()
+  const { post, setSelectedPost } = props;
 
   return (
     <>
     <div>
-    <Link to={`/blog/${post.title}`} post={post} >
+    <Link to={`/blog/${post.title}`} onClick={setSelectedPost(post)}>
       <Text
-      // w="62%"
-      // textShadow="0px 0px 1vh RGBA(255, 255, 255, 16)"
       size='md'
       fontSize='2vw'
       margin='10px'

@@ -14,9 +14,6 @@ function Post(props) {
     <Text>
       Reaching.
     </Text>
-
-
-
   )
 
 
