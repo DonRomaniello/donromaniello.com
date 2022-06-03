@@ -14,7 +14,7 @@ function TopBar(props) {
 
   return (
     <Flex
-        backdropFilter='blur(20px)'
+        backdropFilter='blur(50px)'
         gap={divGap}
         position='fixed'
         top={divGap}

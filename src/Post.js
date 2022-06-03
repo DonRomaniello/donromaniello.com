@@ -3,7 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 
 import {
-  Text
+  Box,
+  Center,
+  Heading,
+  Image,
+  Text,
 } from '@chakra-ui/react'
 
 function Post(props) {
@@ -15,7 +19,7 @@ function Post(props) {
   const [post, setPost] = useState({
     title: '',
     imageUrl: '',
-    content: ''
+    content: []
   })
 
   useEffect(() => {
@@ -30,17 +34,40 @@ function Post(props) {
     }
   }, [name, posts])
 
-  console.log(posts, name, post)
+  // console.log(posts, name, post)
 
   return (
-    <Text>
-      {post.content}
-    </Text>
+    <>
+    <Box w="100%" h='5vw' />
+    <Center>
+      <Heading>{post.title}</Heading>
+    </Center>
+    <Box w="100%" h='2vw' />
+    <Center>
+    <Image
+    src={post.imageUrl}
+    maxWidth='62%'
+    borderRadius='1%'
+    />
+    </Center>
+    <Box w="100%" h='3vw' />
+    <Center>
+    <Box
+    w='50%'
+    >
+    {post.content.map((paragraph) => {
+      return (
+        <Text>
+          {paragraph}
+          <br />
+          <br />
+        </Text>
+      )
+    })}
+    </Box>
+    </Center>
+    </>
   )
-
-
-
-
 }
 
 export default Post

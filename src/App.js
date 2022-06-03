@@ -73,16 +73,12 @@ function App() {
         <Box w="100%" h={divGap} />
 
         <Flex
-          mt='8vw'
-          h='95vh'
+          mt='3vw'
           gap={divGap}>
           <Box
-          // bgGradient='linear(to-l, white, lightBlue.200)'
             w='5vw'
-
             minWidth={navverMinDimension}
             onClick={onToggle}
-            overflow="hidden"
             onMouseEnter={onToggle}
             shadow='md'
             borderRadius="10px"
@@ -91,7 +87,6 @@ function App() {
           </Box>
           <Box
            flex='1'
-           overflow="hidden"
            borderRadius="10px"
            shadow='md'
            >
