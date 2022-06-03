@@ -9,6 +9,10 @@ import {
   useDisclosure
 } from '@chakra-ui/react';
 
+import { db } from './config/firebase';
+
+import { collection, onSnapshot } from "firebase/firestore";
+
 import theme from './config/theme'
 
 import NavDrawer from './NavDrawer';
@@ -16,6 +20,7 @@ import NavDrawer from './NavDrawer';
 import TopBar from './TopBar'
 
 import Home from './Home'
+
 
 
 
@@ -27,21 +32,46 @@ function App() {
 
   const [isNavverHorizontal, setIsNavverHorizontal] = useState(true);
 
-  const [contentLinks, setContentLinks] = useState(['Go Here',
-                                                   'Further Reading',
-                                                  'Undsoweider'])
-
   const { isOpen, onToggle } = useDisclosure()
 
   const changeNavOrientation = () => {
    setIsNavverHorizontal(!isNavverHorizontal)
   }
 
+  const [posts, setPosts] = useState([]);
+
+  const [titles, setTitles] = useState([]);
+
+  const getBlogPosts = async () => {
+
+    const unsub = onSnapshot(collection(db, "blog"), (doc) => {
+      setPosts(doc.docs.map((doc) => doc.data()))
+  });
+
+    return unsub
+
+  }
+
+  useEffect(() => {
+    getBlogPosts();
+  }, [])
+
+  useEffect(() => {
+    if (posts.length) {
+      setTitles(posts.map((post) => post.title))
+    }
+
+    console.log(posts)
+
+  }, [posts])
+
+
   return (
     <ChakraProvider theme={theme}>
       <Box margin='10px' h='100vh'>
         <TopBar />
-      <Box w="100%" h={divGap} />
+        <Box w="100%" h={divGap} />
+
         <Flex
           mt='8vw'
           h='95vh'
@@ -57,7 +87,7 @@ function App() {
             shadow='md'
             borderRadius="10px"
             >
-              <NavDrawer contentLinks={contentLinks} onToggle={onToggle} isOpen={isOpen} />
+              <NavDrawer posts={posts} onToggle={onToggle} isOpen={isOpen} />
           </Box>
           <Box
            flex='1'
@@ -66,7 +96,7 @@ function App() {
            shadow='md'
            >
           <Routes>
-          <Route exact path="/" element={<Home />} />
+            <Route exact path="/" element={<Home />} />
           </Routes>
           </Box>
       </Flex>

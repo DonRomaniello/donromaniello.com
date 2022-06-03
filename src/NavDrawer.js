@@ -13,10 +13,6 @@ import {
   Text
 } from '@chakra-ui/react'
 
-import { db } from './config/firebase';
-
-import { collection, onSnapshot } from "firebase/firestore";
-
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 
 import NavLinks from './NavLinks';
@@ -25,34 +21,7 @@ import NavLinks from './NavLinks';
 
 function NavDrawer(props) {
 
-  const [posts, setPosts] = useState([]);
-
-  const [titles, setTitles] = useState([]);
-
-  const getBlogPosts = async () => {
-
-    const unsub = onSnapshot(collection(db, "blog"), (doc) => {
-      setPosts(doc.docs.map((doc) => doc.data()))
-  });
-
-    return unsub
-
-  }
-
-  useEffect(() => {
-    getBlogPosts();
-  }, [])
-
-  useEffect(() => {
-    if (posts.length) {
-      setTitles(posts.map((post) => post.title))
-    }
-
-    console.log(posts)
-
-  }, [posts])
-
-  const { onToggle, isOpen } = props;
+  const { onToggle, isOpen, posts } = props;
 
   const btnRef = React.useRef()
 
