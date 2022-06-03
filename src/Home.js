@@ -1,6 +1,7 @@
 import React from 'react'
 
 import {
+  Box,
   Text
 } from '@chakra-ui/react';
 
@@ -8,9 +9,13 @@ import {
 function Home () {
 
   return (
+    <Box
+    h='100vh'
+    >
     <Text>
       Welcome.
     </Text>
+    </Box>
   )
 }
 

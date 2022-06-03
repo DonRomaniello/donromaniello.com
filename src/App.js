@@ -69,12 +69,13 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <Box margin='10px' h='100vh'>
-        <TopBar />
+        <TopBar navverMinDimension={navverMinDimension} divGap={divGap} />
         <Box w="100%" h={divGap} />
 
         <Flex
-          mt='3vw'
-          gap={divGap}>
+          mt='5vw'
+          gap={divGap}
+          >
           <Box
             w='5vw'
             minWidth={navverMinDimension}

@@ -27,8 +27,6 @@ function Navver(props) {
   )
 }
 
-// nick@bucephalus.tech
-
 export default Navver;
 
 

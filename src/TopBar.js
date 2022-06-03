@@ -4,16 +4,18 @@ import {
   Center,
   CircularProgress,
   Flex,
+  Heading,
 } from '@chakra-ui/react';
 
 function TopBar(props) {
 
-  const divGap = 2;
+  const { divGap, navverMinDimension }  = props;
 
-  const navverMinDimension = 10
+  console.log("Passed divGap", divGap)
 
   return (
     <Flex
+        bg='rgba(255, 255, 255, 16)'
         backdropFilter='blur(50px)'
         gap={divGap}
         position='fixed'
@@ -22,6 +24,7 @@ function TopBar(props) {
         right={divGap}
         h='5vw'
         minHeight={navverMinDimension}
+
       >
           <Box
             w='5vw'
@@ -43,9 +46,16 @@ function TopBar(props) {
 
           <Box
            flex='1'
+           align='flex-start'
            borderRadius="10px"
            shadow='md'
-           >2</Box>
+           >
+             <Heading
+             marginLeft='1vw'
+             >
+               Don Romaniello's .com
+             </Heading>
+           </Box>
 
       </Flex>
   )
