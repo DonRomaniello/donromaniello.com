@@ -15,12 +15,12 @@ import {
 
 function NavLinks (props) {
 
-  const { post, setSelectedPost } = props;
+  const { post } = props;
 
   return (
     <>
     <div>
-    <Link to={`/blog/${post.title}`} onClick={setSelectedPost(post)}>
+    <Link to={`/blog/${post.title}`} >
       <Text
       size='md'
       fontSize='2vw'

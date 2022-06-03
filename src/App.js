@@ -42,8 +42,6 @@ function App() {
 
   const [posts, setPosts] = useState([]);
 
-  const [selectedPost, setSelectedPost] = useState();
-
   const [titles, setTitles] = useState([]);
 
   const getBlogPosts = async () => {
@@ -64,8 +62,6 @@ function App() {
     if (posts.length) {
       setTitles(posts.map((post) => post.title))
     }
-
-    console.log(posts)
 
   }, [posts])
 
@@ -91,7 +87,7 @@ function App() {
             shadow='md'
             borderRadius="10px"
             >
-              <NavDrawer posts={posts} onToggle={onToggle} isOpen={isOpen} setSelectedPost={setSelectedPost} />
+              <NavDrawer posts={posts} onToggle={onToggle} isOpen={isOpen} />
           </Box>
           <Box
            flex='1'
@@ -101,8 +97,7 @@ function App() {
            >
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route path="/blog/:name"
-                   element={<Post post={selectedPost} />} />
+            <Route path="/blog/:name" element={<Post posts={posts} />} />
           </Routes>
           </Box>
       </Flex>

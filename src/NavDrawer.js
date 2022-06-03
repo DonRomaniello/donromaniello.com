@@ -21,15 +21,12 @@ import NavLinks from './NavLinks';
 
 function NavDrawer(props) {
 
-  const { onToggle, isOpen, posts, setSelectedPost } = props;
+  const { onToggle, isOpen, posts } = props;
 
   const btnRef = React.useRef()
 
   return (
     <>
-      {/* <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
-        Open
-      </Button> */}
       <Drawer
         isOpen={isOpen}
         placement='left'
@@ -51,11 +48,9 @@ function NavDrawer(props) {
                 Home
                 </Link>
           </DrawerHeader>
-
-
           <DrawerBody>
             {posts.length ? posts.map((post, idx) =>  {
-              return (<NavLinks key={idx} post={post} id={idx} setSelectedPost={setSelectedPost} />)
+              return (<NavLinks key={idx} post={post} id={idx} />)
             }) : ''}
           </DrawerBody>
 
