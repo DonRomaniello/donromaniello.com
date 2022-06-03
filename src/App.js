@@ -1,30 +1,17 @@
-import React, {useState, useEffect} from 'react';
-
-import { Routes, Route } from 'react-router-dom';
-
-import { useParams } from 'react-router';
+import React from 'react';
 
 import {
-  Box,
   ChakraProvider,
   Flex,
-  useDisclosure
+
 } from '@chakra-ui/react';
 
-import { db } from './config/firebase';
-
-import { collection, onSnapshot } from "firebase/firestore";
 
 import theme from './config/theme'
 
-import NavDrawer from './NavDrawer';
-
 import TopBar from './TopBar'
 
-import Home from './Home'
-
-import Post from './Post'
-
+import BottomParts  from './BottomParts'
 
 function App() {
 
@@ -32,72 +19,15 @@ function App() {
 
   const navverMinDimension = 10
 
-  const [isNavverHorizontal, setIsNavverHorizontal] = useState(true);
-
-  const { isOpen, onToggle } = useDisclosure()
-
-  const changeNavOrientation = () => {
-   setIsNavverHorizontal(!isNavverHorizontal)
-  }
-
-  const [posts, setPosts] = useState([]);
-
-  const [titles, setTitles] = useState([]);
-
-  const getBlogPosts = async () => {
-
-    const unsub = onSnapshot(collection(db, "blog"), (doc) => {
-      setPosts(doc.docs.map((doc) => doc.data()))
-  });
-
-    return unsub
-
-  }
-
-  useEffect(() => {
-    getBlogPosts();
-  }, [])
-
-  useEffect(() => {
-    if (posts.length) {
-      setTitles(posts.map((post) => post.title))
-    }
-
-  }, [posts])
-
-
   return (
     <ChakraProvider theme={theme}>
-      <Box margin='10px' h='100vh'>
-        <TopBar navverMinDimension={navverMinDimension} divGap={divGap} />
-        <Box w="100%" h={divGap} />
-
-        <Flex
-          mt='5vw'
-          gap={divGap}
-          >
-          <Box
-            w='5vw'
-            minWidth={navverMinDimension}
-            onClick={onToggle}
-            onMouseEnter={onToggle}
-            shadow='md'
-            borderRadius="10px"
-            >
-              <NavDrawer posts={posts} onToggle={onToggle} isOpen={isOpen} />
-          </Box>
-          <Box
-           flex='1'
-           borderRadius="10px"
-           shadow='md'
-           >
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route path="/blog/:name" element={<Post posts={posts} />} />
-          </Routes>
-          </Box>
-      </Flex>
-      </Box>
+        <TopBar
+        navverMinDimension={navverMinDimension}
+        divGap={divGap}
+        />
+        <BottomParts
+        navverMinDimension={navverMinDimension}
+        divGap={divGap} />
     </ChakraProvider>
   );
 }
