@@ -34,15 +34,13 @@ function NavDrawer(props) {
       >
         <DrawerOverlay />
         <DrawerContent
-        backdropFilter='blur(20px)'
         onMouseLeave={onToggle}
-        // bg="rgba(0, 0, 0, 0)"
         shadow='none'
         >
           <DrawerHeader
               w="62%"
               size='md'
-              margin='10px'
+              // margin='10px'
               >
                 <Link to='/'>
                 Home

@@ -11,53 +11,47 @@ function TopBar(props) {
 
   const { divGap, navverMinDimension }  = props;
 
-  console.log("Passed divGap", divGap)
-
   return (
+    <>
+    <Box w="100%" h={divGap} bg='white'>
     <Flex
         bg='rgba(255, 255, 255, 16)'
         backdropFilter='blur(50px)'
-        gap={divGap}
         position='fixed'
-        top={divGap}
-        left={divGap}
-        right={divGap}
-        h='5vw'
+        top='0'
         minHeight={navverMinDimension}
 
       >
           <Box
-            w='5vw'
-            minWidth={navverMinDimension}
-            borderRadius="10px"
+            w={navverMinDimension}
             shadow='md'
             >
               <Center w='100%' h='100%'>
-            <CircularProgress
-            padding="19%"
-            thickness='11px'
-            size="100%"
-            capIsRound='true'
-            value={80}
-             />
-            </Center>
-            {/* <CircularProgress isIndeterminate color="green.300" /> */}
+                <CircularProgress
+                padding="19%"
+                thickness='11px'
+                size="100%"
+                capIsRound='true'
+                value={80}
+                />
+              </Center>
           </Box>
-
-          <Box
-           flex='1'
-           align='flex-start'
-           borderRadius="10px"
+          <Flex
            shadow='md'
+           w='100vw'
+           alignItems='center'
            >
              <Heading
              marginLeft='1vw'
+             maxH='62%'
              >
                Don Romaniello's .com
              </Heading>
-           </Box>
+           </Flex>
 
       </Flex>
+      </Box>
+      </>
   )
 
 }
