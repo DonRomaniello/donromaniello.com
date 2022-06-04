@@ -15,20 +15,15 @@ function TopBar(props) {
     <>
     <Box w="100%" h={divGap} bg='white'>
     <Flex
-        gap={divGap}
         bg='rgba(255, 255, 255, 16)'
         backdropFilter='blur(50px)'
         position='fixed'
-        left={divGap}
-        right={divGap}
-        h='5vw'
+        top='0'
         minHeight={navverMinDimension}
 
       >
           <Box
-            w='5vw'
-            minWidth={navverMinDimension}
-            borderRadius="10px"
+            w={navverMinDimension}
             shadow='md'
             >
               <Center w='100%' h='100%'>
@@ -41,19 +36,18 @@ function TopBar(props) {
                 />
               </Center>
           </Box>
-          <Box
-           flex='1'
-           align='flex-start'
-           borderRadius="10px"
+          <Flex
            shadow='md'
-           w='95vw'
+           w='100vw'
+           alignItems='center'
            >
              <Heading
              marginLeft='1vw'
+             maxH='62%'
              >
                Don Romaniello's .com
              </Heading>
-           </Box>
+           </Flex>
 
       </Flex>
       </Box>

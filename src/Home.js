@@ -12,9 +12,9 @@ function Home () {
     <Box
     h='100vh'
     >
-    <Text>
-      Welcome.
-    </Text>
+      <Text>
+        Welcome.
+      </Text>
     </Box>
   )
 }

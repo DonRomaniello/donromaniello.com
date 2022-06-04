@@ -34,7 +34,6 @@ function NavDrawer(props) {
       >
         <DrawerOverlay />
         <DrawerContent
-        backdropFilter='blur(20px)'
         onMouseLeave={onToggle}
         shadow='none'
         >

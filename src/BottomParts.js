@@ -22,7 +22,7 @@ import NavDrawer from './NavDrawer';
 
 function BottomBar(props) {
 
-  const { divGap, navverMinDimension }  = props;
+  const { navverMinDimension }  = props;
 
   const { isOpen, onToggle } = useDisclosure()
 
@@ -55,21 +55,17 @@ function BottomBar(props) {
     <>
      <Flex
           mt='5vw'
-          gap={divGap}
           >
           <Box
-            w='5vw'
             minWidth={navverMinDimension}
             onClick={onToggle}
             onMouseEnter={onToggle}
             shadow='md'
-            borderRadius="10px"
             >
               <NavDrawer posts={posts} onToggle={onToggle} isOpen={isOpen} />
           </Box>
           <Box
            flex='1'
-           borderRadius="10px"
            shadow='md'
            >
           <Routes>

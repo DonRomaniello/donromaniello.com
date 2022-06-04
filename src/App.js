@@ -15,19 +15,16 @@ import BottomParts  from './BottomParts'
 
 function App() {
 
-  const divGap = 2;
-
-  const navverMinDimension = 10
+  const navverMinDimension = '10vw'
 
   return (
     <ChakraProvider theme={theme}>
         <TopBar
         navverMinDimension={navverMinDimension}
-        divGap={divGap}
         />
         <BottomParts
         navverMinDimension={navverMinDimension}
-        divGap={divGap} />
+         />
     </ChakraProvider>
   );
 }
