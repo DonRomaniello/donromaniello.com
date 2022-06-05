@@ -2,8 +2,6 @@ import React, {useState, useEffect} from 'react';
 
 import { Routes, Route } from 'react-router-dom';
 
-import { useParams } from 'react-router';
-
 import {
   Box,
   useDisclosure,
@@ -22,13 +20,12 @@ import NavDrawer from './NavDrawer';
 
 function BottomBar(props) {
 
+
   const { navverMinDimension }  = props;
 
   const { isOpen, onToggle } = useDisclosure()
 
   const [posts, setPosts] = useState([]);
-
-  const [titles, setTitles] = useState([]);
 
   const getBlogPosts = async () => {
 
@@ -42,14 +39,10 @@ function BottomBar(props) {
 
   useEffect(() => {
     getBlogPosts();
+
   }, [])
 
-  useEffect(() => {
-    if (posts.length) {
-      setTitles(posts.map((post) => post.title))
-    }
 
-  }, [posts])
 
   return (
     <>

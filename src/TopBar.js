@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+
 import {
   Box,
   Center,
@@ -7,9 +8,28 @@ import {
   Heading,
 } from '@chakra-ui/react';
 
+import useScrollPosition from '@react-hook/window-scroll'
+
+
 function TopBar(props) {
 
   const { divGap, navverMinDimension }  = props;
+
+  const [scrollPercentage, setScrollPercentage] = useState(0);
+
+
+  const scrollY = useScrollPosition(60)
+
+  useEffect(() => {
+
+    const scrollMinusOffset = -(document.documentElement.clientHeight
+                            - document.documentElement.offsetHeight)
+
+    const scrollAmount = Math.floor(100 * (scrollY / scrollMinusOffset) )
+
+    setScrollPercentage(scrollAmount)
+
+  }, [scrollY])
 
   return (
     <>
@@ -20,7 +40,6 @@ function TopBar(props) {
         position='fixed'
         top='0'
         minHeight={navverMinDimension}
-
       >
           <Box
             w={navverMinDimension}
@@ -32,7 +51,9 @@ function TopBar(props) {
                 thickness='11px'
                 size="100%"
                 capIsRound='true'
-                value={80}
+                trackColor='white'
+                color={(scrollPercentage < 100) ? 'blue' : 'green'}
+                value={scrollPercentage}
                 />
               </Center>
           </Box>

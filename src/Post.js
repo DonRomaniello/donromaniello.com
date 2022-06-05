@@ -34,7 +34,11 @@ function Post(props) {
     }
   }, [name, posts])
 
-  // console.log(posts, name, post)
+  useEffect(() => {
+
+
+
+  })
 
   return (
     <>
@@ -55,9 +59,9 @@ function Post(props) {
     <Box
     w='50%'
     >
-    {post.content.map((paragraph) => {
+    {post.content.map((paragraph, idx) => {
       return (
-        <Text>
+        <Text key={idx}>
           {paragraph}
           <br />
           <br />

@@ -9,13 +9,15 @@ import Post from './Post'
 
 import {
   Text,
-  Button,
-  useDisclosure
 } from '@chakra-ui/react';
 
 function NavLinks (props) {
 
   const { post } = props;
+
+  const resetScroll = () => {
+    window.scrollTo(0,0)
+  }
 
   return (
     <>
@@ -25,6 +27,7 @@ function NavLinks (props) {
       size='md'
       fontSize='2vw'
       margin='10px'
+      onClick={resetScroll}
       >{post.title}
       </Text>
       </Link>
