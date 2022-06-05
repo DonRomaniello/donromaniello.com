@@ -18,7 +18,7 @@ function TopBar(props) {
   const [scrollPercentage, setScrollPercentage] = useState(0);
 
 
-  const scrollY = useScrollPosition(30)
+  const scrollY = useScrollPosition(60)
 
   useEffect(() => {
 
@@ -40,7 +40,6 @@ function TopBar(props) {
         position='fixed'
         top='0'
         minHeight={navverMinDimension}
-
       >
           <Box
             w={navverMinDimension}
@@ -52,6 +51,8 @@ function TopBar(props) {
                 thickness='11px'
                 size="100%"
                 capIsRound='true'
+                trackColor='white'
+                color={(scrollPercentage < 100) ? 'blue' : 'green'}
                 value={scrollPercentage}
                 />
               </Center>

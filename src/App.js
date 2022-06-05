@@ -15,7 +15,7 @@ import BottomParts  from './BottomParts'
 
 function App() {
 
-  const navverMinDimension = '10vw'
+  const navverMinDimension = '8vw'
 
   return (
     <ChakraProvider theme={theme}>
