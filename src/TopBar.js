@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+
 import {
   Box,
   Center,
@@ -7,33 +8,28 @@ import {
   Heading,
 } from '@chakra-ui/react';
 
+import useScrollPosition from '@react-hook/window-scroll'
+
+
 function TopBar(props) {
 
   const { divGap, navverMinDimension }  = props;
 
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const [scrollPercentage, setScrollPercentage] = useState(0);
 
-  const handleScroll = () => {
-    const position = window.pageYOffset;
-    setScrollPosition(position);
-  };
+
+  const scrollY = useScrollPosition(30)
 
   useEffect(() => {
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    const scrollMinusOffset = -(document.documentElement.clientHeight
+                            - document.documentElement.offsetHeight)
 
-    return () => {
-        window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+    const scrollAmount = Math.floor(100 * (scrollY / scrollMinusOffset) )
 
-  useEffect(() => {
+    setScrollPercentage(scrollAmount)
 
-    console.log("Scroll:", scrollPosition)
-
-  }, [scrollPosition])
-
-
+  }, [scrollY])
 
   return (
     <>
@@ -56,7 +52,7 @@ function TopBar(props) {
                 thickness='11px'
                 size="100%"
                 capIsRound='true'
-                value={80}
+                value={scrollPercentage}
                 />
               </Center>
           </Box>

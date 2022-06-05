@@ -2,8 +2,6 @@ import React, {useState, useEffect} from 'react';
 
 import { Routes, Route } from 'react-router-dom';
 
-import { useParams } from 'react-router';
-
 import {
   Box,
   useDisclosure,
@@ -21,6 +19,7 @@ import Post from './Post'
 import NavDrawer from './NavDrawer';
 
 function BottomBar(props) {
+
 
   const { navverMinDimension }  = props;
 
@@ -40,7 +39,10 @@ function BottomBar(props) {
 
   useEffect(() => {
     getBlogPosts();
+
   }, [])
+
+
 
   return (
     <>

@@ -9,8 +9,6 @@ import Post from './Post'
 
 import {
   Text,
-  Button,
-  useDisclosure
 } from '@chakra-ui/react';
 
 function NavLinks (props) {
