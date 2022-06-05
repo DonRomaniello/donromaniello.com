@@ -28,8 +28,6 @@ function BottomBar(props) {
 
   const [posts, setPosts] = useState([]);
 
-  const [titles, setTitles] = useState([]);
-
   const getBlogPosts = async () => {
 
     const unsub = onSnapshot(collection(db, "blog"), (doc) => {
@@ -43,13 +41,6 @@ function BottomBar(props) {
   useEffect(() => {
     getBlogPosts();
   }, [])
-
-  useEffect(() => {
-    if (posts.length) {
-      setTitles(posts.map((post) => post.title))
-    }
-
-  }, [posts])
 
   return (
     <>

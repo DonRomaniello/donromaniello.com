@@ -11,6 +11,30 @@ function TopBar(props) {
 
   const { divGap, navverMinDimension }  = props;
 
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+  };
+
+  useEffect(() => {
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+        window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+
+    console.log("Scroll:", scrollPosition)
+
+  }, [scrollPosition])
+
+
+
   return (
     <>
     <Box w="100%" h={divGap} bg='white'>
