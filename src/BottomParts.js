@@ -39,34 +39,37 @@ function BottomBar(props) {
 
   useEffect(() => {
     getBlogPosts();
-
   }, [])
-
-
 
   return (
     <>
-     <Flex
-          mt='5vw'
-          >
-          <Box
-            minWidth={navverMinDimension}
-            onClick={onToggle}
-            onMouseEnter={onToggle}
-            shadow='md'
+      <Flex
+            mt={navverMinDimension}
+            h='full'
             >
-              <NavDrawer posts={posts} onToggle={onToggle} isOpen={isOpen} />
-          </Box>
-          <Box
-           flex='1'
-           shadow='md'
-           >
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route path="/blog/:name" element={<Post posts={posts} />} />
-          </Routes>
-          </Box>
-      </Flex>
+            <Box
+              minWidth={navverMinDimension}
+              onClick={onToggle}
+              onMouseEnter={onToggle}
+              shadow='md'
+              >
+                <NavDrawer posts={posts} onToggle={onToggle} isOpen={isOpen} />
+            </Box>
+            <Box
+            flex='1'
+            shadow='md'
+            padding='1vw'
+            >
+            <Routes>
+              <Route
+              exact path="/"
+              element={<Home navverMinDimension={navverMinDimension} />} />
+              <Route
+              path="/blog/:name"
+              element={<Post posts={posts} />} />
+            </Routes>
+            </Box>
+        </Flex>
       </>
   )
 

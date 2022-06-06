@@ -63,7 +63,7 @@ function TopBar(props) {
            alignItems='center'
            >
              <Heading
-             marginLeft='1vw'
+             paddingLeft='1vw'
              maxH='62%'
              >
                Don Romaniello's .com

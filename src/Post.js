@@ -42,7 +42,6 @@ function Post(props) {
 
   return (
     <>
-    <Box w="100%" h='5vw' />
     <Center>
       <Heading>{post.title}</Heading>
     </Center>

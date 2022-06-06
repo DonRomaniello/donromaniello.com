@@ -2,8 +2,6 @@ import React from 'react';
 
 import {
   ChakraProvider,
-  Flex,
-
 } from '@chakra-ui/react';
 
 
