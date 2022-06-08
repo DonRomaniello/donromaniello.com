@@ -24,6 +24,15 @@ function TopBar(props) {
   const headerBg = useColorModeValue('rgba(255, 255, 255, .9)',
                                      'rgba(26, 32, 44, .9)')
 
+  const [smoothOpen, setSmoothOpen] = useState(navverMinDimension)
+
+  const changeMenuWidth = () => {
+    if (smoothOpen === '100%'){
+      setSmoothOpen(navverMinDimension)
+    }
+    setSmoothOpen('100%')
+  }
+
   return (
     <>
     <Box w="100%" bg='white'>
@@ -42,6 +51,7 @@ function TopBar(props) {
             </DrawerBody>
           </DrawerContent>
         </Drawer>
+
     <Flex
         bg={headerBg}
         backdropFilter='blur(100px)'
@@ -50,9 +60,12 @@ function TopBar(props) {
         minHeight={navverMinDimension}
       >
           <Box
-            w={navverMinDimension}
+            w={smoothOpen}
+            transition="width .5s"
             shadow='md'
             onClick={onOpen}
+            // onClick={changeMenuWidth}
+            onHover={changeMenuWidth}
 
             >
             <ProgressHamburger />
