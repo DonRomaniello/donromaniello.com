@@ -7,6 +7,7 @@ import {
   Center,
   Heading,
   Image,
+  Skeleton,
   Text,
 } from '@chakra-ui/react'
 
@@ -46,13 +47,15 @@ function Post(props) {
       <Heading>{post.title}</Heading>
     </Center>
     <Box w="100%" h='2vw' />
-    <Center>
-    <Image
-    src={post.imageUrl}
-    maxWidth='62%'
-    borderRadius='1%'
-    />
-    </Center>
+    <Skeleton isLoaded>
+      <Center>
+        <Image
+        src={post.imageUrl}
+        maxWidth='62%'
+        borderRadius='1%'
+        />
+      </Center>
+    </Skeleton>
     <Box w="100%" h='3vw' />
     <Center>
     <Box
