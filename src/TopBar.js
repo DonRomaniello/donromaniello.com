@@ -19,7 +19,7 @@ function TopBar(props) {
 
   const { navverMinDimension, isMediaQuery }  = props;
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onToggle } = useDisclosure();
 
   const headerBg = useColorModeValue('rgba(255, 255, 255, .9)',
                                      'rgba(26, 32, 44, .9)')
@@ -36,22 +36,6 @@ function TopBar(props) {
   return (
     <>
     <Box w="100%" bg='white'>
-      <Drawer
-      placement='top'
-      onClose={onClose}
-      isOpen={isOpen}
-      >
-          <DrawerOverlay />
-          <DrawerContent
-            h={navverMinDimension}>
-            <DrawerBody>
-              {/* <p>Some contents...</p>
-              <p>Some contents...</p>
-              <p>Some contents...</p> */}
-            </DrawerBody>
-          </DrawerContent>
-        </Drawer>
-
     <Flex
         bg={headerBg}
         backdropFilter='blur(100px)'
@@ -63,13 +47,14 @@ function TopBar(props) {
             w={smoothOpen}
             transition="width .5s"
             shadow='md'
-            onClick={onOpen}
+            onClick={onToggle}
             // onClick={changeMenuWidth}
             onHover={changeMenuWidth}
 
             >
             <ProgressHamburger />
           </Box>
+          {!isOpen ?
           <Flex
            shadow='md'
            w='100vw'
@@ -81,7 +66,7 @@ function TopBar(props) {
              >
                Don Romaniello's .com
              </Heading>
-           </Flex>
+           </Flex> : null}
 
       </Flex>
       </Box>
