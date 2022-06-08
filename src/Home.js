@@ -45,9 +45,6 @@ function Home () {
           LinkedIn
         </Button>
       </Link>
-
-
-
     </Flex>
     </Box>
   )
