@@ -24,14 +24,6 @@ function TopBar(props) {
   const headerBg = useColorModeValue('rgba(255, 255, 255, .9)',
                                      'rgba(26, 32, 44, .9)')
 
-  const [smoothOpen, setSmoothOpen] = useState(navverMinDimension)
-
-  const changeMenuWidth = () => {
-    if (smoothOpen === '100%'){
-      setSmoothOpen(navverMinDimension)
-    }
-    setSmoothOpen('100%')
-  }
 
   return (
     <>
@@ -44,15 +36,13 @@ function TopBar(props) {
         minHeight={navverMinDimension}
       >
           <Box
-            w={smoothOpen}
-            transition="width .5s"
+            w={isOpen ? '100vw' : navverMinDimension}
+            transition="width .2s"
             shadow='md'
             onClick={onToggle}
-            // onClick={changeMenuWidth}
-            onHover={changeMenuWidth}
-
             >
-            <ProgressHamburger />
+            <ProgressHamburger
+            isOpen={isOpen}/>
           </Box>
           {!isOpen ?
           <Flex
