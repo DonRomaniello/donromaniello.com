@@ -9,6 +9,7 @@ import {
   DrawerOverlay,
   Flex,
   Heading,
+  useColorModeValue,
   useDisclosure
 } from '@chakra-ui/react';
 
@@ -18,25 +19,32 @@ function TopBar(props) {
 
   const { navverMinDimension, isMediaQuery }  = props;
 
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const headerBg = useColorModeValue('rgba(255, 255, 255, .9)',
+                                     'rgba(26, 32, 44, .9)')
 
   return (
     <>
     <Box w="100%" bg='white'>
-      <Drawer placement='top' onClose={onClose} isOpen={isOpen}>
+      <Drawer
+      placement='top'
+      onClose={onClose}
+      isOpen={isOpen}
+      >
           <DrawerOverlay />
-          <DrawerContent>
-            <DrawerHeader borderBottomWidth='1px'>Basic Drawer</DrawerHeader>
+          <DrawerContent
+            h={navverMinDimension}>
             <DrawerBody>
+              {/* <p>Some contents...</p>
               <p>Some contents...</p>
-              <p>Some contents...</p>
-              <p>Some contents...</p>
+              <p>Some contents...</p> */}
             </DrawerBody>
           </DrawerContent>
         </Drawer>
     <Flex
-        bg='rgba(255, 255, 255, 16)'
-        backdropFilter='blur(50px)'
+        bg={headerBg}
+        backdropFilter='blur(100px)'
         position='fixed'
         top='0'
         minHeight={navverMinDimension}
@@ -45,6 +53,7 @@ function TopBar(props) {
             w={navverMinDimension}
             shadow='md'
             onClick={onOpen}
+
             >
             <ProgressHamburger />
           </Box>
