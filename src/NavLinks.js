@@ -24,10 +24,9 @@ function NavLinks (props) {
     <div>
     <Link to={`/blog/${post.title}`} >
       <Text
-      // size='md'
-      fontSize={{ base: '2vw', sm: '3vw', lg:'2vw' }}
-      margin='10px'
-      onClick={resetScroll}
+        fontSize={{ base: '2vw', sm: '3vw', lg:'2vw' }}
+        margin='10px'
+        onClick={resetScroll}
       >{post.title}
       </Text>
       </Link>
