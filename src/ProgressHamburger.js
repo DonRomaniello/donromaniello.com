@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
 
 import {
-  Center,
-  Flex,
+  Box,
+  Container,
   Grid,
   GridItem,
+  Flex,
   Progress,
   Spacer,
   Text
@@ -18,7 +19,7 @@ function ProgressHamburger(props) {
 
   const [scrollPercentage, setScrollPercentage] = useState(0);
 
-  const scrollY = useScrollPosition(60)
+  const scrollY = useScrollPosition(0)
 
   useEffect(() => {
 
@@ -34,22 +35,24 @@ function ProgressHamburger(props) {
   const progressDividers = [0, 1, 2]
 
 
-
   return (
     <>
-    <Grid
-      transform={isOpen ? 'rotate(90deg)' : ''}
-      padding='1.52vw'
-      align='center'
-      templateRows='repeat(7,1fr)'
-      >
-        <GridItem>
-          <Spacer />
-        </GridItem>
+    <Flex
+    transform={isOpen ? 'rotate(-90deg)' : null}
+    padding='1.52vw'
+    h='100%'
+    direction='column'
+    align='center'
+    >
+        <Box
+        h='14%' />
         {progressDividers.map((d, idx) => {
             return (
               <>
-                <GridItem>
+                <Box
+                key={'box' + idx}
+                h='14%'
+                >
                   <Progress
                     key={idx}
                     size='sm'
@@ -57,18 +60,16 @@ function ProgressHamburger(props) {
                     colorScheme={(scrollPercentage < 99) ? 'blue' : 'green'}
                     value={(scrollPercentage < (33 * d)) ? 0 : ((scrollPercentage * 3) - (d * 100))}
                   />
-                </GridItem>
-                <GridItem>
-                  <Spacer />
-                </GridItem>
+                </Box>
+                <Box
+                h='14%'
+                />
               </>
             )
           })
         }
-        <GridItem>
-          <Spacer />
-        </GridItem>
-      </Grid>
+        <Box />
+      </Flex>
       </>
   )
 }
@@ -76,3 +77,31 @@ function ProgressHamburger(props) {
 
 export default ProgressHamburger
 
+// <Container
+//     transform={isOpen ? 'rotate(-90deg)' : null}
+//     padding='1.52vw'
+//     direction="column"
+//     align='flex-start'
+//     >
+//     <Grid templateRows='repeat(7,1fr)'>
+//         <GridItem h='100%'/>
+//         {progressDividers.map((d, idx) => {
+//             return (
+//               <>
+//                 <GridItem>
+//                   <Progress
+//                     key={idx}
+//                     size='sm'
+//                     w='4.96vw'
+//                     colorScheme={(scrollPercentage < 99) ? 'blue' : 'green'}
+//                     value={(scrollPercentage < (33 * d)) ? 0 : ((scrollPercentage * 3) - (d * 100))}
+//                   />
+//                 </GridItem>
+//                 <GridItem h='100%'/>
+//               </>
+//             )
+//           })
+//         }
+//         <GridItem />
+//       </Grid>
+//       </Container>

@@ -27,7 +27,7 @@ function TopBar(props) {
 
   return (
     <>
-    <Box w="100%" bg='white'>
+    <Box w="100%" bg={headerBg}>
     <Flex
         bg={headerBg}
         backdropFilter='blur(100px)'
@@ -40,24 +40,26 @@ function TopBar(props) {
             transition="width .2s"
             shadow='md'
             onClick={onToggle}
+            align='flex-start'
             >
             <ProgressHamburger
-            isOpen={isOpen}/>
+              isOpen={isOpen}
+            />
           </Box>
-          {!isOpen ?
-          <Flex
-           shadow='md'
-           w='100vw'
-           alignItems='center'
-           >
+          {isOpen ?
+              null :
+              <Flex
+              shadow='md'
+              w='100vw'
+              alignItems='center'
+              >
              <Heading
              paddingLeft='1vw'
              maxH='62%'
              >
                Don Romaniello's .com
              </Heading>
-           </Flex> : null}
-
+           </Flex>}
       </Flex>
       </Box>
       </>
