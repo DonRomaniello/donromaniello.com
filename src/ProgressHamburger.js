@@ -31,7 +31,16 @@ function ProgressHamburger(props) {
 
   }, [scrollY])
 
+  const scrollBar = (idx) => {
+    if (scrollPercentage < (33 * idx)) {
+      return 0;
+    } else {
+      return ((scrollPercentage * 3) - (idx * 100))
+    }
+  }
+
   const linkList = ['Bio', 'Blog', 'Projects']
+
 
 
   return (
@@ -68,10 +77,10 @@ function ProgressHamburger(props) {
                 >
                   <Progress
                     key={'progress' + link}
-                    size='sm'
+                    height='100%'
                     w='4.96vw'
                     colorScheme={(scrollPercentage < 99) ? 'blue' : 'green'}
-                    value={(scrollPercentage < (33 * idx)) ? 0 : ((scrollPercentage * 3) - (idx * 100))}
+                    value={scrollBar(idx)}
                   />
                 </Box>
                 <Box
@@ -91,7 +100,9 @@ function ProgressHamburger(props) {
                         {link}
                       </Link>
                     </Center>
-                    : null}
+                    : <Box
+                    h='14%'
+                    />}
                 </ Box>
               </>
             )
