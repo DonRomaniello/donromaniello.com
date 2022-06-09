@@ -2,13 +2,10 @@ import React, {useState, useEffect} from 'react';
 
 import {
   Box,
-  Container,
-  Grid,
-  GridItem,
+  Center,
   Flex,
+  Link,
   Progress,
-  Spacer,
-  Text
 } from '@chakra-ui/react';
 
 import useScrollPosition from '@react-hook/window-scroll'
@@ -46,8 +43,18 @@ function ProgressHamburger(props) {
         <Box
         h='14%'
         w='33%'
-        // w={isOpen ? '33%' : '14%'}
-         />
+        align='center'
+        >
+          {isOpen ?
+          <Center
+          h='100%'
+          >
+            <Link>
+              Link
+            </Link>
+          </Center>
+          : null}
+        </Box>
         {progressDividers.map((d, idx) => {
             return (
               <>
@@ -68,7 +75,17 @@ function ProgressHamburger(props) {
                 <Box
                 h='14%'
                 w='33%'
-                />
+                >
+                  {isOpen ?
+                    <Center
+                    h='100%'
+                    >
+                      <Link>
+                        Link
+                      </Link>
+                    </Center>
+                    : null}
+                </ Box>
               </>
             )
           })
