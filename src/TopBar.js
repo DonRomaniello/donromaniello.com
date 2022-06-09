@@ -2,11 +2,6 @@ import React, {useState, useEffect} from 'react';
 
 import {
   Box,
-  Drawer,
-  DrawerBody,
-  DrawerContent,
-  DrawerHeader,
-  DrawerOverlay,
   Flex,
   Heading,
   useColorModeValue,
@@ -44,6 +39,7 @@ function TopBar(props) {
             >
             <ProgressHamburger
               isOpen={isOpen}
+              navverMinDimension={navverMinDimension}
             />
           </Box>
           {isOpen ?
