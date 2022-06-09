@@ -4,11 +4,13 @@ import {
   Box,
   Button,
   Flex,
+  Footer,
   Heading,
   Link,
   Text
 } from '@chakra-ui/react';
 
+import { ColorModeSwitcher } from './ColorModeSwitcher';
 
 function Home () {
 
@@ -46,6 +48,7 @@ function Home () {
         </Button>
       </Link>
     </Flex>
+      <ColorModeSwitcher align="flex-end" />
     </Box>
   )
 }

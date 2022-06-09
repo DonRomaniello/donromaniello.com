@@ -50,7 +50,7 @@ function ProgressHamburger(props) {
           h='100%'
           >
             <Link>
-              Link
+              Home
             </Link>
           </Center>
           : null}

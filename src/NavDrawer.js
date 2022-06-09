@@ -3,17 +3,12 @@ import React, {useState, useEffect} from 'react';
 import { Link } from "react-router-dom";
 
 import {
-  Center,
   Drawer,
   DrawerBody,
-  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
-  DrawerContent,
-  Text
+  DrawerContent
 } from '@chakra-ui/react'
-
-import { ColorModeSwitcher } from './ColorModeSwitcher';
 
 import NavLinks from './NavLinks';
 
@@ -51,10 +46,6 @@ function NavDrawer(props) {
               return (<NavLinks key={idx} post={post} id={idx} />)
             }) : ''}
           </DrawerBody>
-
-          <DrawerFooter >
-            <ColorModeSwitcher justifySelf="flex-start" />
-          </DrawerFooter>
         </DrawerContent>
       </Drawer>
     </>

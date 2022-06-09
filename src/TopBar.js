@@ -4,9 +4,12 @@ import {
   Box,
   Flex,
   Heading,
+  Spacer,
   useColorModeValue,
   useDisclosure
 } from '@chakra-ui/react';
+
+import { ColorModeSwitcher } from './ColorModeSwitcher';
 
 import ProgressHamburger from './ProgressHamburger';
 
@@ -22,13 +25,14 @@ function TopBar(props) {
 
   return (
     <>
-    <Box w="100%" bg={headerBg}>
     <Flex
         bg={headerBg}
         backdropFilter='blur(100px)'
         position='fixed'
         top='0'
         minHeight={navverMinDimension}
+        minWidth='max-content'
+        direction='columns'
       >
           <Box
             w={isOpen ? '100vw' : navverMinDimension}
@@ -57,7 +61,6 @@ function TopBar(props) {
              </Heading>
            </Flex>}
       </Flex>
-      </Box>
       </>
   )
 
