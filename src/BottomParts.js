@@ -45,7 +45,7 @@ function BottomBar(props) {
     <>
       <Flex
             mt={navverMinDimension}
-            h='full'
+            h='100%'
             >
             <Box
               minWidth={navverMinDimension}
@@ -63,6 +63,15 @@ function BottomBar(props) {
             <Routes>
               <Route
               exact path="/"
+              element={<Home navverMinDimension={navverMinDimension} />} />
+              <Route
+              exact path="/bio"
+              element={<Home navverMinDimension={navverMinDimension} />} />
+              <Route
+              exact path="/blog"
+              element={<Home navverMinDimension={navverMinDimension} />} />
+              <Route
+              exact path="/projects"
               element={<Home navverMinDimension={navverMinDimension} />} />
               <Route
               path="/blog/:name"

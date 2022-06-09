@@ -2,14 +2,13 @@ import React, {useState, useEffect} from 'react';
 
 import {
   Box,
-  Container,
-  Grid,
-  GridItem,
+  Center,
   Flex,
+  // Link,
   Progress,
-  Spacer,
-  Text
 } from '@chakra-ui/react';
+
+import { Link } from "react-router-dom";
 
 import useScrollPosition from '@react-hook/window-scroll'
 
@@ -32,7 +31,7 @@ function ProgressHamburger(props) {
 
   }, [scrollY])
 
-  const progressDividers = [0, 1, 2]
+  const linkList = ['Bio', 'Blog', 'Projects']
 
 
   return (
@@ -46,29 +45,54 @@ function ProgressHamburger(props) {
         <Box
         h='14%'
         w='33%'
-        // w={isOpen ? '33%' : '14%'}
-         />
-        {progressDividers.map((d, idx) => {
+        align='center'
+        >
+          {isOpen ?
+          <Center
+          h='100%'
+          >
+            <Link to='/'>
+              Home
+            </Link>
+          </Center>
+          : null}
+        </Box>
+        {linkList.map((link, idx) => {
             return (
               <>
                 <Box
                 transition='transform .4s'
                 transform={isOpen ? 'rotate(-90deg)' : null}
-                key={'box' + idx}
+                key={'biggestBox' + link}
                 h='14%'
                 >
                   <Progress
-                    key={idx}
+                    key={'progress' + link}
                     size='sm'
                     w='4.96vw'
                     colorScheme={(scrollPercentage < 99) ? 'blue' : 'green'}
-                    value={(scrollPercentage < (33 * d)) ? 0 : ((scrollPercentage * 3) - (d * 100))}
+                    value={(scrollPercentage < (33 * idx)) ? 0 : ((scrollPercentage * 3) - (idx * 100))}
                   />
                 </Box>
                 <Box
                 h='14%'
                 w='33%'
-                />
+                key={'linkBox' + link}
+                >
+                  {isOpen ?
+                    <Center
+                    h='100%'
+                    key={'center' + link}
+                    >
+                      <Link
+                      to={`/${link.toLowerCase()}`}
+                      key={'link' + link}
+                       >
+                        {link}
+                      </Link>
+                    </Center>
+                    : null}
+                </ Box>
               </>
             )
           })
