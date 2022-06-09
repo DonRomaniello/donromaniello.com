@@ -101,8 +101,7 @@ function ProgressHamburger(props) {
                       </Link>
                     </Center>
                     : <Box
-                    h='14%'
-                    />}
+                    h='14%'/>}
                 </ Box>
               </>
             )
