@@ -52,6 +52,7 @@ function ProgressHamburger(props) {
             return (
               <>
                 <Box
+                transition='transform .4s'
                 transform={isOpen ? 'rotate(-90deg)' : null}
                 key={'box' + idx}
                 h='14%'
