@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
 import { Routes, Route } from 'react-router-dom';
 
@@ -7,10 +7,6 @@ import {
   useDisclosure,
   Flex,
 } from '@chakra-ui/react';
-
-import { db } from './config/firebase';
-
-import { collection, onSnapshot } from "firebase/firestore";
 
 import Home from './Home'
 
@@ -21,46 +17,18 @@ import NavDrawer from './NavDrawer';
 function BottomBar(props) {
 
 
-  const { navverMinDimension }  = props;
+  const { navverMinDimension, posts }  = props;
 
   const { isOpen, onToggle } = useDisclosure()
 
-  const [posts, setPosts] = useState([]);
-
-  const getBlogPosts = async () => {
-
-    const unsub = onSnapshot(collection(db, "blog"), (doc) => {
-      setPosts(doc.docs.map((doc) => doc.data()))
-  });
-
-    return unsub
-
-  }
-
-  useEffect(() => {
-    getBlogPosts();
-  }, [])
-
   return (
     <>
-      {/* <Flex
-            mt={navverMinDimension}
-            h='100%'
-            > */}
-            {/* <Box
-              minWidth={navverMinDimension}
-              onClick={onToggle}
-              onMouseEnter={onToggle}
-              shadow='md'
-              >
-                <NavDrawer posts={posts} onToggle={onToggle} isOpen={isOpen} />
-            </Box> */}
             <Flex
-            mt='100'
+            mt='20px'
             flex='1'
-            align='center'
-            w='62%'
-            padding='1vw'
+            >
+            <Box
+            padding={navverMinDimension}
             >
             <Routes>
               <Route
@@ -79,7 +47,7 @@ function BottomBar(props) {
               path="/blog/:name"
               element={<Post posts={posts} />} />
             </Routes>
-
+            </Box>
         </Flex>
       </>
   )

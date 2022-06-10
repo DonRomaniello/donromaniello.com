@@ -15,7 +15,7 @@ import ProgressHamburger from './ProgressHamburger';
 
 function TopBar(props) {
 
-  const { navverMinDimension, isMediaQuery }  = props;
+  const { navverMinDimension, posts }  = props;
 
   const { isOpen, onToggle } = useDisclosure();
 
@@ -30,13 +30,13 @@ function TopBar(props) {
         backdropFilter='blur(100px)'
         position='fixed'
         top='0'
-        h='100px'
+        h={navverMinDimension}
         minWidth='max-content'
         direction='columns'
       >
           <Box
-            w={isOpen ? '100vw' : '100px'}
-            transition="width .2s"
+            w={isOpen ? '100vw' : navverMinDimension}
+            transition="width .4s"
             shadow='md'
             onClick={onToggle}
             align='flex-start'
@@ -44,6 +44,7 @@ function TopBar(props) {
             <ProgressHamburger
               isOpen={isOpen}
               navverMinDimension={navverMinDimension}
+              posts={posts}
             />
           </Box>
           {isOpen ?
@@ -57,7 +58,7 @@ function TopBar(props) {
              paddingLeft='1vw'
              maxH='62%'
              >
-               Don Romaniello's .com
+               The Website of Don Romaniello
              </Heading>
            </Flex>}
       </Flex>

@@ -4,17 +4,18 @@ import {
   Box,
   Center,
   Flex,
-  // Link,
   Progress,
 } from '@chakra-ui/react';
 
 import { Link } from "react-router-dom";
 
+import BlogPopover from './BlogPopover';
+
 import useScrollPosition from '@react-hook/window-scroll'
 
 function ProgressHamburger(props) {
 
-  const {isOpen, navverMinDimension} = props;
+  const { isOpen, posts } = props;
 
   const [scrollPercentage, setScrollPercentage] = useState(0);
 
@@ -39,7 +40,7 @@ function ProgressHamburger(props) {
     }
   }
 
-  const linkList = ['Bio', 'Blog', 'Projects']
+  const linkList = ['Bio', <BlogPopover posts={posts}/>, 'Projects']
 
 
 
@@ -70,7 +71,7 @@ function ProgressHamburger(props) {
             return (
               <>
                 <Box
-                transition='transform .4s'
+                transition='transform .6s'
                 transform={isOpen ? 'rotate(-90deg)' : null}
                 key={'biggestBox' + link}
                 h='14%'
@@ -92,13 +93,13 @@ function ProgressHamburger(props) {
                     <Center
                     h='100%'
                     key={'center' + link}
-                    >
-                      <Link
+                    >{link}
+                      {/* <Link
                       to={`/${link.toLowerCase()}`}
                       key={'link' + link}
                        >
                         {link}
-                      </Link>
+                      </Link> */}
                     </Center>
                     : <Box
                     h='14%'/>}

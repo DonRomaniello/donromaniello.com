@@ -9,7 +9,7 @@ import {
 
 function NavLinks (props) {
 
-  const { post } = props;
+  const { directory, post } = props;
 
   const resetScroll = () => {
     window.scrollTo(0,0)
@@ -18,7 +18,7 @@ function NavLinks (props) {
   return (
     <>
     <div>
-    <Link to={`/blog/${post.title}`} >
+    <Link to={`/${directory}/${post.title}`} >
       <Text
         fontSize={{ base: '2vw', sm: '3vw', lg:'2vw' }}
         margin='10px'

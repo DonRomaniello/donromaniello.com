@@ -18,19 +18,17 @@ function Home () {
   return (
     <Box
     h={window.innerHeight}
-    overflow='hidden'
     >
       <Heading>
         Welcome.
       </Heading>
       <Text
       mt='10px'
-      mb='10px'
-      w='62%'>
+      mb='10px'>
         In the spirit of rapid iteration, this page is published very much as
         a work in progress.
-        <br />
-        <br />
+      </Text>
+      <Text>
         You're looking at Chakra UI in a React.js frontend with a Firebase backend.
       </Text>
 

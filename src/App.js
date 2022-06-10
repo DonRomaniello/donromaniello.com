@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 import {
   ChakraProvider,
   useMediaQuery
 } from '@chakra-ui/react';
 
+import { db } from './config/firebase';
+
+import { collection, onSnapshot } from "firebase/firestore";
 
 import theme from './config/theme'
 
@@ -16,15 +19,31 @@ function App() {
 
   const [isMobile] = useMediaQuery("(max-width: 768px)")
 
-  const navverMinDimension = '8vw'
+  const navverMinDimension = '100px'
+
+  const [posts, setPosts] = useState([]);
+
+  const getBlogPosts = async () => {
+
+    const unsub = onSnapshot(collection(db, "blog"), (doc) => {
+      setPosts(doc.docs.map((doc) => doc.data()))
+  });
+
+    return unsub
+
+  }
+
+  useEffect(() => {
+    getBlogPosts();
+  }, [])
 
   return (
     <ChakraProvider theme={theme}>
         <TopBar
-        navverMinDimension={navverMinDimension} isMobile={isMobile}
+        navverMinDimension={navverMinDimension} posts={posts} isMobile={isMobile}
         />
         <BottomParts
-        navverMinDimension={navverMinDimension} isMobile={isMobile}
+        navverMinDimension={navverMinDimension} posts={posts} isMobile={isMobile}
          />
     </ChakraProvider>
   );
