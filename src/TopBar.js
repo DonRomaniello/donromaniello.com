@@ -30,12 +30,12 @@ function TopBar(props) {
         backdropFilter='blur(100px)'
         position='fixed'
         top='0'
-        minHeight={navverMinDimension}
+        h='100px'
         minWidth='max-content'
         direction='columns'
       >
           <Box
-            w={isOpen ? '100vw' : navverMinDimension}
+            w={isOpen ? '100vw' : '100px'}
             transition="width .2s"
             shadow='md'
             onClick={onToggle}

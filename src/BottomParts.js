@@ -43,21 +43,23 @@ function BottomBar(props) {
 
   return (
     <>
-      <Flex
+      {/* <Flex
             mt={navverMinDimension}
             h='100%'
-            >
-            <Box
+            > */}
+            {/* <Box
               minWidth={navverMinDimension}
               onClick={onToggle}
               onMouseEnter={onToggle}
               shadow='md'
               >
                 <NavDrawer posts={posts} onToggle={onToggle} isOpen={isOpen} />
-            </Box>
-            <Box
+            </Box> */}
+            <Flex
+            mt='100'
             flex='1'
-            shadow='md'
+            align='center'
+            w='62%'
             padding='1vw'
             >
             <Routes>
@@ -77,7 +79,7 @@ function BottomBar(props) {
               path="/blog/:name"
               element={<Post posts={posts} />} />
             </Routes>
-            </Box>
+
         </Flex>
       </>
   )
