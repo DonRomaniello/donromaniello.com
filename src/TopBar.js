@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
 import {
   Box,
@@ -9,13 +9,11 @@ import {
   useDisclosure
 } from '@chakra-ui/react';
 
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-
 import ProgressHamburger from './ProgressHamburger';
 
 function TopBar(props) {
 
-  const { navverMinDimension, posts }  = props;
+  const { navverMinDimension, posts, setPreLoadedThumbnail }  = props;
 
   const { isOpen, onToggle } = useDisclosure();
 
@@ -45,6 +43,7 @@ function TopBar(props) {
               isOpen={isOpen}
               navverMinDimension={navverMinDimension}
               posts={posts}
+              setPreLoadedThumbnail={setPreLoadedThumbnail}
             />
           </Box>
           {isOpen ?

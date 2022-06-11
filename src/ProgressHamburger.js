@@ -16,7 +16,7 @@ import useScrollPosition from '@react-hook/window-scroll'
 
 function ProgressHamburger(props) {
 
-  const { isOpen, posts } = props;
+  const { isOpen, posts, setPreLoadedThumbnail } = props;
 
   const [scrollPercentage, setScrollPercentage] = useState(0);
 
@@ -33,9 +33,6 @@ function ProgressHamburger(props) {
 
   }, [scrollY])
 
-
-
-
   const scrollBar = (idx) => {
     if (scrollPercentage < (33 * idx)) {
       return 0;
@@ -44,9 +41,12 @@ function ProgressHamburger(props) {
     }
   }
 
-  const linkList = ['Bio', <BlogPopover posts={posts}/>, 'Projects']
-
-
+  const linkList = ['Bio',
+   <BlogPopover
+   posts={posts}
+   setPreLoadedThumbnail={setPreLoadedThumbnail}
+   />,
+    'Projects']
 
   return (
     <>
@@ -98,12 +98,6 @@ function ProgressHamburger(props) {
                     h='100%'
                     key={'center' + link}
                     >{link}
-                      {/* <Link
-                      to={`/${link.toLowerCase()}`}
-                      key={'link' + link}
-                       >
-                        {link}
-                      </Link> */}
                     </Center>
                     : <Box
                     h='14%'/>}

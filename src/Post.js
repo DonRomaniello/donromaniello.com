@@ -15,7 +15,7 @@ function Post(props) {
 
   const { name } = useParams();
 
-  const { posts } = props;
+  const { posts, preLoadedThumbnail } = props;
 
   const [post, setPost] = useState({
     title: '',
@@ -50,7 +50,9 @@ function Post(props) {
     <Skeleton isLoaded>
       <Center>
         <Image
-        src={post.imageUrl}
+        fallbackSrc={preLoadedThumbnail}
+        // src={post.imageUrl}
+        src='https://upload.wikimedia.org/wikipedia/commons/d/dd/Afonso_01_1846.png'
         maxWidth='62%'
         borderRadius='1%'
         />

@@ -5,11 +5,9 @@ import {
   useMediaQuery
 } from '@chakra-ui/react';
 
-import { db, storage } from './config/firebase';
-
 import { collection, onSnapshot } from "firebase/firestore";
 
-import { getBlob, getStorage, ref, listAll } from "firebase/storage";
+import { db } from './config/firebase';
 
 import theme from './config/theme'
 
@@ -25,6 +23,8 @@ function App() {
 
   const [posts, setPosts] = useState([]);
 
+  const [preLoadedThumbnail, setPreLoadedThumbnail] = useState();
+
   const getBlogPosts = async () => {
     const unsub = onSnapshot(collection(db, "blog"), (doc) => {
       setPosts(doc.docs.map((doc) => doc.data()))
@@ -32,49 +32,24 @@ function App() {
     return unsub
   }
 
-  const getBlogThumbnails = async () => {
-
-    const itemArray = []
-
-    listAll(ref(getStorage(), '/blog/images/small'))
-      .then((res) => {
-        res.items.forEach((item) => {
-
-          // console.log("These are the thumbnails:", item)
-
-          const itemRef = ref(storage, item)
-
-          itemArray.push(itemRef)
-
-        });
-      }).catch((error) => {
-        // Uh-oh, an error occurred!
-      });
-
-      console.log(itemArray)
-
-    // getDownloadURL(ref(getStorage(), '/blog/images/small');)
-  }
-
-
   useEffect(() => {
     getBlogPosts();
   }, [])
-
-  useEffect(() => {
-    getBlogThumbnails();
-  }, [posts])
-
-
 
 
   return (
     <ChakraProvider theme={theme}>
         <TopBar
-        navverMinDimension={navverMinDimension} posts={posts} isMobile={isMobile}
+        navverMinDimension={navverMinDimension}
+        posts={posts}
+        setPreLoadedThumbnail={setPreLoadedThumbnail}
+        isMobile={isMobile}
         />
         <BottomParts
-        navverMinDimension={navverMinDimension} posts={posts} isMobile={isMobile}
+        navverMinDimension={navverMinDimension}
+        posts={posts}
+        preLoadedThumbnail={preLoadedThumbnail}
+        isMobile={isMobile}
          />
     </ChakraProvider>
   );

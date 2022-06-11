@@ -4,7 +4,6 @@ import { Routes, Route } from 'react-router-dom';
 
 import {
   Box,
-  useDisclosure,
   Flex,
 } from '@chakra-ui/react';
 
@@ -12,14 +11,10 @@ import Home from './Home'
 
 import Post from './Post'
 
-import NavDrawer from './NavDrawer';
-
 function BottomBar(props) {
 
 
-  const { navverMinDimension, posts }  = props;
-
-  const { isOpen, onToggle } = useDisclosure()
+  const { navverMinDimension, posts, preLoadedThumbnail }  = props;
 
   return (
     <>
@@ -33,7 +28,9 @@ function BottomBar(props) {
             <Routes>
               <Route
               exact path="/"
-              element={<Home navverMinDimension={navverMinDimension} />} />
+              element={<Home
+              navverMinDimension={navverMinDimension}
+              />} />
               <Route
               exact path="/bio"
               element={<Home navverMinDimension={navverMinDimension} />} />
@@ -45,7 +42,12 @@ function BottomBar(props) {
               element={<Home navverMinDimension={navverMinDimension} />} />
               <Route
               path="/blog/:name"
-              element={<Post posts={posts} />} />
+              element={<Post
+              posts={posts}
+              preLoadedThumbnail={preLoadedThumbnail}
+              />
+              }
+              />
             </Routes>
             </Box>
         </Flex>
