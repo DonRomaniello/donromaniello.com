@@ -20,8 +20,8 @@ function NavLinks (props) {
     <div>
     <Link to={`/${directory}/${post.title}`} >
       <Text
-        fontSize={{ base: '2vw', sm: '3vw', lg:'2vw' }}
-        margin='10px'
+        fontSize='lg'
+        margin='9.5'
         onClick={resetScroll}
       >{post.title}
       </Text>
