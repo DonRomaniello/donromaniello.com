@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
+
 import {
   Box,
   Center,
@@ -31,6 +32,9 @@ function ProgressHamburger(props) {
     setScrollPercentage(scrollAmount)
 
   }, [scrollY])
+
+
+
 
   const scrollBar = (idx) => {
     if (scrollPercentage < (33 * idx)) {
