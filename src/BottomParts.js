@@ -14,7 +14,7 @@ import Post from './Post'
 function BottomBar(props) {
 
 
-  const { navverMinDimension, posts, preLoadedThumbnail }  = props;
+  const { navverMinDimension, posts, preCachedThumbnail }  = props;
 
   return (
     <>
@@ -44,7 +44,7 @@ function BottomBar(props) {
               path="/blog/:name"
               element={<Post
               posts={posts}
-              preLoadedThumbnail={preLoadedThumbnail}
+              preCachedThumbnail={preCachedThumbnail}
               />
               }
               />

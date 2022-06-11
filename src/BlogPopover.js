@@ -22,7 +22,7 @@ import NavLinks from './NavLinks';
 
 function BlogPopover(props) {
 
-  const { posts, setPreLoadedThumbnail } = props;
+  const { posts, setpreCachedThumbnail } = props;
 
   const getThumbnail = async (name) => {
 
@@ -34,7 +34,7 @@ function BlogPopover(props) {
     .then((blob) => {
       useUrl = URL.createObjectURL(blob);
       }).finally(() => {
-        setPreLoadedThumbnail(useUrl);
+        setpreCachedThumbnail(useUrl);
       })
   }
 

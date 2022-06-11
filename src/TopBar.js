@@ -13,7 +13,7 @@ import ProgressHamburger from './ProgressHamburger';
 
 function TopBar(props) {
 
-  const { navverMinDimension, posts, setPreLoadedThumbnail }  = props;
+  const { navverMinDimension, posts, setpreCachedThumbnail }  = props;
 
   const { isOpen, onToggle } = useDisclosure();
 
@@ -43,7 +43,7 @@ function TopBar(props) {
               isOpen={isOpen}
               navverMinDimension={navverMinDimension}
               posts={posts}
-              setPreLoadedThumbnail={setPreLoadedThumbnail}
+              setpreCachedThumbnail={setpreCachedThumbnail}
             />
           </Box>
           {isOpen ?
