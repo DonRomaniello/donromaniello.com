@@ -36,7 +36,7 @@ function TopBar(props) {
       >
           <Box
             w={isOpen ? '100vw' : navverMinDimension}
-            transition="width .4s"
+            transition="width .2s"
             shadow='md'
             onClick={onToggle}
             align='flex-start'

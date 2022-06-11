@@ -23,7 +23,9 @@ function BlogPopover(props) {
   return (
     <>
     <Popover
-    trigger="hover"
+    trigger='hover'
+    openDelay='0'
+    isLazy='true'
     >
       <PopoverTrigger>
         <Link to='/blog'>Blog</Link>
