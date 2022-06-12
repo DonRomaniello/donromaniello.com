@@ -14,9 +14,6 @@ import {
   PopoverAnchor,
 } from '@chakra-ui/react'
 
-
-import { getBlob, getStorage, ref, listAll } from "firebase/storage";
-
 import getImage from './modules/getImage';
 
 import NavLinks from './NavLinks';
@@ -24,21 +21,6 @@ import NavLinks from './NavLinks';
 function BlogPopover(props) {
 
   const { posts, setPreCachedThumbnail } = props;
-
-//   const getThumbnail = async (name) => {
-
-//     let fileName = name.toLowerCase().split(' ').join('_')
-
-//     let useUrl;
-
-//     getBlob(ref(getStorage(), `/blog/images/small/${fileName}.webp`))
-//     .then((blob) => {
-//       useUrl = URL.createObjectURL(blob);
-//       }).finally(() => {
-//         setpreCachedThumbnail(useUrl);
-//       }}
-//   }
-
 
 
 

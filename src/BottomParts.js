@@ -14,7 +14,9 @@ import Post from './Post'
 function BottomBar(props) {
 
 
-  const { navverMinDimension, posts, preCachedThumbnail }  = props;
+  const { navverMinDimension,
+          posts,
+          preCachedThumbnail }  = props;
 
   return (
     <>

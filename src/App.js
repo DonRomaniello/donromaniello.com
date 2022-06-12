@@ -25,6 +25,7 @@ function App() {
 
   const [preCachedThumbnail, setPreCachedThumbnail] = useState();
 
+
   const getBlogPosts = async () => {
     const unsub = onSnapshot(collection(db, "blog"), (doc) => {
       setPosts(doc.docs.map((doc) => doc.data()))

@@ -11,17 +11,27 @@ import {
   Text,
 } from '@chakra-ui/react'
 
+import getImage from './modules/getImage';
+
 function Post(props) {
 
   const { name } = useParams();
 
-  const { posts, preCachedThumbnail } = props;
+  const { posts,
+          preCachedThumbnail} = props;
 
   const [post, setPost] = useState({
     title: '',
-    imageUrl: '',
+    imageAttribution: '',
     content: []
   })
+
+  const [headerImageURL, setHeaderImageURL] = useState('');
+
+  useEffect(() => {
+    setHeaderImageURL('');
+  }, [])
+
 
   useEffect(() => {
     if (posts.length){
@@ -37,10 +47,7 @@ function Post(props) {
 
   useEffect(() => {
     if (post.title) {
-
-
-
-
+      getImage(post.title, '/blog/images/full', setHeaderImageURL)
     }
   }, [post])
 
@@ -54,9 +61,8 @@ function Post(props) {
       <Center>
         <Image
         fallbackSrc={preCachedThumbnail}
-        // src={post.imageUrl}
-        src='https://upload.wikimedia.org/wikipedia/commons/d/dd/Afonso_01_1846.png'
-        maxWidth='62%'
+        src={headerImageURL}
+        w='62%'
         borderRadius='1%'
         />
       </Center>
