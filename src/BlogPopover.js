@@ -14,29 +14,31 @@ import {
   PopoverAnchor,
 } from '@chakra-ui/react'
 
-import { storage } from './config/firebase';
 
 import { getBlob, getStorage, ref, listAll } from "firebase/storage";
+
+import getImage from './modules/getImage';
 
 import NavLinks from './NavLinks';
 
 function BlogPopover(props) {
 
-  const { posts, setpreCachedThumbnail } = props;
+  const { posts, setPreCachedThumbnail } = props;
 
-  const getThumbnail = async (name) => {
+//   const getThumbnail = async (name) => {
 
-    let fileName = name.toLowerCase().split(' ').join('_')
+//     let fileName = name.toLowerCase().split(' ').join('_')
 
-    let useUrl;
+//     let useUrl;
 
-    getBlob(ref(getStorage(), `/blog/images/small/${fileName}.webp`))
-    .then((blob) => {
-      useUrl = URL.createObjectURL(blob);
-      }).finally(() => {
-        setpreCachedThumbnail(useUrl);
-      })
-  }
+//     getBlob(ref(getStorage(), `/blog/images/small/${fileName}.webp`))
+//     .then((blob) => {
+//       useUrl = URL.createObjectURL(blob);
+//       }).finally(() => {
+//         setpreCachedThumbnail(useUrl);
+//       }}
+//   }
+
 
 
 
@@ -58,7 +60,7 @@ function BlogPopover(props) {
               return (
                 <PopoverBody
                 key={idx}
-                onMouseOver={() => getThumbnail(post.title)}
+                onMouseOver={() => getImage(post.title, '/blog/images/small', setPreCachedThumbnail)}
                 >
                   <NavLinks
                   id={idx}

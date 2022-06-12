@@ -36,10 +36,13 @@ function Post(props) {
   }, [name, posts])
 
   useEffect(() => {
+    if (post.title) {
 
 
 
-  })
+
+    }
+  }, [post])
 
   return (
     <>

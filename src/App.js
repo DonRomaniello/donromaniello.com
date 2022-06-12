@@ -23,7 +23,7 @@ function App() {
 
   const [posts, setPosts] = useState([]);
 
-  const [preCachedThumbnail, setpreCachedThumbnail] = useState();
+  const [preCachedThumbnail, setPreCachedThumbnail] = useState();
 
   const getBlogPosts = async () => {
     const unsub = onSnapshot(collection(db, "blog"), (doc) => {
@@ -42,7 +42,7 @@ function App() {
         <TopBar
         navverMinDimension={navverMinDimension}
         posts={posts}
-        setpreCachedThumbnail={setpreCachedThumbnail}
+        setPreCachedThumbnail={setPreCachedThumbnail}
         isMobile={isMobile}
         />
         <BottomParts

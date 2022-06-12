@@ -16,7 +16,7 @@ import useScrollPosition from '@react-hook/window-scroll'
 
 function ProgressHamburger(props) {
 
-  const { isOpen, posts, setpreCachedThumbnail } = props;
+  const { isOpen, posts, setPreCachedThumbnail } = props;
 
   const [scrollPercentage, setScrollPercentage] = useState(0);
 
@@ -44,7 +44,7 @@ function ProgressHamburger(props) {
   const linkList = ['Bio',
    <BlogPopover
    posts={posts}
-   setpreCachedThumbnail={setpreCachedThumbnail}
+   setPreCachedThumbnail={setPreCachedThumbnail}
    />,
     'Projects']
 
