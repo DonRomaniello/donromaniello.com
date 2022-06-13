@@ -9,7 +9,7 @@ import {
 
 function NavLinks (props) {
 
-  const { directory, post } = props;
+  const { directory, post, preCachedThumbnail } = props;
 
   const resetScroll = () => {
     window.scrollTo(0,0)

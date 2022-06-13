@@ -5,23 +5,35 @@ import { useParams } from 'react-router';
 import {
   Box,
   Center,
+  Flex,
   Heading,
   Image,
   Skeleton,
   Text,
 } from '@chakra-ui/react'
 
+import getImage from './modules/getImage';
+
 function Post(props) {
 
   const { name } = useParams();
 
-  const { posts } = props;
+  const { isMobile,
+          posts,
+          preCachedThumbnail} = props;
 
   const [post, setPost] = useState({
     title: '',
-    imageUrl: '',
+    imageAttribution: '',
     content: []
   })
+
+  const [headerImageURL, setHeaderImageURL] = useState('');
+
+  useEffect(() => {
+    setHeaderImageURL('');
+  }, [])
+
 
   useEffect(() => {
     if (posts.length){
@@ -36,22 +48,27 @@ function Post(props) {
   }, [name, posts])
 
   useEffect(() => {
-
-
-
-  })
+    if (post.title) {
+      getImage(post.title, '/blog/images/full', setHeaderImageURL)
+    }
+  }, [post])
 
   return (
     <>
-    <Center>
+    <Center
+    align='center'
+    >
       <Heading>{post.title}</Heading>
     </Center>
     <Box w="100%" h='2vw' />
     <Skeleton isLoaded>
       <Center>
         <Image
-        src={post.imageUrl}
-        maxWidth='62%'
+        fallbackSrc={preCachedThumbnail}
+        src={headerImageURL}
+        objectFit='scale-down'
+        w='62%'
+        maxHeight='600px'
         borderRadius='1%'
         />
       </Center>
@@ -59,11 +76,11 @@ function Post(props) {
     <Box w="100%" h='3vw' />
     <Center>
     <Box
-    w='50%'
+    maxWidth={isMobile ? '90%' : '600px'}
     >
-    {post.content.map((paragraph, idx) => {
+    {post.content.map((paragraph) => {
       return (
-        <Text key={idx}>
+        <Text key={paragraph.slice(0, 32)}>
           {paragraph}
           <br />
           <br />

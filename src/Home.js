@@ -4,7 +4,6 @@ import {
   Box,
   Button,
   Flex,
-  Footer,
   Heading,
   Link,
   Text
@@ -14,14 +13,13 @@ import { ColorModeSwitcher } from './ColorModeSwitcher';
 
 function Home () {
 
-
   return (
     <Box
     h={window.innerHeight}
     >
-      <Heading>
+      {/* <Heading>
         Welcome.
-      </Heading>
+      </Heading> */}
       <Text
       mt='10px'
       mb='10px'>
@@ -31,7 +29,6 @@ function Home () {
       <Text>
         You're looking at Chakra UI in a React.js frontend with a Firebase backend.
       </Text>
-
     <Flex
       gap='10px'
       >

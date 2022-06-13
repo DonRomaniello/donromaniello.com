@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
+
 import {
   Box,
   Center,
@@ -15,7 +16,7 @@ import useScrollPosition from '@react-hook/window-scroll'
 
 function ProgressHamburger(props) {
 
-  const { isOpen, posts } = props;
+  const { isOpen, posts, setPreCachedThumbnail } = props;
 
   const [scrollPercentage, setScrollPercentage] = useState(0);
 
@@ -40,9 +41,12 @@ function ProgressHamburger(props) {
     }
   }
 
-  const linkList = ['Bio', <BlogPopover posts={posts}/>, 'Projects']
-
-
+  const linkList = ['Bio',
+   <BlogPopover
+   posts={posts}
+   setPreCachedThumbnail={setPreCachedThumbnail}
+   />,
+    'Projects']
 
   return (
     <>
@@ -94,12 +98,6 @@ function ProgressHamburger(props) {
                     h='100%'
                     key={'center' + link}
                     >{link}
-                      {/* <Link
-                      to={`/${link.toLowerCase()}`}
-                      key={'link' + link}
-                       >
-                        {link}
-                      </Link> */}
                     </Center>
                     : <Box
                     h='14%'/>}

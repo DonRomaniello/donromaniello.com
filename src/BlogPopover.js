@@ -14,11 +14,15 @@ import {
   PopoverAnchor,
 } from '@chakra-ui/react'
 
+import getImage from './modules/getImage';
+
 import NavLinks from './NavLinks';
 
 function BlogPopover(props) {
 
-  const { posts } = props;
+  const { posts, setPreCachedThumbnail } = props;
+
+
 
   return (
     <>
@@ -36,8 +40,14 @@ function BlogPopover(props) {
           <VStack>
           {posts.length ? posts.map((post, idx) =>  {
               return (
-                <PopoverBody key={idx}>
-                  <NavLinks id={idx} post={post} directory='blog'/>
+                <PopoverBody
+                key={idx}
+                onMouseOver={() => getImage(post.title, '/blog/images/small', setPreCachedThumbnail)}
+                >
+                  <NavLinks
+                  id={idx}
+                  post={post}
+                  directory='blog'/>
                   </PopoverBody>)
             }) : ''}
           </VStack>
