@@ -17,7 +17,8 @@ function Post(props) {
 
   const { name } = useParams();
 
-  const { posts,
+  const { isMobile,
+          posts,
           preCachedThumbnail} = props;
 
   const [post, setPost] = useState({
@@ -53,7 +54,9 @@ function Post(props) {
 
   return (
     <>
-    <Center>
+    <Box></Box>
+    <Center
+    align='center'>
       <Heading>{post.title}</Heading>
     </Center>
     <Box w="100%" h='2vw' />
@@ -72,11 +75,11 @@ function Post(props) {
     <Box w="100%" h='3vw' />
     <Center>
     <Box
-    w='50%'
+    maxWidth={isMobile ? '90%' : '600px'}
     >
-    {post.content.map((paragraph, idx) => {
+    {post.content.map((paragraph) => {
       return (
-        <Text key={idx}>
+        <Text key={paragraph.slice(0, 32)}>
           {paragraph}
           <br />
           <br />

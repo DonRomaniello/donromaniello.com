@@ -12,7 +12,10 @@ import ProgressHamburger from './ProgressHamburger';
 
 function TopBar(props) {
 
-  const { isMobile, navverMinDimension, posts, setPreCachedThumbnail }  = props;
+  const { isMobile,
+          navverMinDimension,
+          posts,
+          setPreCachedThumbnail }  = props;
 
   const { isOpen, onToggle } = useDisclosure();
 
