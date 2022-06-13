@@ -17,11 +17,12 @@ const theme = extendTheme({
     },
   },
 
-  // components: {
-  //   Button: {
-  //     bg: '#003D52'
-  //   }
-  // },
+  components: {
+    Progress: {
+      bg: '#003D52',
+      transitionDuration: "fast",
+    }
+  },
 })
 
 export default theme

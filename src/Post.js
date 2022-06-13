@@ -5,10 +5,8 @@ import { useParams } from 'react-router';
 import {
   Box,
   Center,
-  Flex,
   Heading,
   Image,
-  Skeleton,
   Text,
 } from '@chakra-ui/react'
 
@@ -22,6 +20,7 @@ function Post(props) {
           posts,
           preCachedThumbnail} = props;
 
+
   const [post, setPost] = useState({
     title: '',
     imageAttribution: '',
@@ -30,14 +29,14 @@ function Post(props) {
 
   const [headerImageURL, setHeaderImageURL] = useState('');
 
+
   useEffect(() => {
     setHeaderImageURL('');
-  }, [])
+  }, [name])
 
 
   useEffect(() => {
     if (posts.length){
-
       posts.forEach((item) => {
         if (item.title === name){
           setPost(item)
@@ -53,6 +52,8 @@ function Post(props) {
     }
   }, [post])
 
+
+
   return (
     <>
     <Center
@@ -61,18 +62,16 @@ function Post(props) {
       <Heading>{post.title}</Heading>
     </Center>
     <Box w="100%" h='2vw' />
-    <Skeleton isLoaded>
-      <Center>
+      <Center w='100%'>
         <Image
         fallbackSrc={preCachedThumbnail}
         src={headerImageURL}
         objectFit='scale-down'
-        w='62%'
+        w='80%'
         maxHeight='600px'
         borderRadius='1%'
         />
       </Center>
-    </Skeleton>
     <Box w="100%" h='3vw' />
     <Center>
     <Box
