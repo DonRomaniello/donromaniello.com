@@ -5,6 +5,7 @@ import { useParams } from 'react-router';
 import {
   Box,
   Center,
+  Flex,
   Heading,
   Image,
   Skeleton,
@@ -54,9 +55,9 @@ function Post(props) {
 
   return (
     <>
-    <Box></Box>
     <Center
-    align='center'>
+    align='center'
+    >
       <Heading>{post.title}</Heading>
     </Center>
     <Box w="100%" h='2vw' />

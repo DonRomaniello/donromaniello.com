@@ -17,9 +17,9 @@ function Home () {
     <Box
     h={window.innerHeight}
     >
-      <Heading>
+      {/* <Heading>
         Welcome.
-      </Heading>
+      </Heading> */}
       <Text
       mt='10px'
       mb='10px'>
