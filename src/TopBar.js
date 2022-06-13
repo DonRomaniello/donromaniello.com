@@ -33,6 +33,7 @@ function TopBar(props) {
         h={navverMinDimension}
         minWidth='max-content'
         direction='columns'
+        zIndex='banner'
       >
           <Box
             w={isOpen ? '100vw' : navverMinDimension}

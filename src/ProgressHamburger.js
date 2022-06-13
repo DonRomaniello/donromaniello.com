@@ -84,7 +84,7 @@ function ProgressHamburger(props) {
                     key={'progress' + link}
                     height='100%'
                     w='4.96vw'
-                    colorScheme={(scrollPercentage < 99) ? 'blue' : 'green'}
+                    colorScheme={(scrollPercentage < 99) ? 'darkBlue' : 'lightBlue'}
                     value={scrollBar(idx)}
                   />
                 </Box>
@@ -100,6 +100,7 @@ function ProgressHamburger(props) {
                     >{link}
                     </Center>
                     : <Box
+                    key={'centerBox' + link}
                     h='14%'/>}
                 </ Box>
               </>

@@ -9,9 +9,7 @@ import {
   PopoverContent,
   PopoverBody,
   PopoverArrow,
-  VStack,
-  PopoverCloseButton,
-  PopoverAnchor,
+  VStack
 } from '@chakra-ui/react'
 
 import getImage from './modules/getImage';
@@ -20,9 +18,8 @@ import NavLinks from './NavLinks';
 
 function BlogPopover(props) {
 
-  const { posts, setPreCachedThumbnail } = props;
-
-
+  const { posts,
+          setPreCachedThumbnail } = props;
 
   return (
     <>
