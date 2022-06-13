@@ -62,7 +62,9 @@ function Post(props) {
         <Image
         fallbackSrc={preCachedThumbnail}
         src={headerImageURL}
+        objectFit='scale-down'
         w='62%'
+        maxHeight='600px'
         borderRadius='1%'
         />
       </Center>

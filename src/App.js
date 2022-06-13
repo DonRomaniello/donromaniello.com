@@ -19,7 +19,7 @@ function App() {
 
   const [isMobile] = useMediaQuery("(max-width: 768px)")
 
-  const navverMinDimension = '100px'
+  const navverMinDimension = (isMobile ? '50px' : '100px')
 
   const [posts, setPosts] = useState([]);
 
