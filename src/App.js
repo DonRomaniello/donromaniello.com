@@ -23,7 +23,7 @@ function App() {
 
   const [posts, setPosts] = useState([]);
 
-  const [preCachedThumbnail, setPreCachedThumbnail] = useState();
+  const [preCachedThumbnails, setPreCachedThumbnails] = useState({});
 
 
   const getBlogPosts = async () => {
@@ -43,13 +43,13 @@ function App() {
         <TopBar
         navverMinDimension={navverMinDimension}
         posts={posts}
-        setPreCachedThumbnail={setPreCachedThumbnail}
+        setPreCachedThumbnails={setPreCachedThumbnails}
         isMobile={isMobile}
         />
         <BottomParts
         navverMinDimension={navverMinDimension}
         posts={posts}
-        preCachedThumbnail={preCachedThumbnail}
+        preCachedThumbnails={preCachedThumbnails}
         isMobile={isMobile}
          />
     </ChakraProvider>

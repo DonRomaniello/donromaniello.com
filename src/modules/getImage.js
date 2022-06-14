@@ -1,4 +1,4 @@
-import { getBlob, getStorage, ref, listAll } from "firebase/storage";
+import { getBlob, getStorage, ref } from "firebase/storage";
 
 const getImage = async (name, directory, setFunction) => {
 

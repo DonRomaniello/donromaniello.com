@@ -16,7 +16,7 @@ function BottomBar(props) {
 
   const { navverMinDimension,
           posts,
-          preCachedThumbnail }  = props;
+          preCachedThumbnails }  = props;
 
   return (
     <>
@@ -46,7 +46,7 @@ function BottomBar(props) {
               path="/blog/:name"
               element={<Post
               posts={posts}
-              preCachedThumbnail={preCachedThumbnail}
+              preCachedThumbnails={preCachedThumbnails}
               />
               }
               />

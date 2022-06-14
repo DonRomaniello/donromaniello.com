@@ -7,6 +7,7 @@ import {
   Center,
   Heading,
   Image,
+  Skeleton,
   Text,
 } from '@chakra-ui/react'
 
@@ -16,10 +17,10 @@ function Post(props) {
 
   const { name } = useParams();
 
+
   const { isMobile,
           posts,
-          preCachedThumbnail} = props;
-
+          preCachedThumbnails} = props;
 
   const [post, setPost] = useState({
     title: '',
@@ -29,10 +30,13 @@ function Post(props) {
 
   const [headerImageURL, setHeaderImageURL] = useState('');
 
+  // useEffect(() => {
+  //   setHeaderImageURL('');
+  // }, [name])
 
   useEffect(() => {
-    setHeaderImageURL('');
-  }, [name])
+    console.log(preCachedThumbnails)
+  }, [])
 
 
   useEffect(() => {
@@ -64,11 +68,11 @@ function Post(props) {
     <Box w="100%" h='2vw' />
       <Center w='100%'>
         <Image
-        fallbackSrc={preCachedThumbnail}
+        // fallbackSrc={preCachedThumbnail}
         src={headerImageURL}
         objectFit='scale-down'
         w='80%'
-        maxHeight='600px'
+        h='600px'
         borderRadius='1%'
         />
       </Center>
