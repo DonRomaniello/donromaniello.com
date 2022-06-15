@@ -7,6 +7,8 @@ import {
   Flex,
 } from '@chakra-ui/react';
 
+import Bio from './Bio'
+
 import Home from './Home'
 
 import Post from './Post'
@@ -31,22 +33,25 @@ function BottomBar(props) {
               <Route
               exact path="/"
               element={<Home
-              navverMinDimension={navverMinDimension}
+                        navverMinDimension={navverMinDimension}
               />} />
               <Route
               exact path="/bio"
-              element={<Home navverMinDimension={navverMinDimension} />} />
+              element={<Bio
+                        navverMinDimension={navverMinDimension} />} />
               <Route
               exact path="/blog"
-              element={<Home navverMinDimension={navverMinDimension} />} />
+              element={<Home
+                        navverMinDimension={navverMinDimension} />} />
               <Route
               exact path="/projects"
-              element={<Home navverMinDimension={navverMinDimension} />} />
+              element={<Home
+                        navverMinDimension={navverMinDimension} />} />
               <Route
               path="/blog/:name"
               element={<Post
-              posts={posts}
-              preCachedThumbnails={preCachedThumbnails}
+                        posts={posts}
+                        preCachedThumbnails={preCachedThumbnails}
               />
               }
               />

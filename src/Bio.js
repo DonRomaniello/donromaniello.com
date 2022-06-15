@@ -13,44 +13,21 @@ import {
 
 import getImage from './modules/getImage';
 
-function Post(props) {
-
-  const { name } = useParams();
+function Bio(props) {
 
 
-  const { isMobile,
-          posts,
-          preCachedThumbnails} = props;
-
-  const [post, setPost] = useState({
-    title: '',
-    imageAttribution: '',
-    content: []
-  })
+  const { isMobile } = props;
 
   const [headerImageURL, setHeaderImageURL] = useState('');
 
-  // useEffect(() => {
-  //   setHeaderImageURL('');
-  // }, [name])
-
-
-  useEffect(() => {
-    if (posts.length){
-      posts.forEach((item) => {
-        if (item.title === name){
-          setPost(item)
-        }
-      })
-
-    }
-  }, [name, posts])
+  const [post, setPost] = useState({
+    title: '',
+    content: []
+  })
 
   useEffect(() => {
-    if (post.title) {
-      getImage(post.title, '/blog/images/full', setHeaderImageURL)
-    }
-  }, [post])
+      getImage('donromaniello', '/bio/images/full', setHeaderImageURL)
+  }, [])
 
 
 
@@ -67,9 +44,9 @@ function Post(props) {
         // fallbackSrc={preCachedThumbnail}
         src={headerImageURL}
         objectFit='scale-down'
-        w='80%'
+        w='600px'
         h='600px'
-        borderRadius='1%'
+        borderRadius='50%'
         />
       </Center>
     <Box w="100%" h='3vw' />
@@ -77,7 +54,7 @@ function Post(props) {
     <Box
     maxWidth={isMobile ? '90%' : '600px'}
     >
-    {post.content.map((paragraph) => {
+    {/* {post.content.map((paragraph) => {
       return (
         <Text key={paragraph.slice(0, 32)}>
           {paragraph}
@@ -85,11 +62,11 @@ function Post(props) {
           <br />
         </Text>
       )
-    })}
+    })} */}
     </Box>
     </Center>
     </>
   )
 }
 
-export default Post
+export default Bio

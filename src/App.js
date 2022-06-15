@@ -5,9 +5,7 @@ import {
   useMediaQuery
 } from '@chakra-ui/react';
 
-import { collection, onSnapshot } from "firebase/firestore";
-
-import { db } from './config/firebase';
+import getDocuments from './modules/getDocuments';
 
 import theme from './config/theme'
 
@@ -25,32 +23,29 @@ function App() {
 
   const [preCachedThumbnails, setPreCachedThumbnails] = useState({});
 
+  const [preCachedHeadshot, setPreCachedHeadshot] = useState();
 
-  const getBlogPosts = async () => {
-    const unsub = onSnapshot(collection(db, "blog"), (doc) => {
-      setPosts(doc.docs.map((doc) => doc.data()))
-  });
-    return unsub
-  }
 
   useEffect(() => {
-    getBlogPosts();
+    getDocuments('blog', setPosts);
+
   }, [])
 
 
   return (
     <ChakraProvider theme={theme}>
         <TopBar
+        isMobile={isMobile}
         navverMinDimension={navverMinDimension}
         posts={posts}
         setPreCachedThumbnails={setPreCachedThumbnails}
-        isMobile={isMobile}
         />
         <BottomParts
+        isMobile={isMobile}
         navverMinDimension={navverMinDimension}
         posts={posts}
+        preCachedHeadshot={preCachedHeadshot}
         preCachedThumbnails={preCachedThumbnails}
-        isMobile={isMobile}
          />
     </ChakraProvider>
   );
