@@ -27,8 +27,11 @@ function App() {
   const [preCachedHeadshot, setPreCachedHeadshot] = useState();
 
   useEffect(() => {
-    getDocuments('blog', setPosts);
-    getImage('donromaniello', 'bio/images/small/', setPreCachedHeadshot)
+    getDocuments('blog',
+                 setPosts);
+    getImage('donromaniello',
+             'bio/images/small/',
+             setPreCachedHeadshot)
   }, [])
 
 
