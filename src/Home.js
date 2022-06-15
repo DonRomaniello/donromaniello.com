@@ -43,9 +43,6 @@ function Home () {
             Fix text alignment in blog
           </ListItem>
           <ListItem>
-            Fix text alignment in blog
-          </ListItem>
-          <ListItem>
             Eliminate reflows
           </ListItem>
           <ListItem>
