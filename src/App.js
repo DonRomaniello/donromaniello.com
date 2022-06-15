@@ -5,7 +5,8 @@ import {
   useMediaQuery
 } from '@chakra-ui/react';
 
-import getDocuments from './modules/getDocuments';
+import { getDocuments,
+         getImage } from './modules/index.js';
 
 import theme from './config/theme'
 
@@ -25,10 +26,9 @@ function App() {
 
   const [preCachedHeadshot, setPreCachedHeadshot] = useState();
 
-
   useEffect(() => {
     getDocuments('blog', setPosts);
-
+    getImage('donromaniello', 'bio/images/small/', setPreCachedHeadshot)
   }, [])
 
 

@@ -15,6 +15,7 @@ function TopBar(props) {
   const { isMobile,
           navverMinDimension,
           posts,
+          setPreCachedHeadshot,
           setPreCachedThumbnails }  = props;
 
   const { isOpen, onToggle } = useDisclosure();
@@ -47,6 +48,7 @@ function TopBar(props) {
               navverMinDimension={navverMinDimension}
               posts={posts}
               setPreCachedThumbnails={setPreCachedThumbnails}
+              setPreCachedHeadshot={setPreCachedHeadshot}
             />
           </Box>
           {isOpen ?

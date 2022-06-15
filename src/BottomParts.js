@@ -18,6 +18,7 @@ function BottomBar(props) {
 
   const { navverMinDimension,
           posts,
+          preCachedHeadshot,
           preCachedThumbnails }  = props;
 
   return (
@@ -38,7 +39,8 @@ function BottomBar(props) {
               <Route
               exact path="/bio"
               element={<Bio
-                        navverMinDimension={navverMinDimension} />} />
+                        navverMinDimension={navverMinDimension}
+                        preCachedHeadshot={preCachedHeadshot} />} />
               <Route
               exact path="/blog"
               element={<Home

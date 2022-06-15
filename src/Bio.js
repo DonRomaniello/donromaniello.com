@@ -11,17 +11,23 @@ import {
   Text,
 } from '@chakra-ui/react'
 
-import getImage from './modules/getImage';
+import { getImage } from './modules/index.js';
+
 import getDocuments from './modules/getDocuments';
 
 function Bio(props) {
 
-
-  const { isMobile } = props;
+  const { isMobile,
+          preCachedHeadshot } = props;
 
   const [headerImageURL, setHeaderImageURL] = useState('');
 
-  const [post, setPost] = useState([])
+  const [post, setPost] = useState([
+    {
+      title: '',
+      content: []
+    }
+  ])
 
   useEffect(() => {
       getImage('donromaniello', '/bio/images/full', setHeaderImageURL)
@@ -40,9 +46,9 @@ function Bio(props) {
     <Box w="100%" h='2vw' />
       <Center w='100%'>
         <Image
-        // fallbackSrc={preCachedThumbnail}
+        fallbackSrc={preCachedHeadshot}
         src={headerImageURL}
-        objectFit='scale-down'
+        // objectFit='scale-down'
         w='600px'
         h='600px'
         borderRadius='50%'

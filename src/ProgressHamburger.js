@@ -43,7 +43,10 @@ function ProgressHamburger(props) {
     }
   }
 
-  const linkList = [<Link to='bio'> Bio </Link>,
+  const linkList = [
+    <Link
+    to='bio'
+    > Bio </Link>,
    <BlogPopover
    posts={posts}
    setPreCachedThumbnails={setPreCachedThumbnails}
