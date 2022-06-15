@@ -16,9 +16,15 @@ import useScrollPosition from '@react-hook/window-scroll'
 
 function ProgressHamburger(props) {
 
-  const { isOpen,
+  const { isMobile,
+          isOpen,
           posts,
           setPreCachedThumbnails } = props;
+
+
+  let barHeight = isMobile ? '6px' : '14px'
+
+  let barWidth = isMobile ? '31px' : '62px'
 
   const [scrollPercentage, setScrollPercentage] = useState(0);
 
@@ -56,13 +62,13 @@ function ProgressHamburger(props) {
   return (
     <>
     <Flex
-    padding='1.52vw'
+    padding='7px'
     h='100%'
     direction={isOpen ? 'row' : 'column'}
     align='center'
     >
         <Box
-        h='14%'
+        h={barHeight}
         w='33%'
         align='center'
         >
@@ -83,18 +89,18 @@ function ProgressHamburger(props) {
                 transition='transform .6s'
                 transform={isOpen ? 'rotate(-90deg)' : null}
                 key={'biggestBox' + link}
-                h='14%'
+                h={barHeight}
                 >
                   <Progress
                     key={'progress' + link}
-                    height='100%'
-                    w='4.96vw'
+                    height={barHeight}
+                    w={barWidth}
                     colorScheme={(scrollPercentage < 99) ? 'darkBlue' : 'lightBlue'}
                     value={scrollBar(idx)}
                   />
                 </Box>
                 <Box
-                h='14%'
+                h={barHeight}
                 w='33%'
                 key={'linkBox' + link}
                 >

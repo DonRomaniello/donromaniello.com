@@ -44,6 +44,7 @@ function TopBar(props) {
             align='flex-start'
             >
             <ProgressHamburger
+              isMobile={isMobile}
               isOpen={isOpen}
               navverMinDimension={navverMinDimension}
               posts={posts}
