@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react'
 
 import getImage from './modules/getImage';
+import getDocuments from './modules/getDocuments';
 
 function Bio(props) {
 
@@ -20,13 +21,11 @@ function Bio(props) {
 
   const [headerImageURL, setHeaderImageURL] = useState('');
 
-  const [post, setPost] = useState({
-    title: '',
-    content: []
-  })
+  const [post, setPost] = useState([])
 
   useEffect(() => {
       getImage('donromaniello', '/bio/images/full', setHeaderImageURL)
+      getDocuments('bio', setPost)
   }, [])
 
 
@@ -54,7 +53,7 @@ function Bio(props) {
     <Box
     maxWidth={isMobile ? '90%' : '600px'}
     >
-    {/* {post.content.map((paragraph) => {
+    {post[0].content.map((paragraph) => {
       return (
         <Text key={paragraph.slice(0, 32)}>
           {paragraph}
@@ -62,7 +61,7 @@ function Bio(props) {
           <br />
         </Text>
       )
-    })} */}
+    })}
     </Box>
     </Center>
     </>
