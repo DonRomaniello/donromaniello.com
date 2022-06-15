@@ -20,7 +20,7 @@ function Post(props) {
 
   const { isMobile,
           posts,
-          preCachedThumbnails} = props;
+          preCachedThumbnail } = props;
 
   const [post, setPost] = useState({
     title: '',
@@ -29,11 +29,6 @@ function Post(props) {
   })
 
   const [headerImageURL, setHeaderImageURL] = useState('');
-
-  // useEffect(() => {
-  //   setHeaderImageURL('');
-  // }, [name])
-
 
   useEffect(() => {
     if (posts.length){
@@ -62,13 +57,13 @@ function Post(props) {
       <Heading>{post.title}</Heading>
     </Center>
     <Box w="100%" h='2vw' />
-      <Center w='100%'>
+      <Center w='600px'>
         <Image
-        // fallbackSrc={preCachedThumbnail}
+        fallbackSrc={preCachedThumbnail}
         src={headerImageURL}
         objectFit='scale-down'
-        w='80%'
-        h='600px'
+        // w='600px'
+        // h='600px'
         borderRadius='1%'
         />
       </Center>
