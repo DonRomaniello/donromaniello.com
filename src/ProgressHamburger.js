@@ -6,13 +6,14 @@ import {
   Center,
   Flex,
   Progress,
+  Skeleton
 } from '@chakra-ui/react';
 
 import { Link } from "react-router-dom";
 
-import BlogPopover from './BlogPopover';
-
 import useScrollPosition from '@react-hook/window-scroll'
+
+const BlogPopover = React.lazy(() => import('./BlogPopover'))
 
 function ProgressHamburger(props) {
 
@@ -53,10 +54,14 @@ function ProgressHamburger(props) {
     <Link
     to='bio'
     > Bio </Link>,
-   <BlogPopover
-   posts={posts}
-   setPreCachedThumbnails={setPreCachedThumbnails}
-   />,
+    <React.Suspense fallback={<Skeleton />}>
+      <div>
+        <BlogPopover
+        posts={posts}
+        setPreCachedThumbnails={setPreCachedThumbnails}
+        />
+      </div>
+    </React.Suspense>,
     'Projects']
 
   return (
