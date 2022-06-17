@@ -30,7 +30,7 @@ function BottomBar(props) {
             >
             <Box
             padding={navverMinDimension}
-            w={isMobile ? '90%' : '600px'}
+            maxW={isMobile ? '90%' : '900px' }
             >
             <Routes>
               <Route

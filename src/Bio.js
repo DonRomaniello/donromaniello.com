@@ -46,6 +46,7 @@ function Bio(props) {
         <Image
         fallbackSrc={preCachedHeadshot}
         src={headerImageURL}
+        maxW='500px'
         objectFit='scale-down'
         borderRadius='50%'
         />
