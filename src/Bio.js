@@ -48,9 +48,7 @@ function Bio(props) {
         <Image
         fallbackSrc={preCachedHeadshot}
         src={headerImageURL}
-        // objectFit='scale-down'
-        w='600px'
-        h='600px'
+        objectFit='scale-down'
         borderRadius='50%'
         />
       </Center>
