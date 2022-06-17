@@ -56,7 +56,7 @@ function Post(props) {
     </Center>
     <Box w="100%" h='2vw' />
       <Center
-      w={isMobile ? '90%' : '600px'}>
+      >
         <Image
         fallbackSrc={preCachedThumbnail}
         src={headerImageURL}

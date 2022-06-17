@@ -16,13 +16,17 @@ const theme = extendTheme({
       500: '#BEDCFE'
     },
   },
-
   components: {
     Progress: {
       bg: '#003D52',
       transitionDuration: "fast",
     }
   },
+  fonts: {
+    heading: `"Yantramanav"`,
+    body: `'Raleway', sans-serif`,
+  },
+
 })
 
 export default theme

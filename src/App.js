@@ -10,6 +10,8 @@ import { getDocuments,
 
 import theme from './config/theme'
 
+import "@fontsource/yantramanav";
+
 import TopBar from './TopBar'
 
 import BottomParts  from './BottomParts'
