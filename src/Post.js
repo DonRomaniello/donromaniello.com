@@ -17,7 +17,6 @@ function Post(props) {
 
   const { name } = useParams();
 
-
   const { isMobile,
           posts,
           preCachedThumbnail } = props;
@@ -58,6 +57,7 @@ function Post(props) {
       <Center
       >
         <Image
+        h={isMobile ? null : '500px' }
         fallbackSrc={preCachedThumbnail}
         src={headerImageURL}
         objectFit='scale-down'

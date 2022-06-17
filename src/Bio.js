@@ -32,8 +32,6 @@ function Bio(props) {
       getDocuments('bio', setPost)
   }, [])
 
-
-
   return (
     <>
     <Center
