@@ -39,8 +39,11 @@ function Home () {
       </Box>
       <Spacer />
         <UnorderedList>
-        <ListItem>
+          <ListItem>
             Lazy load components; track speed improvements
+          </ListItem>
+          <ListItem>
+            Move CSS from components to CSS file.
           </ListItem>
           <ListItem>
             Add accessibility info for reader
