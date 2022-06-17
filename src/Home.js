@@ -66,7 +66,7 @@ function Home () {
             LinkedIn
           </Button>
         </Link>
-        <Link href="mailto:someone@yoursite.com" isExternal>
+        <Link href="mailto:don.romaniello+website@gmail.com" isExternal>
           <Button>
             Email
           </Button>
