@@ -39,14 +39,8 @@ function Home () {
       </Box>
       <Spacer />
         <UnorderedList>
-          <ListItem>
-            Fix text alignment in blog
-          </ListItem>
-          <ListItem>
-            Eliminate reflows
-          </ListItem>
-          <ListItem>
-            Add catchall for links to allow CTRL-V navigation
+        <ListItem>
+            Lazy load components; track speed improvements
           </ListItem>
           <ListItem>
             Add accessibility info for reader
@@ -67,6 +61,11 @@ function Home () {
         <Link href='https://www.linkedin.com/in/don-romaniello/' isExternal>
           <Button>
             LinkedIn
+          </Button>
+        </Link>
+        <Link href="mailto:someone@yoursite.com" isExternal>
+          <Button>
+            Email
           </Button>
         </Link>
         <Spacer />

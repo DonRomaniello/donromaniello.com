@@ -16,7 +16,8 @@ import Post from './Post'
 function BottomBar(props) {
 
 
-  const { navverMinDimension,
+  const { isMobile,
+          navverMinDimension,
           posts,
           preCachedHeadshot,
           preCachedThumbnails }  = props;
@@ -29,6 +30,7 @@ function BottomBar(props) {
             >
             <Box
             padding={navverMinDimension}
+            w={isMobile ? '90%' : '600px'}
             >
             <Routes>
               <Route
@@ -52,6 +54,7 @@ function BottomBar(props) {
               <Route
               path="/blog/:name"
               element={<Post
+                        isMobile={isMobile}
                         posts={posts}
                         preCachedThumbnails={preCachedThumbnails}
               />

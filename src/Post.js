@@ -55,7 +55,8 @@ function Post(props) {
       <Heading>{post.title}</Heading>
     </Center>
     <Box w="100%" h='2vw' />
-      <Center w='600px'>
+      <Center
+      w={isMobile ? '90%' : '600px'}>
         <Image
         fallbackSrc={preCachedThumbnail}
         src={headerImageURL}
@@ -65,15 +66,14 @@ function Post(props) {
       </Center>
     <Box w="100%" h='3vw' />
     <Center>
-    <Box
-    maxWidth={isMobile ? '90%' : '600px'}
-    >
+    <Box>
     {post.content.map((paragraph) => {
       return (
-        <Text key={paragraph.slice(0, 32)}>
+        <Text
+        mt='20px'
+        key={paragraph.slice(0, 32)}>
           {paragraph}
-          <br />
-          <br />
+          {console.log("Is mobile", isMobile)}
         </Text>
       )
     })}
