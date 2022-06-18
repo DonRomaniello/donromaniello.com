@@ -34,7 +34,7 @@ function App() {
     getImage('donromaniello',
              'bio/images/small/',
              setPreCachedHeadshot)
-  }, [])
+  }, [posts, preCachedHeadshot])
 
 
   return (
