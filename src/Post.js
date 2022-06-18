@@ -73,7 +73,6 @@ function Post(props) {
         mt='20px'
         key={paragraph.slice(0, 32)}>
           {paragraph}
-          {console.log("Is mobile", isMobile)}
         </Text>
       )
     })}

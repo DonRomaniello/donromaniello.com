@@ -34,7 +34,9 @@ function App() {
     getImage('donromaniello',
              'bio/images/small/',
              setPreCachedHeadshot)
-  }, [posts, preCachedHeadshot])
+
+    console.log("effect is running...")
+  }, [])
 
 
   return (

@@ -8,9 +8,6 @@ const getImages = async (directory, setFunction) => {
 
     listAll(ref(getStorage(), `${directory}`))
     .then((res) => {
-
-      // console.log(res.items[0].name)
-
       res.items.forEach((itemRef) => {
         getBlob(itemRef)
         .then((blob) => {
