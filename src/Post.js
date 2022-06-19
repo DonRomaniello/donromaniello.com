@@ -32,6 +32,19 @@ function Post(props) {
   const [headerThumbnail, setHeaderThumbnail] = useState('/logo.svg');
 
   useEffect(() => {
+    let thumbnailFilename = name.toLowerCase().split(' ').join('_')
+    if (preCachedThumbnails){
+      setHeaderThumbnail(preCachedThumbnails[thumbnailFilename + '.webp'])
+    } else {
+      getImage(name, '/blog/images/small', setHeaderThumbnail)
+    }
+  }, [name, post])
+
+  useEffect(() => {
+    getImage(name, '/blog/images/full', setHeaderImageURL)
+  }, [name, post])
+
+  useEffect(() => {
     if (posts.length){
       posts.forEach((item) => {
         if (item.title === name){
@@ -40,24 +53,6 @@ function Post(props) {
       })
     }
   }, [name, posts])
-
-  useEffect(() => {
-
-    if (post.title) {
-      let thumbnailFilename = post.title.toLowerCase().split(' ').join('_')
-      if (preCachedThumbnails){
-        setHeaderThumbnail(preCachedThumbnails[thumbnailFilename + '.webp'])
-      } else {
-        getImage(thumbnailFilename, '/blog/images/small', setHeaderThumbnail)
-      }
-    }
-    }, [post])
-
-  useEffect(() => {
-    if (post.title) {
-      getImage(post.title, '/blog/images/full', setHeaderImageURL)
-    }
-  }, [post])
 
   return (
     <>
