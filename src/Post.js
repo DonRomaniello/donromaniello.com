@@ -19,7 +19,7 @@ function Post(props) {
 
   const { isMobile,
           posts,
-          preCachedThumbnail } = props;
+          preCachedThumbnails } = props;
 
   const [post, setPost] = useState({
     title: '',
@@ -29,6 +29,8 @@ function Post(props) {
 
   const [headerImageURL, setHeaderImageURL] = useState('');
 
+  const [headerThumbnail, setHeaderThumbnail] = useState('/logo.svg');
+
   useEffect(() => {
     if (posts.length){
       posts.forEach((item) => {
@@ -36,9 +38,20 @@ function Post(props) {
           setPost(item)
         }
       })
-
     }
   }, [name, posts])
+
+  useEffect(() => {
+
+    if (post.title) {
+      let thumbnailFilename = post.title.toLowerCase().split(' ').join('_')
+      if (preCachedThumbnails){
+        setHeaderThumbnail(preCachedThumbnails[thumbnailFilename + '.webp'])
+      } else {
+        getImage(thumbnailFilename, '/blog/images/small', setHeaderThumbnail)
+      }
+    }
+    }, [post])
 
   useEffect(() => {
     if (post.title) {
@@ -62,7 +75,7 @@ function Post(props) {
           openDelay={600}>
           <Image
           h={isMobile ? null : '500px' }
-          fallbackSrc={preCachedThumbnail}
+          fallbackSrc={headerThumbnail}
           src={headerImageURL}
           objectFit='scale-down'
           borderRadius='1%'

@@ -15,6 +15,7 @@ function TopBar(props) {
   const { isMobile,
           navverMinDimension,
           posts,
+          preCachedThumbnails,
           setPreCachedHeadshot,
           setPreCachedThumbnails }  = props;
 
@@ -48,6 +49,7 @@ function TopBar(props) {
               isOpen={isOpen}
               navverMinDimension={navverMinDimension}
               posts={posts}
+              preCachedThumbnails={preCachedThumbnails}
               setPreCachedThumbnails={setPreCachedThumbnails}
               setPreCachedHeadshot={setPreCachedHeadshot}
             />

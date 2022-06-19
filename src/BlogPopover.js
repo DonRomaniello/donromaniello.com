@@ -19,8 +19,8 @@ import NavLinks from './NavLinks';
 function BlogPopover(props) {
 
   const { posts,
+          preCachedThumbnails,
           setPreCachedThumbnails } = props;
-
 
   return (
     <>
@@ -45,6 +45,7 @@ function BlogPopover(props) {
                   <NavLinks
                   id={idx}
                   post={post}
+                  preCachedThumbnails={preCachedThumbnails}
                   directory='blog'/>
                   </PopoverBody>)
             }) : ''}
