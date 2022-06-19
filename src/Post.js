@@ -7,8 +7,8 @@ import {
   Center,
   Heading,
   Image,
-  Skeleton,
   Text,
+  Tooltip
 } from '@chakra-ui/react'
 
 import getImage from './modules/getImage';
@@ -56,13 +56,18 @@ function Post(props) {
     <Box w="100%" h='2vw' />
       <Center
       >
-        <Image
-        h={isMobile ? null : '500px' }
-        fallbackSrc={preCachedThumbnail}
-        src={headerImageURL}
-        objectFit='scale-down'
-        borderRadius='1%'
-        />
+        <Tooltip
+          label={post.imageAttribution}
+          placement='bottom'
+          openDelay={600}>
+          <Image
+          h={isMobile ? null : '500px' }
+          fallbackSrc={preCachedThumbnail}
+          src={headerImageURL}
+          objectFit='scale-down'
+          borderRadius='1%'
+          />
+        </Tooltip>
       </Center>
     <Box w="100%" h='3vw' />
     <Center>

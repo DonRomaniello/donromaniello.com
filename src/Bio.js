@@ -5,8 +5,8 @@ import {
   Center,
   Heading,
   Image,
-  Skeleton,
   Text,
+  Tooltip
 } from '@chakra-ui/react'
 
 import { getImage } from './modules/index.js';
