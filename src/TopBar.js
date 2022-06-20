@@ -54,9 +54,7 @@ function TopBar(props) {
               setPreCachedHeadshot={setPreCachedHeadshot}
             />
           </Box>
-          {isOpen ?
-              null :
-              <Flex
+            <Flex
               shadow='md'
               w='100vw'
               alignItems='center'
@@ -69,7 +67,7 @@ function TopBar(props) {
              >
                The Website of Don Romaniello
              </Heading>
-           </Flex>}
+           </Flex>
       </Flex>
       </>
   )
