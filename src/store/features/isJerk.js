@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = true
+const initialState = {
+  isJerk: true
+}
 
 export const isJerk = createSlice({
   name: 'isJerk',
@@ -8,16 +10,19 @@ export const isJerk = createSlice({
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     trueJerk: (state) => {
-      state = true;
+      state.isJerk = true;
     },
     falseJerk: (state) => {
-      state = false;
+      state.isJerk = false;
     },
+    toggleJerk: (state) => {
+      state.isJerk = !state.isJerk;
+    }
   }
 });
 
-export const { trueJerk, falseJerk } = isJerk.actions;
+export const { trueJerk, falseJerk, toggleJerk } = isJerk.actions;
 
-export const selectJerk = (state) => state;
+export const selectJerk = (state) => state.isJerk;
 
 export default isJerk.reducer;

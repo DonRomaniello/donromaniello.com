@@ -1,9 +1,5 @@
 import React, {useState, useEffect} from 'react';
 
-import { Provider } from 'react-redux';
-
-import { store } from './store/index.js';
-
 import {
   ChakraProvider,
   useMediaQuery
@@ -42,23 +38,21 @@ function App() {
 
 
   return (
-    <Provider store={store}>
-      <ChakraProvider theme={theme}>
-          <TopBar
+    <ChakraProvider theme={theme}>
+        <TopBar
           isMobile={isMobile}
           navverMinDimension={navverMinDimension}
           posts={posts}
           setPreCachedThumbnails={setPreCachedThumbnails}
-          />
-          <BottomParts
+        />
+        <BottomParts
           isMobile={isMobile}
           navverMinDimension={navverMinDimension}
           posts={posts}
           preCachedHeadshot={preCachedHeadshot}
           preCachedThumbnails={preCachedThumbnails}
-          />
-      </ChakraProvider>
-    </Provider>
+        />
+    </ChakraProvider>
   );
 }
 
