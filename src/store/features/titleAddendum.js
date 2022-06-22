@@ -7,7 +7,6 @@ const initialState = {
 export const titleAddendum = createSlice({
   name: 'titleAddendum',
   initialState,
-  // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     setTitleAddendum: (state, action) => {
       state.addendum = action.payload

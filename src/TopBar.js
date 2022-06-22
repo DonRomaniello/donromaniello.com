@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import {
   selectTitleAddendum,
- setTitleAddendum,
+  setTitleAddendum,
 } from './store/features/titleAddendum'
 
 import {
@@ -24,7 +24,8 @@ function TopBar(props) {
 
   const dispatch = useDispatch();
 
-  const { isMobile,
+  const {
+
           navverMinDimension,
           posts,
           preCachedThumbnails,
@@ -57,7 +58,7 @@ function TopBar(props) {
             align='flex-start'
             >
             <ProgressHamburger
-              isMobile={isMobile}
+              // isMobile={isMobile}
               isOpen={isOpen}
               navverMinDimension={navverMinDimension}
               posts={posts}
@@ -75,7 +76,7 @@ function TopBar(props) {
              paddingLeft='1vw'
              maxH='62%'
              transition="font-size .2s"
-             fontSize={isMobile ? '1em' : '2em'}
+            //  fontSize={isMobile ? '1em' : '2em'}
              onClick={() => dispatch(setTitleAddendum('see?'))}
              >
               <span>The Website of Don Romaniello</span>

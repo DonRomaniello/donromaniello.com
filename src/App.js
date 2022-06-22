@@ -1,5 +1,12 @@
 import React, {useState, useEffect} from 'react';
 
+import { useSelector, useDispatch } from 'react-redux';
+
+import {
+  selectIsMobile,
+  setIsMobile,
+} from './store/features/isMobile'
+
 import {
   ChakraProvider,
   useMediaQuery
@@ -18,15 +25,32 @@ import BottomParts  from './BottomParts'
 
 function App() {
 
-  const [isMobile] = useMediaQuery("(max-width: 768px)")
 
-  const navverMinDimension = (isMobile ? '50px' : '100px')
+  const mobileStatus = useMediaQuery("(max-width: 768px)")?.[0]
+
+  const isMobile = useSelector(selectIsMobile);
+
+  // const navverMinDimension = (isMobile ? '50px' : '100px')
+  const navverMinDimension = '100px'
+
+  const dispatch = useDispatch();
 
   const [posts, setPosts] = useState([]);
 
   const [preCachedThumbnails, setPreCachedThumbnails] = useState({});
 
   const [preCachedHeadshot, setPreCachedHeadshot] = useState();
+
+  useEffect(() => {
+
+    console.log("DISPATCHED!")
+    console.log(mobileStatus)
+
+    window.addEventListener('resize',
+    dispatch(setIsMobile(mobileStatus)))
+  }, [mobileStatus])
+
+
 
   useEffect(() => {
     getDocuments('blog',
@@ -40,13 +64,13 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
         <TopBar
-          isMobile={isMobile}
+          // isMobile={isMobile}
           navverMinDimension={navverMinDimension}
           posts={posts}
           setPreCachedThumbnails={setPreCachedThumbnails}
         />
         <BottomParts
-          isMobile={isMobile}
+          // isMobile={isMobile}
           navverMinDimension={navverMinDimension}
           posts={posts}
           preCachedHeadshot={preCachedHeadshot}
