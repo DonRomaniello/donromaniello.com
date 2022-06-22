@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import {
   selectIsMobile,
@@ -8,7 +8,6 @@ import {
 
 import {
   selectTitleAddendum,
-  setTitleAddendum,
 } from './store/features/titleAddendum'
 
 import {
@@ -28,8 +27,6 @@ function TopBar(props) {
   const isMobile = useSelector(selectIsMobile);
 
   const navverMinDimension = (isMobile ? '50px' : '100px')
-
-  const dispatch = useDispatch();
 
   const { posts,
           preCachedThumbnails,
@@ -78,11 +75,10 @@ function TopBar(props) {
              paddingLeft='1vw'
              maxH='62%'
              transition="font-size .2s"
-            //  fontSize={isMobile ? '1em' : '2em'}
-             onClick={() => dispatch(setTitleAddendum('see?'))}
+             fontSize={isMobile ? '1em' : '2em'}
              >
               <span>The Website of Don Romaniello</span>
-              <span>{titleAddendum}</span>
+              {/* <span>{titleAddendum}</span> */}
              </Heading>
            </Flex>
       </Flex>
