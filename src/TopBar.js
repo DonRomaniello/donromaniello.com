@@ -3,6 +3,10 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import {
+  selectIsMobile,
+} from './store/features/isMobile'
+
+import {
   selectTitleAddendum,
   setTitleAddendum,
 } from './store/features/titleAddendum'
@@ -17,17 +21,17 @@ import {
 
 import ProgressHamburger from './ProgressHamburger';
 
-
 function TopBar(props) {
 
   const titleAddendum = useSelector(selectTitleAddendum);
 
+  const isMobile = useSelector(selectIsMobile);
+
+  const navverMinDimension = (isMobile ? '50px' : '100px')
+
   const dispatch = useDispatch();
 
-  const {
-
-          navverMinDimension,
-          posts,
+  const { posts,
           preCachedThumbnails,
           setPreCachedHeadshot,
           setPreCachedThumbnails }  = props;
@@ -58,9 +62,7 @@ function TopBar(props) {
             align='flex-start'
             >
             <ProgressHamburger
-              // isMobile={isMobile}
               isOpen={isOpen}
-              navverMinDimension={navverMinDimension}
               posts={posts}
               preCachedThumbnails={preCachedThumbnails}
               setPreCachedThumbnails={setPreCachedThumbnails}

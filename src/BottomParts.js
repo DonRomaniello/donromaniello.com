@@ -2,6 +2,12 @@ import React from 'react';
 
 import { Routes, Route } from 'react-router-dom';
 
+import { useSelector } from 'react-redux';
+
+import {
+  selectIsMobile,
+} from './store/features/isMobile'
+
 import {
   Box,
   Flex,
@@ -15,10 +21,11 @@ import Post from './Post'
 
 function BottomBar(props) {
 
+  const isMobile = useSelector(selectIsMobile);
 
-  const { isMobile,
-          navverMinDimension,
-          posts,
+  const navverMinDimension = (isMobile ? '50px' : '100px')
+
+  const { posts,
           preCachedHeadshot,
           preCachedThumbnails }  = props;
 
@@ -36,25 +43,22 @@ function BottomBar(props) {
               <Route
               exact path="/"
               element={<Home
-                        navverMinDimension={navverMinDimension}
               />} />
               <Route
               exact path="/bio"
               element={<Bio
-                        navverMinDimension={navverMinDimension}
                         preCachedHeadshot={preCachedHeadshot} />} />
               <Route
               exact path="/blog"
               element={<Home
-                        navverMinDimension={navverMinDimension} />} />
+                         />} />
               <Route
               exact path="/projects"
               element={<Home
-                        navverMinDimension={navverMinDimension} />} />
+                         />} />
               <Route
               path="/blog/:name"
               element={<Post
-                        isMobile={isMobile}
                         posts={posts}
                         preCachedThumbnails={preCachedThumbnails}
               />

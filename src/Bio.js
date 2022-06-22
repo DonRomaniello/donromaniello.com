@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
+import { useSelector } from 'react-redux';
+
+import {
+  selectIsMobile,
+} from './store/features/isMobile'
+
 import {
   Box,
   Center,
@@ -13,10 +19,12 @@ import { getImage } from './modules/index.js';
 
 import getDocuments from './modules/getDocuments';
 
+
 function Bio(props) {
 
-  const { isMobile,
-          preCachedHeadshot } = props;
+  const isMobile = useSelector(selectIsMobile);
+
+  const { preCachedHeadshot } = props;
 
   const [headerImageURL, setHeaderImageURL] = useState('');
 

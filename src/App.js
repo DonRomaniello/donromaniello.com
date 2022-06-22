@@ -25,13 +25,12 @@ import BottomParts  from './BottomParts'
 
 function App() {
 
-
+  // This listens for updates to the window size
   const mobileStatus = useMediaQuery("(max-width: 768px)")?.[0]
 
   const isMobile = useSelector(selectIsMobile);
 
-  // const navverMinDimension = (isMobile ? '50px' : '100px')
-  const navverMinDimension = '100px'
+  const navverMinDimension = (isMobile ? '50px' : '100px')
 
   const dispatch = useDispatch();
 
@@ -43,13 +42,11 @@ function App() {
 
   useEffect(() => {
 
-    console.log("DISPATCHED!")
-    console.log(mobileStatus)
+    // This updates the 'isMobile' status based on the media query
 
-    window.addEventListener('resize',
-    dispatch(setIsMobile(mobileStatus)))
+    dispatch(setIsMobile(mobileStatus))
+
   }, [mobileStatus])
-
 
 
   useEffect(() => {
@@ -64,14 +61,10 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
         <TopBar
-          // isMobile={isMobile}
-          navverMinDimension={navverMinDimension}
           posts={posts}
           setPreCachedThumbnails={setPreCachedThumbnails}
         />
         <BottomParts
-          // isMobile={isMobile}
-          navverMinDimension={navverMinDimension}
           posts={posts}
           preCachedHeadshot={preCachedHeadshot}
           preCachedThumbnails={preCachedThumbnails}

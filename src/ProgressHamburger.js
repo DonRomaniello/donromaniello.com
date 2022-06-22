@@ -1,5 +1,10 @@
 import React, {useState, useEffect} from 'react';
 
+import { useSelector, useDispatch } from 'react-redux';
+
+import {
+  selectIsMobile,
+} from './store/features/isMobile'
 
 import {
   Box,
@@ -17,11 +22,11 @@ const BlogPopover = React.lazy(() => import('./BlogPopover'))
 
 function ProgressHamburger(props) {
 
-  const { isMobile,
-          isOpen,
+  const { isOpen,
           posts,
           setPreCachedThumbnails } = props;
 
+  const isMobile = useSelector(selectIsMobile);
 
   let barHeight = isMobile ? '6px' : '14px'
 
