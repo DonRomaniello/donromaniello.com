@@ -1,5 +1,16 @@
 import React from 'react';
 
+import { useSelector, useDispatch } from 'react-redux';
+
+import {
+  selectIsMobile,
+} from './store/features/isMobile'
+
+import {
+  selectTitleAddendum,
+  setTitleAddendum,
+} from './store/features/titleAddendum'
+
 import {
   Box,
   Flex,
@@ -12,9 +23,15 @@ import ProgressHamburger from './ProgressHamburger';
 
 function TopBar(props) {
 
-  const { isMobile,
-          navverMinDimension,
-          posts,
+  const titleAddendum = useSelector(selectTitleAddendum);
+
+  const isMobile = useSelector(selectIsMobile);
+
+  const navverMinDimension = (isMobile ? '50px' : '100px')
+
+  const dispatch = useDispatch();
+
+  const { posts,
           preCachedThumbnails,
           setPreCachedHeadshot,
           setPreCachedThumbnails }  = props;
@@ -45,9 +62,7 @@ function TopBar(props) {
             align='flex-start'
             >
             <ProgressHamburger
-              isMobile={isMobile}
               isOpen={isOpen}
-              navverMinDimension={navverMinDimension}
               posts={posts}
               preCachedThumbnails={preCachedThumbnails}
               setPreCachedThumbnails={setPreCachedThumbnails}
@@ -63,9 +78,11 @@ function TopBar(props) {
              paddingLeft='1vw'
              maxH='62%'
              transition="font-size .2s"
-             fontSize={isMobile ? '1em' : '2em'}
+            //  fontSize={isMobile ? '1em' : '2em'}
+             onClick={() => dispatch(setTitleAddendum('see?'))}
              >
-               The Website of Don Romaniello
+              <span>The Website of Don Romaniello</span>
+              <span>{titleAddendum}</span>
              </Heading>
            </Flex>
       </Flex>

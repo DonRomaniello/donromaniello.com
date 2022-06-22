@@ -2,6 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 import { useParams } from 'react-router';
 
+import { useSelector } from 'react-redux';
+
+import {
+  selectIsMobile,
+} from './store/features/isMobile'
+
 import {
   Box,
   Center,
@@ -17,8 +23,9 @@ function Post(props) {
 
   const { name } = useParams();
 
-  const { isMobile,
-          posts,
+  const isMobile = useSelector(selectIsMobile);
+
+  const { posts,
           preCachedThumbnails } = props;
 
   const [post, setPost] = useState({
