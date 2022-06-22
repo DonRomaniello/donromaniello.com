@@ -3,11 +3,9 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import {
- trueJerk,
- falseJerk,
- toggleJerk,
- selectJerk
-} from './store/features/isJerk'
+  selectTitleAddendum,
+ setTitleAddendum,
+} from './store/features/titleAddendum'
 
 import {
   Box,
@@ -22,7 +20,7 @@ import ProgressHamburger from './ProgressHamburger';
 
 function TopBar(props) {
 
-  const jerk = useSelector(selectJerk);
+  const titleAddendum = useSelector(selectTitleAddendum);
 
   const dispatch = useDispatch();
 
@@ -37,8 +35,6 @@ function TopBar(props) {
 
   const headerBg = useColorModeValue('rgba(255, 255, 255, .9)',
                                      'rgba(26, 32, 44, .9)')
-
-    console.log("Jerk?", jerk)
 
   return (
     <>
@@ -80,9 +76,10 @@ function TopBar(props) {
              maxH='62%'
              transition="font-size .2s"
              fontSize={isMobile ? '1em' : '2em'}
-             onClick={() => dispatch(toggleJerk())}
+             onClick={() => dispatch(setTitleAddendum('see?'))}
              >
-               {jerk.isJerk ? 'The Website of Don Romaniello' : "critical error: you broke it"}
+              <span>The Website of Don Romaniello</span>
+              <span>{titleAddendum}</span>
              </Heading>
            </Flex>
       </Flex>
