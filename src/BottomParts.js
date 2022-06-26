@@ -19,6 +19,8 @@ import Home from './Home'
 
 import Post from './Post'
 
+import Projects from './Projects';
+
 function BottomBar(props) {
 
   const isMobile = useSelector(selectIsMobile);
@@ -54,7 +56,7 @@ function BottomBar(props) {
                          />} />
               <Route
               exact path="/projects"
-              element={<Home
+              element={<Projects
                          />} />
               <Route
               path="/blog/:name"

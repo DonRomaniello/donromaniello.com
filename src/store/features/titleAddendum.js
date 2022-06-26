@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  addendum: ''
+  addendum: 'dummy'
 }
 
 export const titleAddendum = createSlice({

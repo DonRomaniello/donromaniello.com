@@ -3,7 +3,6 @@ import React, {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import {
-  selectIsMobile,
   setIsMobile,
 } from './store/features/isMobile'
 
@@ -27,10 +26,6 @@ function App() {
 
   // This listens for updates to the window size
   const mobileStatus = useMediaQuery("(max-width: 768px)")?.[0]
-
-  const isMobile = useSelector(selectIsMobile);
-
-  const navverMinDimension = (isMobile ? '50px' : '100px')
 
   const dispatch = useDispatch();
 

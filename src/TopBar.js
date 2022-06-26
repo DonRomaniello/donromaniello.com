@@ -10,6 +10,9 @@ import {
   selectTitleAddendum,
 } from './store/features/titleAddendum'
 
+import { selectScrolledPastHeader,
+ } from './store/features/scrolledPastHeader';
+
 import {
   Box,
   Flex,
@@ -23,6 +26,8 @@ import ProgressHamburger from './ProgressHamburger';
 function TopBar(props) {
 
   const titleAddendum = useSelector(selectTitleAddendum);
+
+  const scrolledPastHeader = useSelector(selectScrolledPastHeader);
 
   const isMobile = useSelector(selectIsMobile);
 
@@ -77,8 +82,11 @@ function TopBar(props) {
              transition="font-size .2s"
              fontSize={isMobile ? '1em' : '2em'}
              >
-              <span>The Website of Don Romaniello</span>
-              {/* <span>{titleAddendum}</span> */}
+              <span>
+                {scrolledPastHeader
+                  ? titleAddendum
+                  : 'The Website of Don Romaniello'}
+                </span>
              </Heading>
            </Flex>
       </Flex>

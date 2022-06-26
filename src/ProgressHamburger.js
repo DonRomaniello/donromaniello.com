@@ -7,6 +7,10 @@ import {
 } from './store/features/isMobile'
 
 import {
+  setScrolledPastHeader,
+} from './store/features/scrolledPastHeader'
+
+import {
   Box,
   Center,
   Flex,
@@ -26,7 +30,11 @@ function ProgressHamburger(props) {
           posts,
           setPreCachedThumbnails } = props;
 
+  const dispatch = useDispatch();
+
   const isMobile = useSelector(selectIsMobile);
+
+  const navverMinDimension = (isMobile ? 50 : 100)
 
   let barHeight = isMobile ? '6px' : '14px'
 
@@ -45,6 +53,12 @@ function ProgressHamburger(props) {
 
     setScrollPercentage(scrollAmount)
 
+    if (scrollY > navverMinDimension) {
+      dispatch(setScrolledPastHeader(true))
+    } else if (scrollY < navverMinDimension) {
+      dispatch(setScrolledPastHeader(false))
+    }
+
   }, [scrollY])
 
   const scrollBar = (idx) => {
@@ -58,7 +72,7 @@ function ProgressHamburger(props) {
   const linkList = [
     <Link
     to='bio'
-    > Bio </Link>,
+    > Bio</Link>,
     <React.Suspense fallback={<Skeleton />}>
       <div>
         <BlogPopover
@@ -67,7 +81,9 @@ function ProgressHamburger(props) {
         />
       </div>
     </React.Suspense>,
-    'Projects']
+    <Link
+    to='projects'
+    > Projects</Link>,]
 
   return (
     <>
