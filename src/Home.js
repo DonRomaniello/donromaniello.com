@@ -40,10 +40,13 @@ function Home () {
       <Spacer />
         <UnorderedList>
           <ListItem>
-            Lazy load components; track speed improvements
+            Fill out Projects page.
           </ListItem>
           <ListItem>
-            Move CSS from components to CSS file.
+            Work on Redux store hooks for page changes.
+          </ListItem>
+          <ListItem>
+            Move CSS off components.
           </ListItem>
           <ListItem>
             Add accessibility info for reader
@@ -74,7 +77,6 @@ function Home () {
         <Spacer />
       <ColorModeSwitcher />
       </Flex>
-
     </Flex>
   )
 }
