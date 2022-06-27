@@ -92,6 +92,7 @@ function ProgressHamburger(props) {
     h='100%'
     direction={isOpen ? 'row' : 'column'}
     align='center'
+    _hover={{filter:'invert(3%)'}}
     >
         <Box
         h={barHeight}
