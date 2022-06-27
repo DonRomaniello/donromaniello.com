@@ -79,14 +79,22 @@ function TopBar(props) {
              <Heading
              paddingLeft='1vw'
              maxH='62%'
-             transition="font-size .2s"
+             transition="font-size .2s, opacity .2s, filter .05s"
+             opacity={scrolledPastHeader ? '100' : '0'}
+             filter={scrolledPastHeader ? 'blur(0px)' : 'blur(100px)'}
              fontSize={isMobile ? '1em' : '2em'}
-             >
-              <span>
-                {scrolledPastHeader
-                  ? titleAddendum
-                  : 'The Website of Don Romaniello'}
-                </span>
+             position='absolute'
+             >{titleAddendum}
+             </Heading>
+             <Heading
+             paddingLeft='1vw'
+             maxH='62%'
+             transition="font-size .2s, opacity .2s, filter .05s"
+             opacity={scrolledPastHeader ? '0' : '100'}
+             filter={scrolledPastHeader ? 'blur(100px)' : 'blur(0px)'}
+             fontSize={isMobile ? '1em' : '2em'}
+             position='absolute'
+            >The Website of Don Romaniello
              </Heading>
            </Flex>
       </Flex>
