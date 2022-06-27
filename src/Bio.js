@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import {
   selectIsMobile,
 } from './store/features/isMobile'
+
+import {
+  setTitleAddendum,
+} from './store/features/titleAddendum'
 
 import {
   Box,
@@ -22,6 +26,8 @@ import getDocuments from './modules/getDocuments';
 
 function Bio(props) {
 
+  const dispatch = useDispatch();
+
   const isMobile = useSelector(selectIsMobile);
 
   const { preCachedHeadshot } = props;
@@ -34,6 +40,10 @@ function Bio(props) {
       content: []
     }
   ])
+
+  useEffect(() => {
+    dispatch(setTitleAddendum("Bio"))
+  }, [])
 
   useEffect(() => {
       getImage('donromaniello', '/bio/images/full', setHeaderImageURL)

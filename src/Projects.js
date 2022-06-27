@@ -23,7 +23,7 @@ function Projects () {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setTitleAddendum('Projects'))
+    dispatch(setTitleAddendum("Projects"))
   }, [])
 
   let punchList = [];

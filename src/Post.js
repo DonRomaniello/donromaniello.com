@@ -2,11 +2,15 @@ import React, { useState, useEffect } from 'react';
 
 import { useParams } from 'react-router';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import {
   selectIsMobile,
 } from './store/features/isMobile'
+
+import {
+  setTitleAddendum,
+} from './store/features/titleAddendum'
 
 import {
   Box,
@@ -33,6 +37,12 @@ function Post(props) {
     imageAttribution: '',
     content: []
   })
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setTitleAddendum(name))
+  }, [name])
 
   const [headerImageURL, setHeaderImageURL] = useState('');
 

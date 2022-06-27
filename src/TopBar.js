@@ -25,6 +25,11 @@ import ProgressHamburger from './ProgressHamburger';
 
 function TopBar(props) {
 
+  const { posts,
+          preCachedThumbnails,
+          setPreCachedHeadshot,
+          setPreCachedThumbnails }  = props;
+
   const titleAddendum = useSelector(selectTitleAddendum);
 
   const scrolledPastHeader = useSelector(selectScrolledPastHeader);
@@ -32,11 +37,6 @@ function TopBar(props) {
   const isMobile = useSelector(selectIsMobile);
 
   const navverMinDimension = (isMobile ? '50px' : '100px')
-
-  const { posts,
-          preCachedThumbnails,
-          setPreCachedHeadshot,
-          setPreCachedThumbnails }  = props;
 
   const { isOpen, onToggle } = useDisclosure();
 
