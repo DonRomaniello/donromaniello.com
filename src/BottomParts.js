@@ -25,7 +25,7 @@ function BottomBar(props) {
 
   const isMobile = useSelector(selectIsMobile);
 
-  const navverMinDimension = (isMobile ? '50px' : '100px')
+  const navverMinDimension = (isMobile ? '50px' : '75px')
 
   const { posts,
           preCachedHeadshot,
