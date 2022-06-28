@@ -34,11 +34,11 @@ function ProgressHamburger(props) {
 
   const isMobile = useSelector(selectIsMobile);
 
-  const navverMinDimension = (isMobile ? 50 : 100)
+  const navverMinDimension = (isMobile ? 50 : 75)
 
-  let barHeight = isMobile ? '6px' : '14px'
+  let barHeight = isMobile ? '6px' : '10px'
 
-  let barWidth = isMobile ? '31px' : '62px'
+  let barWidth = isMobile ? '31px' : '46px'
 
   const [scrollPercentage, setScrollPercentage] = useState(0);
 
