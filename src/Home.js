@@ -40,6 +40,9 @@ function Home () {
       <Spacer />
         <UnorderedList>
           <ListItem>
+            Move database/storage calls to redux store.
+          </ListItem>
+          <ListItem>
             Fill out Projects page.
           </ListItem>
           <ListItem>
