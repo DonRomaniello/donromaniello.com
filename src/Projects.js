@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
   Box,
@@ -13,13 +13,30 @@ import {
   setTitleAddendum,
 } from './store/features/titleAddendum'
 
+
+import {
+  fetchProjects,
+  selectProjects,
+} from './store/features/projectList';
+
+
 function Projects () {
 
   const dispatch = useDispatch();
 
+  const projects = useSelector(selectProjects)
+
   useEffect(() => {
     dispatch(setTitleAddendum("Projects"))
+    dispatch(fetchProjects())
   }, [])
+
+
+  console.log("length of porject list", projects)
+
+
+
+
 
   return (
     <Flex

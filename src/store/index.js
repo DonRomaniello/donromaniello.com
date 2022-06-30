@@ -13,6 +13,6 @@ export const store = configureStore({
     isMobile: isMobileReducer,
     titleAddendum: titleAddendumReducer,
     scrolledPastHeader: scrolledPastHeaderReducer,
-    projectList: projectListReducer,
+    projects: projectListReducer,
   },
 });

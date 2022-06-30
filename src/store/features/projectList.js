@@ -1,21 +1,46 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+
+import { getDocumentsForStore } from '../helpers/getDocumentsForStore';
+
+
+// const getProjects = async () => {
+//   let projects = []
+//   const projectSnapshot = await getDocs(query(collection(db, 'projects')));
+//   projectSnapshot.forEach((doc) => {
+//     projects.push(doc.data())
+//   })
+//   return projects
+// }
+
+// First, create the thunk
+export const fetchProjects = createAsyncThunk(
+  'users/fetchProjectsStatus',
+  async () => {
+    const response = await getDocumentsForStore('projects');
+    return response
+  }
+)
 
 const initialState = {
-  projectList: []
+  projects: [],
+  loading: 'idle',
 }
 
-export const projectList = createSlice({
-  name: 'projectList',
+// Then, handle actions in your reducers:
+const projectsSlice = createSlice({
+  name: 'projects',
   initialState,
   reducers: {
-    setprojectList: (state, action) => {
-      state.projectList = action.payload
-    }
-  }
-});
+  },
+  extraReducers: (builder) => {
+    // Add reducers for additional action types here, and handle loading state as needed
+    builder.addCase(fetchProjects.fulfilled, (state, action) => {
+      // Add user to the state array
+      state.projects = action.payload
+    })
+  },
+})
 
-export const { setprojectList } = projectList.actions;
+export const selectProjects = (state) => state.projects.projects;
 
-export const selectprojectList = (state) => state.projectList.projectList;
-
-export default projectList.reducer;
+export default projectsSlice.reducer;
