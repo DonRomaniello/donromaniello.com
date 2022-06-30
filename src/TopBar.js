@@ -61,7 +61,7 @@ function TopBar(props) {
             transition="width .2s"
             shadow='md'
             onClick={onToggle}
-            align='flex-start'
+            // align='flex-start'
             >
             <ProgressHamburger
               isOpen={isOpen}
@@ -74,7 +74,7 @@ function TopBar(props) {
             <Flex
               shadow='md'
               w='100vw'
-              alignItems='center'
+              align='center'
               >
              <Heading
              paddingLeft='1vw'
@@ -93,7 +93,8 @@ function TopBar(props) {
              opacity={scrolledPastHeader ? '0' : '100'}
              filter={scrolledPastHeader ? 'blur(100px)' : 'blur(0px)'}
              fontSize={isMobile ? '1em' : '2em'}
-             position='absolute'
+            //  position='absolute'
+             alignItems='center'
             >The Website of Don Romaniello
              </Heading>
            </Flex>

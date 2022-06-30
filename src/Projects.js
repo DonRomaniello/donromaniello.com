@@ -6,7 +6,8 @@ import {
   Box,
   Flex,
   Heading,
-  Text
+  Text,
+  Wrap,
 } from '@chakra-ui/react';
 
 import {
@@ -34,26 +35,19 @@ function Projects () {
   }, [])
 
   return (
-    <Flex
-    h='max-content'
-    direction='column'
-    >
-      <Box>
-        <Heading>
-          Projects
-        </Heading>
-        <Text
-        mt='10px'
-        mb='10px'>
-          To be completed...
-        </Text>
-        </Box>
-        {projects.length ? projects.map((project) => {
-          return (
-          <ProjectCard project={project} key={project.title}/>
-          )
-        }) : ''}
-    </Flex>
+   <>
+    <Heading>
+      Projects
+    </Heading>
+    <Wrap
+    paddingBottom='1vw'>
+    {projects.length ? projects.map((project) => {
+      return (
+      <ProjectCard project={project} key={project.title}/>
+      )
+    }) : ''}
+    </Wrap>
+    </>
   )
 }
 
