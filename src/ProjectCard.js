@@ -11,11 +11,13 @@ import {
 
 function ProjectCard(props){
 
+  const {project} = props
 
   return (
 
+    <>
     <Heading>
-
+      {project.title}
     </Heading>
 
 
@@ -24,7 +26,7 @@ function ProjectCard(props){
     </Box>
 
 
-
+    </>
 
 
   )

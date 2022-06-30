@@ -19,6 +19,8 @@ import {
   selectProjects,
 } from './store/features/projectList';
 
+import ProjectCard from './ProjectCard';
+
 
 function Projects () {
 
@@ -30,13 +32,6 @@ function Projects () {
     dispatch(setTitleAddendum("Projects"))
     dispatch(fetchProjects())
   }, [])
-
-
-  console.log("length of porject list", projects)
-
-
-
-
 
   return (
     <Flex
@@ -53,6 +48,11 @@ function Projects () {
           To be completed...
         </Text>
         </Box>
+        {projects.length ? projects.map((project) => {
+          return (
+          <ProjectCard project={project} key={project.title}/>
+          )
+        }) : ''}
     </Flex>
   )
 }
