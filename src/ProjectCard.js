@@ -1,12 +1,17 @@
 import React, {useEffect} from 'react'
 
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+
+import {
+  selectIsMobile,
+} from './store/features/isMobile'
 
 import {
   Box,
-  Center,
+  Container,
   Heading,
-  Text,
+  useColorMode,
+  VStack,
   WrapItem,
 } from '@chakra-ui/react';
 
@@ -14,20 +19,43 @@ function ProjectCard(props){
 
   const {project} = props
 
+  const {colorMode} = useColorMode();
+
+  console.log(project.techStack)
+
+  const isMobile = useSelector(selectIsMobile);
+
+  const cardDimensions = isMobile ?  '80vw' : '40vw'
+
   return (
 
     <>
     <WrapItem>
-      <Center
-      w='33vw'
-      h='33vw'
+      <VStack
+      padding='2vw'
+      spacing='10vw'
+      w={cardDimensions}
+      h={cardDimensions}
       shadow='md'
       borderRadius='10px'
+      bg={colorMode === "dark" ? "darkBlue.700" : 'lightBlue.200'}
       _hover={{shadow:'lg'}}>
-      <Heading>
-        {project.title}
-      </Heading>
-      </Center>
+
+      <Box>
+        <Heading
+        fontSize={isMobile ? '1em' : '2em'}
+        >
+          {project.title}
+        </Heading>
+      </Box>
+
+      <Box>
+        <Container>
+          {project.shortDescription}
+        </Container>
+      </Box>
+
+      </VStack>
     </WrapItem>
     </>
 

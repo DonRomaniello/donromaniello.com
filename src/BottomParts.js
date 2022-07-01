@@ -25,7 +25,7 @@ function BottomBar(props) {
 
   const isMobile = useSelector(selectIsMobile);
 
-  const navverMinDimension = (isMobile ? '50px' : '75px')
+  const navverMinDimension = (isMobile ? '10vw' : '75px')
 
   const { posts,
           preCachedHeadshot,
@@ -36,10 +36,9 @@ function BottomBar(props) {
             <Flex
             mt='20px'
             flex='1'
+            padding={navverMinDimension}
             >
             <Box
-            padding={navverMinDimension}
-            maxW='90%'
             >
             <Routes>
               <Route

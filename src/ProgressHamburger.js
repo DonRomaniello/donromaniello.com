@@ -34,11 +34,11 @@ function ProgressHamburger(props) {
 
   const isMobile = useSelector(selectIsMobile);
 
-  const navverMinDimension = (isMobile ? 50 : 75)
+  const navverMinDimension = (isMobile ? '10vw' : 75)
 
-  let barHeight = isMobile ? '6px' : '10px'
+  let barHeight = isMobile ? '1vw' : '10px'
 
-  let barWidth = isMobile ? '31px' : '46px'
+  let barWidth = isMobile ? '6.5vw' : '46px'
 
   const [scrollPercentage, setScrollPercentage] = useState(0);
 
@@ -88,7 +88,7 @@ function ProgressHamburger(props) {
   return (
     <>
     <Flex
-    padding='7px'
+    padding={isMobile ? '2vw' : '7px'}
     h='100%'
     direction={isOpen ? 'row' : 'column'}
     align='center'

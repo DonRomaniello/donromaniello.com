@@ -3,8 +3,7 @@ import React, {useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
-  Box,
-  Flex,
+  Center,
   Heading,
   Text,
   Wrap,
@@ -36,9 +35,12 @@ function Projects () {
 
   return (
    <>
-    <Heading>
+    <Center>
+    <Heading
+    padding='2vw'>
       Projects
     </Heading>
+    </Center>
     <Wrap
     paddingBottom='1vw'>
     {projects.length ? projects.map((project) => {
