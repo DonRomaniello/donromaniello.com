@@ -44,9 +44,11 @@ function Projects () {
     <Wrap
     paddingBottom='1vw'>
     {projects.length ? projects.map((project) => {
-      return (
-      <ProjectCard project={project} key={project.title}/>
-      )
+      if (project.shown){
+        return (
+        <ProjectCard project={project} key={project.title}/>
+        )
+      }
     }) : ''}
     </Wrap>
     </>

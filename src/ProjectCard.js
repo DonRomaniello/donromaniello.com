@@ -38,7 +38,8 @@ function ProjectCard(props){
       h={cardDimensions}
       shadow='md'
       borderRadius='10px'
-      bg={colorMode === "dark" ? "darkBlue.700" : 'lightBlue.200'}
+      border='1px'
+      borderColor={colorMode === "dark" ? "darkBlue.700" : 'lightBlue.200'}
       _hover={{shadow:'lg'}}>
 
       <Box>
