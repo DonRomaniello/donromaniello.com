@@ -34,7 +34,7 @@ function ProgressHamburger(props) {
 
   const isMobile = useSelector(selectIsMobile);
 
-  const navverMinDimension = (isMobile ? '10vw' : 75)
+  const scrolledPastHeight = (isMobile ? (document.documentElement.clientWidth * .1) : 75)
 
   let barHeight = isMobile ? '1vw' : '10px'
 
@@ -53,9 +53,9 @@ function ProgressHamburger(props) {
 
     setScrollPercentage(scrollAmount)
 
-    if (scrollY > navverMinDimension) {
+    if (scrollY > scrolledPastHeight) {
       dispatch(setScrolledPastHeader(true))
-    } else if (scrollY < navverMinDimension) {
+    } else if (scrollY < scrolledPastHeight) {
       dispatch(setScrolledPastHeader(false))
     }
 

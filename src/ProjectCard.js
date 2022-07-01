@@ -21,7 +21,7 @@ function ProjectCard(props){
 
   const {colorMode} = useColorMode();
 
-  console.log(project.techStack)
+  // console.log(project.techStack)
 
   const isMobile = useSelector(selectIsMobile);
 
