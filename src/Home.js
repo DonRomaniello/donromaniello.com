@@ -67,7 +67,7 @@ function Home () {
             My GitHub
           </Button>
         </Link>
-        <Link href='https://www.linkedin.com/in/don-romaniello/' isExternal>
+        <Link href='https://www.linkedin.com/in/don-romanielloo/' isExternal>
           <Button>
             LinkedIn
           </Button>

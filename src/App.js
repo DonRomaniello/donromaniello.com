@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import {
   setIsMobile,
@@ -16,7 +16,7 @@ import { getDocuments,
 
 import theme from './config/theme'
 
-import "@fontsource/yantramanav";
+// import "@fontsource/yantramanav";
 
 import TopBar from './TopBar'
 

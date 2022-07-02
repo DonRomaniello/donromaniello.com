@@ -1,5 +1,7 @@
 import { extendTheme } from "@chakra-ui/react"
 
+import { StyleFunctionProps } from '@chakra-ui/theme-tools'
+
 const theme = extendTheme({
   initialColorMode: 'light',
   useSystemColorMode: false,
@@ -20,10 +22,28 @@ const theme = extendTheme({
     Progress: {
       bg: '#003D52',
       transitionDuration: "fast",
+    },
+    Button: {
+      defaultProps: {
+        size: 'lg',
+        variant: 'sm',
+        colorScheme: 'current',
+      },
+      baseStyle: (props: StyleFunctionProps) => ({
+        borderRadius: '0px',
+        borderRight: '1px',
+        borderBottom: '1px',
+        borderColor: props.colorMode === "dark" ? "darkBlue.700" : 'lightBlue.200',
+        transition:'border .2s',
+        _hover:{
+          borderBottom:'1px', borderRight:'1px'
+          }
+      }),
     }
   },
   fonts: {
-    heading: `"Yantramanav"`,
+    heading: `'Raleway', sans-serif`,
+    // heading: `"Yantramanav"`,
     body: `'Raleway', sans-serif`,
   },
 
