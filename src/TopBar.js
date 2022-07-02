@@ -17,6 +17,7 @@ import {
   Box,
   Flex,
   Heading,
+  useColorMode,
   useColorModeValue,
   useDisclosure
 } from '@chakra-ui/react';
@@ -40,6 +41,8 @@ function TopBar(props) {
 
   const { isOpen, onToggle } = useDisclosure();
 
+  const {colorMode} = useColorMode();
+
   const headerBg = useColorModeValue('rgba(255, 255, 255, .9)',
                                      'rgba(26, 32, 44, .9)')
 
@@ -59,9 +62,9 @@ function TopBar(props) {
           <Box
             w={isOpen ? '100vw' : navverMinDimension}
             transition="width .2s"
-            shadow='md'
+            borderBottom='1px'
+            borderColor={colorMode === "dark" ? "darkBlue.700" : 'lightBlue.200'}
             onClick={onToggle}
-            // align='flex-start'
             >
             <ProgressHamburger
               isOpen={isOpen}
@@ -72,9 +75,10 @@ function TopBar(props) {
             />
           </Box>
             <Flex
-              shadow='md'
               w='100vw'
               align='center'
+              borderBottom='1px'
+              borderColor={colorMode === "dark" ? "darkBlue.700" : 'lightBlue.200'}
               >
              <Heading
              paddingLeft='1vw'

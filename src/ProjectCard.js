@@ -32,15 +32,17 @@ function ProjectCard(props){
     <>
     <WrapItem>
       <VStack
-      padding='2vw'
-      spacing='10vw'
+      // padding='2vw'
+      // spacing='10vw'
       w={cardDimensions}
       h={cardDimensions}
-      shadow='md'
-      borderRadius='10px'
-      border='1px'
+      transition='border .2s'
+      borderBottom='1px'
+      borderRight='1px'
       borderColor={colorMode === "dark" ? "darkBlue.700" : 'lightBlue.200'}
-      _hover={{shadow:'lg'}}>
+      _hover={{
+        borderBottom:'1px', borderRight:'1px'
+        }}>
 
       <Box>
         <Heading
