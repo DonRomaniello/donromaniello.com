@@ -37,7 +37,7 @@ function Projects () {
    <>
     <Center>
     <Heading
-    // padding='2vw'
+    marginBottom='2vw'
     >
       Projects
     </Heading>

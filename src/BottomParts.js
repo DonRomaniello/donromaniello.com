@@ -21,6 +21,8 @@ import Post from './Post'
 
 import Projects from './Projects';
 
+import Project from './Project'
+
 function BottomBar(props) {
 
   const isMobile = useSelector(selectIsMobile);
@@ -54,17 +56,19 @@ function BottomBar(props) {
               element={<Home
                          />} />
               <Route
+              path="/blog/:name"
+              element={<Post
+                posts={posts}
+                preCachedThumbnails={preCachedThumbnails}
+                        />} />
+              <Route
               exact path="/projects"
               element={<Projects
                          />} />
               <Route
-              path="/blog/:name"
-              element={<Post
-                        posts={posts}
-                        preCachedThumbnails={preCachedThumbnails}
-              />
-              }
-              />
+              exact path="/projects/:name"
+              element={<Project
+                         />} />
             </Routes>
             </Box>
         </Flex>

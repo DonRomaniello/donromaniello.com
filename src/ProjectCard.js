@@ -1,5 +1,7 @@
 import React, {useEffect} from 'react'
 
+import { Link } from "react-router-dom";
+
 import { useSelector } from 'react-redux';
 
 import {
@@ -21,8 +23,6 @@ function ProjectCard(props){
 
   const {colorMode} = useColorMode();
 
-  // console.log(project.techStack)
-
   const isMobile = useSelector(selectIsMobile);
 
   const cardDimensions = isMobile ?  '80vw' : '40vw'
@@ -31,34 +31,36 @@ function ProjectCard(props){
 
     <>
     <WrapItem>
-      <VStack
-      // padding='2vw'
-      // spacing='10vw'
-      w={cardDimensions}
-      h={cardDimensions}
-      transition='border .2s'
-      borderBottom='1px'
-      borderRight='1px'
-      borderColor={colorMode === "dark" ? "darkBlue.700" : 'lightBlue.200'}
-      _hover={{
-        borderBottom:'1px', borderRight:'1px'
-        }}>
+      <Link to={`/projects/${project.title}`} >
+        <VStack
+        padding='2vw'
+        // spacing='10vw'
+        w={cardDimensions}
+        h={cardDimensions}
+        transition='border .2s'
+        borderBottom='1px'
+        borderRight='1px'
+        borderColor={colorMode === "dark" ? "darkBlue.700" : 'lightBlue.200'}
+        _hover={{
+          borderBottom:'1px', borderRight:'1px'
+          }}>
 
-      <Box>
-        <Heading
-        fontSize={isMobile ? '1em' : '2em'}
-        >
-          {project.title}
-        </Heading>
-      </Box>
+        <Box>
+          <Heading
+          fontSize={isMobile ? '1em' : '1.5em'}
+          >
+            {project.title}
+          </Heading>
+        </Box>
 
-      <Box>
-        <Container>
-          {project.shortDescription}
-        </Container>
-      </Box>
+        <Box>
+          <Container>
+            {project.shortDescription}
+          </Container>
+        </Box>
 
-      </VStack>
+        </VStack>
+      </Link>
     </WrapItem>
     </>
 

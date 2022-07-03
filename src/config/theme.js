@@ -30,6 +30,7 @@ const theme = extendTheme({
         colorScheme: 'current',
       },
       baseStyle: (props: StyleFunctionProps) => ({
+        width: '20vw',
         borderRadius: '0px',
         borderRight: '1px',
         borderBottom: '1px',
