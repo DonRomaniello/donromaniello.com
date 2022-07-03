@@ -47,7 +47,8 @@ function Project() {
         }
       })
     }
-  }, [name])
+    console.log("running", name, projects)
+  }, [])
 
 
 

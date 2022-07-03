@@ -7,6 +7,7 @@ import {
 } from './store/features/isMobile'
 
 import {
+  Flex,
   Image,
   Text
 } from '@chakra-ui/react'
@@ -26,6 +27,8 @@ function Stack(props) {
                       .join('')
                       .split('.')
                       .join('')
+                      .split('-')
+                      .join('')
                       + '.svg'
 
     return url
@@ -39,19 +42,24 @@ function Stack(props) {
 
   return (
     <>
+    <Flex>
     {techStack.map((name) =>{
       return (
         <>
         <Image
           src={makeUrl('/logos/', name)}
+          margin='1vw'
           h='50px'
+          w='50px'
+          key={name}
           />
-        <Text>
+        {/* <Text>
         {name}
-        </Text>
+        </Text> */}
         </>
       )
     })}
+    </Flex>
     </>
   )
 }

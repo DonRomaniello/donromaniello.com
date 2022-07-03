@@ -4,7 +4,7 @@ import { collection,
 
 import { db } from '../../config/firebase';
 
-export const getDocumentsForStore = async (docsToQuery) => {
+export const getAllDocumentsForStore = async (docsToQuery) => {
   let documents = []
   const documentsSnapshot = await getDocs(query(collection(db, docsToQuery)));
   documentsSnapshot.forEach((doc) => {
