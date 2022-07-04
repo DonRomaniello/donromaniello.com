@@ -13,8 +13,9 @@ import {
 } from './store/features/titleAddendum'
 
 import {
-  selectProjects,
-} from './store/features/projectList';
+  fetchProject,
+  selectProject,
+} from './store/features/singleProject';
 
 import {
 
@@ -26,13 +27,13 @@ function Project() {
 
   const { name } = useParams();
 
-  const projects = useSelector(selectProjects)
+  const project = useSelector(selectProject)
 
   const isMobile = useSelector(selectIsMobile);
 
   const dispatch = useDispatch();
 
-  const [project, setProject] = useState({});
+  // const [project, setProject] = useState({});
 
   useEffect(() => {
     dispatch(setTitleAddendum(name))
@@ -40,16 +41,11 @@ function Project() {
 
 
   useEffect(() => {
-    if (projects.length){
-      projects.forEach((item) => {
-        if (item.title === name){
-          setProject(item)
-        }
-      })
-    }
-    console.log("running", name, projects)
-  }, [])
+    dispatch(fetchProject({matchField: 'title',
+                           matchStatement: name}))
+  }, [name])
 
+  console.log("running", name, project)
 
 
 
