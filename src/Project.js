@@ -18,7 +18,11 @@ import {
 } from './store/features/singleProject';
 
 import {
-
+  Button,
+  Heading,
+  Link,
+  Text,
+  VStack,
 } from '@chakra-ui/react'
 
 import Stack from './Stack';
@@ -53,7 +57,22 @@ function Project() {
 
   return (
     <>
+    <VStack>
+    <Heading
+    padding='2vw'>
+      {name}
+    </Heading>
+    <Text
+    padding='2vw'>
+      {project.longDescription}
+    </Text>
+    <Link href={project.github} isExternal>
+      <Button>
+        The Code
+      </Button>
+    </Link>
     <Stack stack={project.techStack} />
+    </VStack>
     </>
   )
 }
