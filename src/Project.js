@@ -45,7 +45,7 @@ function Project() {
                            matchStatement: name}))
   }, [name])
 
-  console.log("running", name, project)
+  // console.log("running", name, project)
 
 
 

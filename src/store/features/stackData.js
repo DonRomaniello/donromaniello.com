@@ -1,12 +1,14 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-import { getAllDocumentsForStore } from '../helpers/getAllDocumentsForStore';
+import { doc, getDoc } from "firebase/firestore";
+
+import { db } from '../../config/firebase';
 
 export const fetchStackData = createAsyncThunk(
   'users/fetchStackDataStatus',
   async () => {
-    const response = await getAllDocumentsForStore('projects/stackData');
-    return response
+    const docSnap = await getDoc(doc(db, "projects", "stackData"))
+    return docSnap.data()
   }
 )
 

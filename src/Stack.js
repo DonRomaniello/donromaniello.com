@@ -7,14 +7,25 @@ import {
 } from './store/features/isMobile'
 
 import {
-  Flex,
+  fetchStackData,
+  selectStackData,
+} from './store/features/stackData'
+
+import {
+  Box,
   Image,
-  Text
+  Link,
+  Wrap,
+  WrapItem,
 } from '@chakra-ui/react'
 
 function Stack(props) {
 
   const { stack } = props;
+
+  const dispatch = useDispatch();
+
+  const stackData = useSelector(selectStackData)
 
   const isMobile = useSelector(selectIsMobile);
 
@@ -34,6 +45,10 @@ function Stack(props) {
     return url
   }
 
+  useEffect(()=> {
+    dispatch(fetchStackData());
+  }, [stack])
+
   useEffect(() => {
     if (stack?.length){
       setTechStack(stack)
@@ -42,24 +57,32 @@ function Stack(props) {
 
   return (
     <>
-    <Flex>
+    <Wrap
+    justify='center'>
     {techStack.map((name) =>{
       return (
         <>
-        <Image
-          src={makeUrl('/logos/', name)}
-          margin='1vw'
-          h='50px'
-          w='50px'
-          key={name}
-          />
-        {/* <Text>
-        {name}
-        </Text> */}
+        <WrapItem
+        key={name}>
+            <Link
+            href={stackData[name]}
+            isExternal
+            key={name}>
+            <Image
+              src={makeUrl('/logos/', name)}
+              // src='/logos/.svg'
+              a_href={stackData[name]}
+              margin='1vw'
+              maxH='50px'
+              objectFit='scale-down'
+              key={name}
+              />
+              </Link>
+          </WrapItem>
         </>
       )
     })}
-    </Flex>
+    </Wrap>
     </>
   )
 }

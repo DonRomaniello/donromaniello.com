@@ -13,8 +13,7 @@ export const getDocumentForStore = async (docsToQuery,
   const documentsSnapshot = await getDocs(
     query(
       collection(db, docsToQuery),
-       where(matchField, "==", matchStatement)));
-       console.log('The prib')
+       where(matchField, "==", matchStatement)))
   documentsSnapshot.forEach((doc) => {
     documents.push(doc.data())
   })
