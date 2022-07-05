@@ -19,6 +19,7 @@ import {
 
 import {
   Button,
+  Center,
   Heading,
   Link,
   Text,
@@ -57,22 +58,30 @@ function Project() {
 
   return (
     <>
+    <Center>
     <VStack>
     <Heading
-    padding='2vw'>
+    padding='2vh'>
       {name}
     </Heading>
     <Text
-    padding='2vw'>
+    padding='2vh'
+    maxW='66%'>
       {project.longDescription}
     </Text>
+    <Heading
+    size='md'
+    padding='2vh'>
+      The Stack
+    </Heading>
+    <Stack stack={project.techStack} />
     <Link href={project.github} isExternal>
       <Button>
         The Code
       </Button>
     </Link>
-    <Stack stack={project.techStack} />
     </VStack>
+    </Center>
     </>
   )
 }

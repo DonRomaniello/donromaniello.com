@@ -13,6 +13,7 @@ import {
 
 import {
   Box,
+  Center,
   Image,
   Link,
   Wrap,
@@ -58,26 +59,30 @@ function Stack(props) {
   return (
     <>
     <Wrap
-    justify='center'>
+    justify='center'
+    w='66%'>
     {techStack.map((name) =>{
       return (
         <>
         <WrapItem
         key={name}>
-            <Link
-            href={stackData[name]}
-            isExternal
-            key={name}>
-            <Image
-              src={makeUrl('/logos/', name)}
-              fallbackSrc='/logo.svg'
-              a_href={stackData[name]}
-              margin='1vw'
-              maxH='50px'
-              objectFit='scale-down'
-              key={name}
-              />
-              </Link>
+          <Link
+          href={stackData[name]}
+          isExternal
+          key={name}>
+            <Center>
+              <Image
+                src={makeUrl('/logos/', name)}
+                fallbackSrc='/logo.svg'
+                a_href={stackData[name]}
+                margin='1vw'
+                transition='max-height .2s'
+                maxH={isMobile ? '40px' : '50px'}
+                objectFit='scale-down'
+                key={name}
+                />
+              </Center>
+            </Link>
           </WrapItem>
         </>
       )
