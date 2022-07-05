@@ -122,6 +122,7 @@ function ProgressHamburger(props) {
                 h={barHeight}
                 >
                   <Progress
+                    aria-label={`${idx} progress`}
                     key={'progress' + link}
                     height={barHeight}
                     w={barWidth}
