@@ -70,7 +70,7 @@ function Stack(props) {
             key={name}>
             <Image
               src={makeUrl('/logos/', name)}
-              // src='/logos/.svg'
+              fallbackSrc='/logo.svg'
               a_href={stackData[name]}
               margin='1vw'
               maxH='50px'
