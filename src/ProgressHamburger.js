@@ -36,13 +36,15 @@ function ProgressHamburger(props) {
 
   const scrolledPastHeight = (isMobile ? (document.documentElement.clientWidth * .1) : 75)
 
-  let barHeight = isMobile ? '1vw' : '10px'
-
-  let barWidth = isMobile ? '6.5vw' : '46px'
-
   const [scrollPercentage, setScrollPercentage] = useState(0);
 
   const scrollY = useScrollPosition(0)
+
+  const [burgerHover, setBurgerHover] = useState(false)
+
+  let barHeight = isMobile ? '1vw' : '10px'
+
+  let barWidth = isMobile ? '6.5vw' : '46px'
 
   useEffect(() => {
 
@@ -93,8 +95,8 @@ function ProgressHamburger(props) {
     direction={isOpen ? 'row' : 'column'}
     align='center'
     transition='filter .2s'
-    _hover={isOpen ? null : {filter:'invert(33%)'}}
-
+    onMouseEnter={() => setBurgerHover(true)}
+    onMouseLeave={() => setBurgerHover(false)}
 
     >
         <Box
@@ -128,7 +130,10 @@ function ProgressHamburger(props) {
                     w={barWidth}
                     bg='white'
                     colorScheme={(scrollPercentage < 99) ? 'darkBlue' : 'lightBlue'}
-                    borderBottom='1px'
+                    transition='border-color .2s'
+                    border='1px'
+                    borderColor={burgerHover & !isOpen ? 'black' : 'white'}
+                    borderBottomColor='black'
                     value={scrollBar(idx)}
                   />
                 </Box>
