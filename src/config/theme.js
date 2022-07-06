@@ -20,7 +20,7 @@ const theme = extendTheme({
   },
   components: {
     Progress: {
-      bg: '#003D52',
+      bg: '#3D5200',
       transitionDuration: "fast",
     },
     Button: {
@@ -32,12 +32,11 @@ const theme = extendTheme({
       baseStyle: (props: StyleFunctionProps) => ({
         width: '20vw',
         borderRadius: '0px',
-        borderRight: '1px',
         borderBottom: '1px',
-        borderColor: props.colorMode === "dark" ? "darkBlue.700" : 'lightBlue.200',
+        borderColor: props.colorMode === "dark" ? "white" : 'black',
         transition:'border .2s',
         _hover:{
-          borderBottom:'1px', borderRight:'1px'
+          border:'1px'
           }
       }),
     }

@@ -18,6 +18,7 @@ import {
 } from './store/features/singleProject';
 
 import {
+  Box,
   Button,
   Center,
   Heading,
@@ -60,20 +61,26 @@ function Project() {
     <>
     <Center>
     <VStack>
+    <Box
+    borderBottom='1px'>
     <Heading
     padding='2vh'>
       {name}
     </Heading>
+    </Box>
     <Text
     padding='2vh'
     maxW='66%'>
       {project.longDescription}
     </Text>
+    <Box
+    borderBottom='1px'>
     <Heading
     size='md'
     padding='2vh'>
       The Stack
     </Heading>
+    </Box>
     <Stack stack={project.techStack} />
     <Link href={project.github} isExternal>
       <Button>

@@ -126,7 +126,9 @@ function ProgressHamburger(props) {
                     key={'progress' + link}
                     height={barHeight}
                     w={barWidth}
+                    bg='white'
                     colorScheme={(scrollPercentage < 99) ? 'darkBlue' : 'lightBlue'}
+                    borderBottom='1px'
                     value={scrollBar(idx)}
                   />
                 </Box>

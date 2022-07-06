@@ -37,12 +37,11 @@ function ProjectCard(props){
         // spacing='10vw'
         w={cardDimensions}
         h={cardDimensions}
-        transition='border .2s'
         borderBottom='1px'
-        borderRight='1px'
-        borderColor={colorMode === "dark" ? "darkBlue.700" : 'lightBlue.200'}
+        // borderRight='1px'
+        borderColor={colorMode === "dark" ? "white" : 'black'}
         _hover={{
-          borderBottom:'1px', borderRight:'1px'
+          border:'1px',
           }}>
 
         <Box>
