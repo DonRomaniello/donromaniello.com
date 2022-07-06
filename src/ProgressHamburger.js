@@ -88,7 +88,7 @@ function ProgressHamburger(props) {
   return (
     <>
     <Flex
-    padding={isMobile ? '2vw' : '7px'}
+    padding={isMobile ? '2vh' : '7px'}
     h='100%'
     direction={isOpen ? 'row' : 'column'}
     align='center'

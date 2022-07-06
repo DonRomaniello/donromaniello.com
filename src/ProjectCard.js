@@ -25,7 +25,7 @@ function ProjectCard(props){
 
   const isMobile = useSelector(selectIsMobile);
 
-  const cardDimensions = isMobile ?  '80vw' : '40vw'
+  const cardDimensions = isMobile ?  '80vw' : '40vh'
 
   return (
 
@@ -33,7 +33,7 @@ function ProjectCard(props){
     <WrapItem>
       <Link to={`/projects/${project.title}`} >
         <VStack
-        padding='2vw'
+        padding='2vh'
         // spacing='10vw'
         w={cardDimensions}
         h={cardDimensions}

@@ -2,6 +2,36 @@ import { extendTheme } from "@chakra-ui/react"
 
 import { StyleFunctionProps } from '@chakra-ui/theme-tools'
 
+const Divider = {
+  defaultProps: {
+    colorScheme: 'current',
+  },
+  baseStyle: () => ({
+    width: '20vw',
+  }),
+}
+
+const Button = {
+  defaultProps: {
+    variant: 'sm',
+    colorScheme: 'current',
+  },
+  baseStyle: () => ({
+    width: '20vw',
+    borderRadius: '0px',
+    borderBottom: '1px',
+    transition:'border .2s',
+    _hover:{
+      border:'1px'
+    }
+  }),
+}
+
+const Progress = {
+  bg: '#3D5200',
+  transitionDuration: "fast",
+}
+
 const theme = extendTheme({
   initialColorMode: 'light',
   useSystemColorMode: false,
@@ -19,39 +49,15 @@ const theme = extendTheme({
     },
   },
   components: {
-    Box: {
-      base: {
-        borderBottom: '1px',
-      },
-    },
-    Button: {
-      defaultProps: {
-        size: 'lg',
-        variant: 'sm',
-        colorScheme: 'current',
-      },
-      baseStyle: (props: StyleFunctionProps) => ({
-        width: '20vw',
-        borderRadius: '0px',
-        borderBottom: '1px',
-        borderColor: props.colorMode === "dark" ? "white" : 'black',
-        transition:'border .2s',
-        _hover:{
-          border:'1px'
-        }
-      }),
-    },
-    Progress: {
-      bg: '#3D5200',
-      transitionDuration: "fast",
-    },
+    Button,
+    Divider,
+    Progress,
   },
   fonts: {
     heading: `'Raleway', sans-serif`,
     // heading: `"Yantramanav"`,
     body: `'Raleway', sans-serif`,
-  },
-
+  }
 })
 
 export default theme

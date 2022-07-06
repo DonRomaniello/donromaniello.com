@@ -6,7 +6,6 @@ import {
   Box,
   Center,
   Heading,
-  Text,
   Wrap,
 } from '@chakra-ui/react';
 
@@ -14,6 +13,9 @@ import {
   setTitleAddendum,
 } from './store/features/titleAddendum'
 
+import {
+  selectIsMobile,
+} from './store/features/isMobile'
 
 import {
   fetchProjects,
@@ -29,6 +31,8 @@ function Projects () {
 
   const projects = useSelector(selectProjects)
 
+  const isMobile = useSelector(selectIsMobile);
+
   useEffect(() => {
     dispatch(setTitleAddendum("Projects"))
     dispatch(fetchProjects())
@@ -36,19 +40,24 @@ function Projects () {
 
   return (
    <>
-    <Center>
+    <Center
+    paddingBottom='2vh'>
       <Box
-      borderBottom='1px'
+      borderBottom='1px'>
+      <Heading
+      marginBottom='2vh'
       >
-        <Heading
-        marginBottom='2vw'
-        >
-          Projects
-        </Heading>
+        Projects
+      </Heading>
       </Box>
     </Center>
+    <Center>
+    </Center>
     <Wrap
-    paddingBottom='1vw'>
+    paddingBottom='2vh'
+    justify='center'
+    maxW={isMobile ?  '100vw' : '100vh'}
+    >
     {projects.length ? projects.map((project) => {
       if (project.shown){
         return (

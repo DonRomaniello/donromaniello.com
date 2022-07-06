@@ -78,12 +78,12 @@ function Post(props) {
     >
       <Box
       borderBottom='1px'
-      paddingBottom='2vw'
+      paddingBottom='2vh'
       >
       <Heading>{post.title}</Heading>
       </Box>
     </Center>
-    <Box w="100%" h='2vw' />
+    <Box w="100%" h='2vh' />
       <Center
       >
         <Tooltip
