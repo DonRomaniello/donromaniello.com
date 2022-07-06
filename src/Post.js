@@ -76,7 +76,12 @@ function Post(props) {
     <Center
     align='center'
     >
+      <Box
+      borderBottom='1px'
+      paddingBottom='2vw'
+      >
       <Heading>{post.title}</Heading>
+      </Box>
     </Center>
     <Box w="100%" h='2vw' />
       <Center

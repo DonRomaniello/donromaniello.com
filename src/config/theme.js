@@ -19,9 +19,10 @@ const theme = extendTheme({
     },
   },
   components: {
-    Progress: {
-      bg: '#3D5200',
-      transitionDuration: "fast",
+    Box: {
+      base: {
+        borderBottom: '1px',
+      },
     },
     Button: {
       defaultProps: {
@@ -37,9 +38,13 @@ const theme = extendTheme({
         transition:'border .2s',
         _hover:{
           border:'1px'
-          }
+        }
       }),
-    }
+    },
+    Progress: {
+      bg: '#3D5200',
+      transitionDuration: "fast",
+    },
   },
   fonts: {
     heading: `'Raleway', sans-serif`,

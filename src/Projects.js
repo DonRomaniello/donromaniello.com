@@ -3,6 +3,7 @@ import React, {useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
+  Box,
   Center,
   Heading,
   Text,
@@ -36,11 +37,15 @@ function Projects () {
   return (
    <>
     <Center>
-    <Heading
-    marginBottom='2vw'
-    >
-      Projects
-    </Heading>
+      <Box
+      borderBottom='1px'
+      >
+        <Heading
+        marginBottom='2vw'
+        >
+          Projects
+        </Heading>
+      </Box>
     </Center>
     <Wrap
     paddingBottom='1vw'>
