@@ -84,12 +84,14 @@ function TopBar(props) {
              variant='topBarMajor'
              opacity={scrolledPastHeader ? '100' : '0'}
              filter={scrolledPastHeader ? 'blur(0px)' : 'blur(100px)'}
+             fontSize={isMobile ? '1em' : '2em'}
              >{titleAddendum}
              </Heading>
              <Heading
              variant='topBarMajor'
              opacity={scrolledPastHeader ? '0' : '100'}
              filter={scrolledPastHeader ? 'blur(100px)' : 'blur(0px)'}
+             fontSize={isMobile ? '1em' : '2em'}
             >The Website of Don Romaniello
              </Heading>
            </Flex>

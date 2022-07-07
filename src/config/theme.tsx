@@ -1,5 +1,8 @@
 import { extendTheme } from "@chakra-ui/react"
 
+import { StyleFunctionProps } from '@chakra-ui/theme-tools'
+
+
 const Divider = {
   defaultProps: {
     colorScheme: 'current',
@@ -32,12 +35,13 @@ const Heading = {
     marginBottom: '2vh',
   },
   variants: {
-    topBarMajor: (props) => ({
+    topBarMajor: (props: StyleFunctionProps) => ({
       margin: '0vh',
       maxH: '62%',
       paddingLeft: '1vw',
       transition: "font-size .2s, opacity .2s, filter .05s",
       position: 'absolute',
+      fontSize: props.isMobile === true ? '1em' : '2em',
     }),
   }
 }
