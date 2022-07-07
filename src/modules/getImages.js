@@ -6,7 +6,9 @@ const getImages = async (directory, setFunction) => {
 
     let thumbnailBlobs = {};
 
-    listAll(ref(getStorage(), `${directory}`))
+    const listRef = ref(getStorage(), `${directory}`)
+
+    listAll(listRef)
     .then((res) => {
       res.items.forEach((itemRef) => {
         getBlob(itemRef)
@@ -16,8 +18,6 @@ const getImages = async (directory, setFunction) => {
           thumbnailBlobs[itemRef.name] = useUrl
         })
       })
-
-
     })
     .finally(() => {
       setFunction(thumbnailBlobs)})

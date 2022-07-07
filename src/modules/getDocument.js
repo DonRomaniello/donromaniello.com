@@ -4,7 +4,10 @@ import { db } from '../config/firebase';
 
 
 const getDocument = async (collectionName, setFunction) => {
-  const unsub = onSnapshot(collection(db, collectionName), (doc) => {
+
+  const docCollection = collection(db, collectionName)
+
+  const unsub = onSnapshot(docCollection, (doc) => {
     setFunction(doc.docs.map((doc) => doc.data()))
 });
   return unsub

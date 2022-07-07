@@ -6,7 +6,9 @@ const getImage = async (name, directory, setFunction) => {
 
     let useUrl;
 
-    getBlob(ref(getStorage(), `${directory}/${fileName}.webp`))
+    const blobRef = ref(getStorage(), `${directory}/${fileName}.webp`)
+
+    getBlob(blobRef)
     .then((blob) => {
       useUrl = URL.createObjectURL(blob);
       }).finally(() => {
