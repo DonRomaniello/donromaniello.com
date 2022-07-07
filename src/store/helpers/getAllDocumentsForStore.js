@@ -6,7 +6,12 @@ import { db } from '../../config/firebase';
 
 export const getAllDocumentsForStore = async (docsToQuery) => {
   let documents = []
-  const documentsSnapshot = await getDocs(query(collection(db, docsToQuery)));
+
+  const docCollection = collection(db, docsToQuery)
+
+  const docQuery = query(docCollection);
+
+  const documentsSnapshot = await getDocs(docQuery);
   documentsSnapshot.forEach((doc) => {
     documents.push(doc.data())
   })

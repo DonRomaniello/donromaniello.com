@@ -10,10 +10,11 @@ export const getDocumentForStore = async (docsToQuery,
                                           matchStatement) => {
   let documents = []
 
-  const documentsSnapshot = await getDocs(
-    query(
-      collection(db, docsToQuery),
-       where(matchField, "==", matchStatement)))
+  const docCollection = collection(db, docsToQuery)
+
+  const docQuery = query(docCollection,where(matchField, "==", matchStatement))
+
+  const documentsSnapshot = await getDocs(docQuery)
   documentsSnapshot.forEach((doc) => {
     documents.push(doc.data())
   })
