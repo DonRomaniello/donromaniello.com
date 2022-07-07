@@ -1,7 +1,5 @@
 import { extendTheme } from "@chakra-ui/react"
 
-import { StyleFunctionProps } from '@chakra-ui/theme-tools'
-
 const Divider = {
   defaultProps: {
     colorScheme: 'current',
@@ -25,6 +23,24 @@ const Button = {
       border:'1px'
     }
   }),
+}
+
+const Heading = {
+  defaultProps: {
+  },
+  baseStyle: {
+    marginBottom: '2vh',
+  },
+  variants: {
+    topBarMajor: (props) => ({
+      margin: '0vh',
+      maxH: '62%',
+      paddingLeft: '1vw',
+      transition: "font-size .2s, opacity .2s, filter .05s",
+      position: 'absolute',
+      fontSize: props.isMobile ? '1em' : '2em',
+    }),
+  }
 }
 
 const Progress = {
@@ -52,6 +68,7 @@ const theme = extendTheme({
     Button,
     Divider,
     Progress,
+    Heading,
   },
   fonts: {
     heading: `'Raleway', sans-serif`,

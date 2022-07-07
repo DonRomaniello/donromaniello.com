@@ -56,7 +56,7 @@ function Bio(props) {
     >
       <Heading>{post.title}</Heading>
     </Center>
-    <Box w="100%" h='2vw' />
+    <Box w="100%" h='2vh' />
       <Center w='100%'>
         <Image
         fallbackSrc={preCachedHeadshot}

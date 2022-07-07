@@ -81,24 +81,15 @@ function TopBar(props) {
               borderColor={colorMode === "dark" ? "darkBlue.700" : 'lightBlue.200'}
               >
              <Heading
-             paddingLeft='1vw'
-             maxH='62%'
-             transition="font-size .2s, opacity .2s, filter .05s"
+             variant='topBarMajor'
              opacity={scrolledPastHeader ? '100' : '0'}
              filter={scrolledPastHeader ? 'blur(0px)' : 'blur(100px)'}
-             fontSize={isMobile ? '1em' : '2em'}
-             position='absolute'
              >{titleAddendum}
              </Heading>
              <Heading
-             paddingLeft='1vw'
-             maxH='62%'
-             transition="font-size .2s, opacity .2s, filter .05s"
+             variant='topBarMajor'
              opacity={scrolledPastHeader ? '0' : '100'}
              filter={scrolledPastHeader ? 'blur(100px)' : 'blur(0px)'}
-             fontSize={isMobile ? '1em' : '2em'}
-            //  position='absolute'
-             alignItems='center'
             >The Website of Don Romaniello
              </Heading>
            </Flex>

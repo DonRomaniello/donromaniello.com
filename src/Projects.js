@@ -45,7 +45,6 @@ function Projects () {
       <Box
       borderBottom='1px'>
       <Heading
-      marginBottom='2vh'
       >
         Projects
       </Heading>

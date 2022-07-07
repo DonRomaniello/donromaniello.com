@@ -63,8 +63,7 @@ function Project() {
     <VStack>
     <Box
     borderBottom='1px'>
-    <Heading
-    padding='2vh'>
+    <Heading>
       {name}
     </Heading>
     </Box>
@@ -76,8 +75,7 @@ function Project() {
     <Box
     borderBottom='1px'>
     <Heading
-    size='md'
-    padding='2vh'>
+    size='md'>
       The Stack
     </Heading>
     </Box>
