@@ -3,24 +3,19 @@ import React from 'react'
 import {
   Box,
   Button,
-  Flex,
   Heading,
   Link,
   ListItem,
-  Spacer,
   Text,
   UnorderedList,
+  VStack,
+  Wrap
 } from '@chakra-ui/react';
-
-import { ColorModeSwitcher } from './ColorModeSwitcher';
 
 function Home () {
 
   return (
-    <Flex
-    h='max-content'
-    direction='column'
-    >
+    <VStack>
       <Box>
         <Text
         mt='10px'
@@ -31,14 +26,14 @@ function Home () {
         <Text>
           You're looking at Chakra UI in a React.js frontend with a Firebase backend.
         </Text>
+      </Box>
         <Heading
-        mt='30px'
-        size='sm'>
+        size='md'
+        padding='2vh'>
           To Do...
         </Heading>
-      </Box>
-      <Spacer />
-        <UnorderedList>
+        <UnorderedList
+        padding='2vh'>
           <ListItem>
             Move database/storage calls to redux store.
           </ListItem>
@@ -58,10 +53,8 @@ function Home () {
             DRY as much as possible
           </ListItem>
         </UnorderedList>
-      <Flex
-        margin='10px'
-        gap='10px'
-        >
+          <Wrap
+            justify='center'>
         <Link href='https://github.com/DonRomaniello' isExternal>
           <Button>
             My GitHub
@@ -77,10 +70,8 @@ function Home () {
             Email
           </Button>
         </Link>
-        <Spacer />
-      <ColorModeSwitcher />
-      </Flex>
-    </Flex>
+      </Wrap>
+    </VStack>
   )
 }
 

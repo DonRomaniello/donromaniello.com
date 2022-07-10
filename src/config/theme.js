@@ -15,7 +15,7 @@ const Button = {
     colorScheme: 'current',
   },
   baseStyle: (props) => ({
-    width: '20vw',
+    width: '120px',
     borderRadius: '0px',
     borderBottom: '1px',
     transition:'border .2s',
@@ -23,6 +23,14 @@ const Button = {
       border:'1px'
     }
   }),
+  variants: {
+    colorMode: {
+      _hover:{
+        border:'0px',
+        filter:'invert(50%)'
+      }
+    }
+  }
 }
 
 const Heading = {

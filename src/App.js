@@ -16,11 +16,9 @@ import { getDocuments,
 
 import theme from './config/theme'
 
-// import "@fontsource/yantramanav";
-
 import TopBar from './TopBar'
 
-import BottomParts  from './BottomParts'
+import BottomParts from './BottomParts'
 
 function App() {
 
@@ -64,7 +62,7 @@ function App() {
           preCachedHeadshot={preCachedHeadshot}
           preCachedThumbnails={preCachedThumbnails}
         />
-    </ChakraProvider>
+      </ChakraProvider>
   );
 }
 
