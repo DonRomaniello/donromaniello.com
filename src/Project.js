@@ -60,8 +60,6 @@ function Project() {
     <>
     <Center>
       <VStack>
-        <Box
-        borderBottom='1px'>
         <Skeleton
         fadeDuration={'3'}
         isLoaded
@@ -70,10 +68,9 @@ function Project() {
             {name}
           </Heading>
           </Skeleton>
-        </Box>
         <Center>
         <Skeleton
-        borderRadius='2vh'
+        borderRadius='5px'
         isLoaded={isLoaded}
         maxW={isMobile ? '100%' : '80vw'}
         maxH={isMobile ? '100%' : '80vh'}
@@ -85,7 +82,7 @@ function Project() {
         maxW={isMobile ? '100%' : '80vw'}
         maxH={isMobile ? '100%' : '80vh'}
         objectFit='scale-down'
-        borderRadius='2vh'
+        borderRadius='5px'
         border='1px'
         />
         </Center>
@@ -96,16 +93,14 @@ function Project() {
       w={isMobile ? '100%' : '80%'}>
         {project.data.longDescription}
       </Text>
-      <Box
-      borderBottom='1px'>
-        <Heading
-        size='md'>
+        <Heading>
           The Stack
         </Heading>
-      </Box>
       <Stack stack={project.data.techStack} />
       <Link href={project.data.github} isExternal>
-        <Button>
+        <Button
+          variant={isMobile ? 'projectMobile' : 'project'}
+        >
           The Code
         </Button>
       </Link>

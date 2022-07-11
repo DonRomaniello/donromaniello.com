@@ -76,7 +76,8 @@ function BottomBar(props) {
         <ColorModeSwitcher
           position='fixed'
           bottom='1vh'
-          left='0px' />
+          left={isMobile ? '-10%' : '-3vh'}
+           />
       </>
   )
 

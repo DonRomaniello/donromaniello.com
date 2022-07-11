@@ -29,6 +29,14 @@ const Button = {
         border:'0px',
         filter:'invert(50%)'
       }
+    },
+    project: {
+      width: '',
+      fontSize:'2em'
+    },
+    projectMobile: {
+      width: '',
+      fontSize:'1em'
     }
   }
 }
@@ -38,6 +46,7 @@ const Heading = {
   },
   baseStyle: {
     marginBottom: '2vh',
+    borderBottom: '1px'
   },
   variants: {
     topBarMajor: (props) => ({
@@ -46,6 +55,7 @@ const Heading = {
       paddingLeft: '1vw',
       transition: "font-size .2s, opacity .2s, filter .05s",
       position: 'absolute',
+      borderBottom: '',
     }),
   }
 }
