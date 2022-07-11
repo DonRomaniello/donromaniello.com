@@ -75,14 +75,14 @@ function Project() {
         <Skeleton
         borderRadius='2vh'
         isLoaded={isLoaded}
-        w={isMobile ? '100%' : '80vh'}
-        h={isMobile ? '100%' : '80vh'}
+        maxW={isMobile ? '100%' : '80vw'}
+        maxH={isMobile ? '100%' : '80vh'}
         >
         <Center>
         <Image
         src={project?.headerImage}
         onLoad={() => {setIsLoaded(true)}}
-        maxW={isMobile ? '100%' : '80vh'}
+        maxW={isMobile ? '100%' : '80vw'}
         maxH={isMobile ? '100%' : '80vh'}
         objectFit='scale-down'
         borderRadius='2vh'
@@ -93,7 +93,7 @@ function Project() {
         </Center>
       <Text
       padding='2vh'
-      maxW={isMobile ? '100%' : '80%'}>
+      w={isMobile ? '100%' : '80%'}>
         {project.data.longDescription}
       </Text>
       <Box
