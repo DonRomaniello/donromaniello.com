@@ -71,20 +71,26 @@ function Project() {
           </Heading>
           </Skeleton>
         </Box>
+        <Center>
         <Skeleton
         borderRadius='2vh'
         isLoaded={isLoaded}
-        w={isMobile ? '100%' : '80vw'}
-        h={isMobile ? '100%' : '80vw'}
+        w={isMobile ? '100%' : '80vh'}
+        h={isMobile ? '100%' : '80vh'}
         >
+        <Center>
         <Image
         src={project?.headerImage}
         onLoad={() => {setIsLoaded(true)}}
-        w={isMobile ? '100%' : '80vw'}
+        maxW={isMobile ? '100%' : '80vh'}
+        maxH={isMobile ? '100%' : '80vh'}
+        objectFit='scale-down'
         borderRadius='2vh'
         border='1px'
         />
+        </Center>
         </Skeleton>
+        </Center>
       <Text
       padding='2vh'
       maxW={isMobile ? '100%' : '80%'}>
