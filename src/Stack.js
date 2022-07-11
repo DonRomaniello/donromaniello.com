@@ -32,6 +32,8 @@ function Stack(props) {
 
   const [techStack, setTechStack] = useState([]);
 
+  const logoWidth = isMobile ? 40 : 50
+
   const makeUrl = (directory, name) => {
     let url = directory + name
                       .toLowerCase()
@@ -60,7 +62,8 @@ function Stack(props) {
     <>
     <Wrap
     justify='center'
-    w='66%'>
+    maxW={isMobile ? ((logoWidth * 5) + 'px') : ((logoWidth * 9) + 'px')}
+    >
     {techStack.map((name) =>{
       return (
         <>
@@ -75,9 +78,9 @@ function Stack(props) {
                 src={makeUrl('/logos/', name)}
                 fallbackSrc='/logo.svg'
                 a_href={stackData[name]}
-                margin='1vw'
+                margin='1vh'
                 transition='max-height .2s'
-                maxH={isMobile ? '40px' : '50px'}
+                maxH={logoWidth + 'px'}
                 objectFit='scale-down'
                 key={name}
                 />

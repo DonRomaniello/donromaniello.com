@@ -22,7 +22,9 @@ import {
   Button,
   Center,
   Heading,
+  Image,
   Link,
+  Skeleton,
   Text,
   VStack,
 } from '@chakra-ui/react'
@@ -39,7 +41,7 @@ function Project() {
 
   const dispatch = useDispatch();
 
-  // const [project, setProject] = useState({});
+  const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
     dispatch(setTitleAddendum(name))
@@ -48,44 +50,60 @@ function Project() {
 
   useEffect(() => {
     dispatch(fetchProject({matchField: 'title',
-                           matchStatement: name}))
-  }, [name])
-
-  // console.log("running", name, project)
-
-
+                           matchStatement: name,
+                          }))
+  }, [name, dispatch])
 
 
 
   return (
     <>
     <Center>
-    <VStack>
-    <Box
-    borderBottom='1px'>
-    <Heading>
-      {name}
-    </Heading>
-    </Box>
-    <Text
-    padding='2vh'
-    maxW='66%'>
-      {project.longDescription}
-    </Text>
-    <Box
-    borderBottom='1px'>
-    <Heading
-    size='md'>
-      The Stack
-    </Heading>
-    </Box>
-    <Stack stack={project.techStack} />
-    <Link href={project.github} isExternal>
-      <Button>
-        The Code
-      </Button>
-    </Link>
-    </VStack>
+      <VStack>
+        <Box
+        borderBottom='1px'>
+        <Skeleton
+        fadeDuration={'3'}
+        isLoaded
+        >
+          <Heading>
+            {name}
+          </Heading>
+          </Skeleton>
+        </Box>
+        <Skeleton
+        borderRadius='2vh'
+        isLoaded={isLoaded}
+        w={isMobile ? '100%' : '80vw'}
+        h={isMobile ? '100%' : '80vw'}
+        >
+        <Image
+        src={project?.headerImage}
+        onLoad={() => {setIsLoaded(true)}}
+        w={isMobile ? '100%' : '80vw'}
+        borderRadius='2vh'
+        border='1px'
+        />
+        </Skeleton>
+      <Text
+      padding='2vh'
+      maxW={isMobile ? '100%' : '80%'}>
+        {project.data.longDescription}
+      </Text>
+      <Box
+      borderBottom='1px'>
+        <Heading
+        size='md'>
+          The Stack
+        </Heading>
+      </Box>
+      <Stack stack={project.data.techStack} />
+      <Link href={project.data.github} isExternal>
+        <Button>
+          The Code
+        </Button>
+      </Link>
+      </VStack>
     </Center>
     </>
   )
