@@ -6,6 +6,8 @@ import postsListReducer from './features/postList'
 
 import projectListReducer from './features/projectList';
 
+import projectThumbnailsReducer from './features/projectThumbnails';
+
 import projectReducer from './features/singleProject';
 
 import scrolledPastHeaderReducer from './features/scrolledPastHeader';
@@ -19,6 +21,7 @@ export const store = configureStore({
     isMobile: isMobileReducer,
     project: projectReducer,
     projects: projectListReducer,
+    projectThumbnails: projectThumbnailsReducer,
     posts: postsListReducer,
     scrolledPastHeader: scrolledPastHeaderReducer,
     stackData: stackDataReducer,

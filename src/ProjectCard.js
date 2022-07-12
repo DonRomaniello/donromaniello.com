@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 
 import { Link } from "react-router-dom";
 
@@ -12,10 +12,15 @@ import {
   Box,
   Container,
   Heading,
+  Image,
   useColorMode,
   VStack,
   WrapItem,
 } from '@chakra-ui/react';
+
+import { getImage } from './modules/index.js';
+
+import { makeUrlFriendly } from './modules/makeUrlFriendly';
 
 function ProjectCard(props){
 
@@ -25,7 +30,18 @@ function ProjectCard(props){
 
   const isMobile = useSelector(selectIsMobile);
 
+  const [thumbnail, setThumbnail] = useState()
+
   const cardDimensions = isMobile ?  '80vw' : '40vh'
+
+  const imageDimensions = isMobile ?  '40vw' : '20vh'
+
+  useEffect(() => {
+    getImage(makeUrlFriendly(project.title),
+     '/projects/images/small',
+      setThumbnail)
+  }, [])
+
 
   return (
 
@@ -34,16 +50,19 @@ function ProjectCard(props){
       <Link to={`/projects/${project.title}`} >
         <VStack
         padding='2vh'
-        // spacing='10vw'
         w={cardDimensions}
         h={cardDimensions}
         borderBottom='1px'
-        // borderRight='1px'
         borderColor={colorMode === "dark" ? "white" : 'black'}
         _hover={{
           border:'1px',
           }}>
 
+          <Image
+          src={thumbnail}
+          maxH={imageDimensions}
+          paddingBottom='2vh'
+          />
         <Box>
           <Heading
           fontSize={isMobile ? '1em' : '1.5em'}
@@ -51,7 +70,6 @@ function ProjectCard(props){
             {project.title}
           </Heading>
         </Box>
-
         <Box>
           <Container>
             {project.shortDescription}

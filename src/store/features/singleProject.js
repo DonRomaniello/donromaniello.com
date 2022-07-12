@@ -5,7 +5,7 @@ import { getDocumentForStore } from '../helpers/getDocumentForStore';
 import { getFileForStore } from '../helpers/getFileForStore';
 
 export const fetchProject = createAsyncThunk(
-  'users/fetchProjectStatus',
+  'fetchProjectStatus',
   async (fields) => {
 
     const { matchField, matchStatement } = fields

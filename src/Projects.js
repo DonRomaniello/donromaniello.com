@@ -22,8 +22,12 @@ import {
   selectProjects,
 } from './store/features/projectList';
 
-import ProjectCard from './ProjectCard';
+// import {
+//   fetchProjectThumbnails,
+//   selectProjectThumbnails,
+// } from './store/features/projectThumbnails'
 
+import ProjectCard from './ProjectCard';
 
 function Projects () {
 
@@ -31,12 +35,15 @@ function Projects () {
 
   const projects = useSelector(selectProjects)
 
+  // const projectThumbnails = useSelector(selectProjectThumbnails)
+
   const isMobile = useSelector(selectIsMobile);
 
   useEffect(() => {
     dispatch(setTitleAddendum("Projects"))
     dispatch(fetchProjects())
-  }, [])
+    // dispatch(fetchProjectThumbnails())
+  }, [dispatch])
 
   return (
    <>

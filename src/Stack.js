@@ -20,6 +20,8 @@ import {
   WrapItem,
 } from '@chakra-ui/react'
 
+import { makeUrlFriendly } from './modules/makeUrlFriendly';
+
 function Stack(props) {
 
   const { stack } = props;
@@ -34,19 +36,6 @@ function Stack(props) {
 
   const logoWidth = isMobile ? 40 : 50
 
-  const makeUrl = (directory, name) => {
-    let url = directory + name
-                      .toLowerCase()
-                      .split(' ')
-                      .join('')
-                      .split('.')
-                      .join('')
-                      .split('-')
-                      .join('')
-                      + '.svg'
-
-    return url
-  }
 
   useEffect(()=> {
     dispatch(fetchStackData());
@@ -75,7 +64,7 @@ function Stack(props) {
           key={name}>
             <Center>
               <Image
-                src={makeUrl('/logos/', name)}
+                src={'/logos/' + makeUrlFriendly(name) + '.svg'}
                 fallbackSrc='/logo.svg'
                 a_href={stackData[name]}
                 margin='1vh'

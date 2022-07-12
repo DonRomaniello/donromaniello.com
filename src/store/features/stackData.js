@@ -5,7 +5,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from '../../config/firebase';
 
 export const fetchStackData = createAsyncThunk(
-  'users/fetchStackDataStatus',
+  'fetchStackDataStatus',
   async () => {
 
     const document = doc(db, "projects", "stackData");

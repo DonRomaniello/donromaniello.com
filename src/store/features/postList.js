@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { getAllDocumentsForStore } from '../helpers/getAllDocumentsForStore';
 
 export const fetchPosts = createAsyncThunk(
-  'users/fetchPostsStatus',
+  'fetchPostsStatus',
   async () => {
     const response = await getAllDocumentsForStore('blog');
     return response

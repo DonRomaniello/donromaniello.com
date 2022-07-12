@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { getAllDocumentsForStore } from '../helpers/getAllDocumentsForStore';
 
 export const fetchProjects = createAsyncThunk(
-  'users/fetchProjectsStatus',
+  'fetchProjectsStatus',
   async () => {
     const response = await getAllDocumentsForStore('projects');
     return response
