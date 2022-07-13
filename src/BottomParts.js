@@ -10,6 +10,7 @@ import {
 
 import {
   Box,
+  Center,
   Flex,
 } from '@chakra-ui/react';
 
@@ -37,10 +38,13 @@ function BottomBar(props) {
 
   return (
     <>
+          <Center>
             <Flex
             mt='20px'
             flex='1'
             padding={navverMinDimension}
+            alignContent='center'
+            justify='center'
             >
             <Box>
               <Routes>
@@ -72,7 +76,9 @@ function BottomBar(props) {
                           />} />
               </Routes>
             </Box>
-        </Flex>
+          </Flex>
+        </Center>
+
         <ColorModeSwitcher
           position='fixed'
           bottom='1vh'
