@@ -38,52 +38,49 @@ function BottomBar(props) {
 
   return (
     <>
-          <Center>
-            <Flex
-            mt='20px'
-            flex='1'
-            padding={navverMinDimension}
-            alignContent='center'
-            justify='center'
-            >
-            <Box>
-              <Routes>
-                <Route
-                exact path="/"
-                element={<Home
-                />} />
-                <Route
-                exact path="/bio"
-                element={<Bio
-                          preCachedHeadshot={preCachedHeadshot} />} />
-                <Route
-                exact path="/blog"
-                element={<Home
-                          />} />
-                <Route
-                path="/blog/:name"
-                element={<Post
-                  posts={posts}
-                  preCachedThumbnails={preCachedThumbnails}
-                          />} />
-                <Route
-                exact path="/projects"
-                element={<Projects
-                          />} />
-                <Route
-                exact path="/projects/:name"
-                element={<Project
-                          />} />
-              </Routes>
-            </Box>
-          </Flex>
-        </Center>
-
+      <Flex
+      mt='20px'
+      flex='1'
+      padding={navverMinDimension}
+      alignContent='center'
+      justify='center'
+      >
+        <Box>
+          <Routes>
+            <Route
+            exact path="/"
+            element={<Home
+            />} />
+            <Route
+            exact path="/bio"
+            element={<Bio
+                      preCachedHeadshot={preCachedHeadshot} />} />
+            <Route
+            exact path="/blog"
+            element={<Home
+                      />} />
+            <Route
+            path="/blog/:name"
+            element={<Post
+              posts={posts}
+              preCachedThumbnails={preCachedThumbnails}
+                      />} />
+            <Route
+            exact path="/projects"
+            element={<Projects
+                      />} />
+            <Route
+            exact path="/projects/:name"
+            element={<Project
+                      />} />
+          </Routes>
+        </Box>
+      </Flex>
         <ColorModeSwitcher
           position='fixed'
           bottom='1vh'
           left={isMobile ? '-10%' : '-3vh'}
-           />
+        />
       </>
   )
 

@@ -42,19 +42,16 @@ function Bio(props) {
 
   useEffect(() => {
     dispatch(setTitleAddendum("Bio"))
-  }, [])
-
-  useEffect(() => {
-      getImage('donromaniello', '/bio/images/full', setHeaderImageURL)
-      getDocuments('bio', setPost)
-  }, [])
+    getImage('donromaniello', '/bio/images/full', setHeaderImageURL)
+    getDocuments('bio', setPost)
+  }, [dispatch])
 
   return (
     <>
     <Center
     align='center'
     >
-      <Heading>{post.title}</Heading>
+      <Heading>{post[0].title}</Heading>
     </Center>
     <Box w="100%" h='2vh' />
       <Center w='100%'>

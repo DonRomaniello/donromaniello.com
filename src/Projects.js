@@ -22,11 +22,6 @@ import {
   selectProjects,
 } from './store/features/projectList';
 
-// import {
-//   fetchProjectThumbnails,
-//   selectProjectThumbnails,
-// } from './store/features/projectThumbnails'
-
 import ProjectCard from './ProjectCard';
 
 function Projects () {
@@ -49,13 +44,9 @@ function Projects () {
    <>
     <Center
     paddingBottom='2vh'>
-      <Box
-      borderBottom='1px'>
-      <Heading
-      >
+      <Heading>
         Projects
       </Heading>
-      </Box>
     </Center>
     <Center>
     </Center>
