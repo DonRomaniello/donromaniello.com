@@ -14,8 +14,10 @@ import {
   Box,
   Center,
   Flex,
+  LightMode,
   Progress,
-  Skeleton
+  Skeleton,
+  useColorMode,
 } from '@chakra-ui/react';
 
 import { Link } from "react-router-dom";
@@ -34,11 +36,15 @@ function ProgressHamburger(props) {
 
   const isMobile = useSelector(selectIsMobile);
 
+  const {colorMode} = useColorMode();
+
   const scrolledPastHeight = (isMobile ? (document.documentElement.clientWidth * .1) : 75)
 
   const [scrollPercentage, setScrollPercentage] = useState(0);
 
   const scrollY = useScrollPosition(0)
+
+  const [fullyScrolled, setFullyScrolled] = useState(false)
 
   const [burgerHover, setBurgerHover] = useState(false)
 
@@ -46,7 +52,45 @@ function ProgressHamburger(props) {
 
   let barWidth = isMobile ? '6.5vw' : '46px'
 
+  const scrollBar = (idx) => {
+    if (scrollPercentage < (33 * idx)) {
+      return 0;
+    } else {
+      return ((scrollPercentage * 3) - (idx * 100))
+    }
+  }
+
+  const progressColor = () => {
+    if (colorMode === 'dark') {
+      if (fullyScrolled) {
+        console.log("fullscroll", colorMode === 'dark')
+        return 'dark.progress.full'
+      }
+      console.log("unfullscroll", colorMode === 'dark')
+      return 'dark.progress.filling'
+    } else if (colorMode === 'light') {
+        if (fullyScrolled) {
+          return 'light.progress.full'
+        }
+        return 'light.progress.filling'
+      }
+  }
+
+  const borderColor = () => {
+    if (colorMode === 'dark'){
+      if (burgerHover) {
+        return 'black'
+      }
+      return 'white'
+    } else if (colorMode === 'light')
+      if (burgerHover) {
+        return 'white'
+      }
+      return 'black'
+  }
+
   useEffect(() => {
+
 
     const scrollMinusOffset = -(document.documentElement.clientHeight
                             - document.documentElement.offsetHeight)
@@ -61,20 +105,25 @@ function ProgressHamburger(props) {
       dispatch(setScrolledPastHeader(false))
     }
 
-  }, [scrollY])
-
-  const scrollBar = (idx) => {
-    if (scrollPercentage < (33 * idx)) {
-      return 0;
-    } else {
-      return ((scrollPercentage * 3) - (idx * 100))
+    if (scrollPercentage > 99) {
+      setFullyScrolled(true)
+    } else if (scrollPercentage <= 99){
+      setFullyScrolled(false)
     }
-  }
+
+
+  }, [dispatch,
+      scrollY,
+      scrolledPastHeight,
+      scrollPercentage,
+    ])
 
   const linkList = [
     <Link
     to='bio'
-    > Bio</Link>,
+    >
+    Bio
+    </Link>,
     <React.Suspense fallback={<Skeleton />}>
       <div>
         <BlogPopover
@@ -85,7 +134,9 @@ function ProgressHamburger(props) {
     </React.Suspense>,
     <Link
     to='projects'
-    > Projects</Link>,]
+    >
+    Projects
+    </Link>,]
 
   return (
     <>
@@ -128,12 +179,11 @@ function ProgressHamburger(props) {
                     key={'progress' + link}
                     height={barHeight}
                     w={barWidth}
-                    bg='white'
-                    colorScheme={(scrollPercentage < 99) ? 'darkBlue' : 'lightBlue'}
+                    colorScheme={progressColor()}
                     transition='border-color .2s'
                     border='1px'
-                    borderColor={burgerHover & !isOpen ? 'black' : 'white'}
-                    borderBottomColor='black'
+                    bg={colorMode === 'dark' ? 'dark.bg' : 'light.bg'}
+                    borderColor={borderColor()}
                     value={scrollBar(idx)}
                   />
                 </Box>

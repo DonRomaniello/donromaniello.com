@@ -30,14 +30,11 @@ function Projects () {
 
   const projects = useSelector(selectProjects)
 
-  // const projectThumbnails = useSelector(selectProjectThumbnails)
-
   const isMobile = useSelector(selectIsMobile);
 
   useEffect(() => {
     dispatch(setTitleAddendum("Projects"))
     dispatch(fetchProjects())
-    // dispatch(fetchProjectThumbnails())
   }, [dispatch])
 
   return (

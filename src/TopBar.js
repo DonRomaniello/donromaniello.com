@@ -18,7 +18,6 @@ import {
   Flex,
   Heading,
   useColorMode,
-  useColorModeValue,
   useDisclosure
 } from '@chakra-ui/react';
 
@@ -43,14 +42,10 @@ function TopBar(props) {
 
   const {colorMode} = useColorMode();
 
-  const headerBg = useColorModeValue('rgba(255, 255, 255, .9)',
-                                     'rgba(26, 32, 44, .9)')
-
   return (
     <>
     <Flex
-        bg={headerBg}
-        backdropFilter='blur(100px)'
+        bg={colorMode === 'dark' ? 'dark.bg' : 'light.bg'}
         position='fixed'
         top='0'
         transition='height .2s'
@@ -58,47 +53,46 @@ function TopBar(props) {
         minWidth='max-content'
         direction='columns'
         zIndex='banner'
-      >
-          <Box
-            w={isOpen ? '100vw' : navverMinDimension}
-            transition="width .2s"
-            borderBottom='1px'
-            borderColor={colorMode === "dark" ? "darkBlue.700" : 'lightBlue.200'}
-            onClick={onToggle}
-            >
-            <ProgressHamburger
-              isOpen={isOpen}
-              posts={posts}
-              preCachedThumbnails={preCachedThumbnails}
-              setPreCachedThumbnails={setPreCachedThumbnails}
-              setPreCachedHeadshot={setPreCachedHeadshot}
-            />
-          </Box>
-            <Flex
-              w='100vw'
-              align='center'
-              borderBottom='1px'
-              borderColor={colorMode === "dark" ? "darkBlue.700" : 'lightBlue.200'}
-              >
-             <Heading
-             variant='topBarMajor'
-             opacity={scrolledPastHeader ? '100' : '0'}
-             filter={scrolledPastHeader ? 'blur(0px)' : 'blur(100px)'}
-             fontSize={isMobile ? '1em' : '2em'}
-             >{titleAddendum}
-             </Heading>
-             <Heading
-             variant='topBarMajor'
-             opacity={scrolledPastHeader ? '0' : '100'}
-             filter={scrolledPastHeader ? 'blur(100px)' : 'blur(0px)'}
-             fontSize={isMobile ? '1em' : '2em'}
-            >The Website of Don Romaniello
-             </Heading>
-           </Flex>
+    >
+      <Box
+        w={isOpen ? '100vw' : navverMinDimension}
+        transition="width .2s"
+        borderBottom='1px'
+        borderColor={colorMode === "dark" ? "darkBlue.700" : 'lightBlue.200'}
+        onClick={onToggle}
+        >
+        <ProgressHamburger
+          isOpen={isOpen}
+          posts={posts}
+          preCachedThumbnails={preCachedThumbnails}
+          setPreCachedThumbnails={setPreCachedThumbnails}
+          setPreCachedHeadshot={setPreCachedHeadshot}
+        />
+      </Box>
+        <Flex
+          w='100vw'
+          align='center'
+          borderBottom='1px'
+          borderColor={colorMode === "dark" ? "darkBlue.700" : 'lightBlue.200'}
+          >
+          <Heading
+          variant='topBarMajor'
+          opacity={scrolledPastHeader ? '100' : '0'}
+          filter={scrolledPastHeader ? 'blur(0px)' : 'blur(100px)'}
+          fontSize={isMobile ? '1em' : '2em'}
+          >{titleAddendum}
+          </Heading>
+          <Heading
+          variant='topBarMajor'
+          opacity={scrolledPastHeader ? '0' : '100'}
+          filter={scrolledPastHeader ? 'blur(100px)' : 'blur(0px)'}
+          fontSize={isMobile ? '1em' : '2em'}
+        >The Website of Don Romaniello
+          </Heading>
+        </Flex>
       </Flex>
       </>
   )
-
 }
 
 export default TopBar

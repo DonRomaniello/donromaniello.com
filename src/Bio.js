@@ -72,8 +72,6 @@ function Bio(props) {
       return (
         <Text key={paragraph.slice(0, 32)}>
           {paragraph}
-          <br />
-          <br />
         </Text>
       )
     })}

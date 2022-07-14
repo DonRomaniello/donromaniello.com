@@ -60,17 +60,37 @@ const Heading = {
   }
 }
 
-const Progress = {
-  bg: '#3D5200',
-  transitionDuration: "fast",
-}
-
 const theme = extendTheme({
   initialColorMode: 'light',
   useSystemColorMode: false,
   colors: {
+    light: {
+      bg: '#E8F1F2',
+      progress: {
+        filling: {
+          500: '#FF934F',
+        },
+        full: {
+          500: '#4A6FA5',
+        },
+      }
+    },
+    dark: {
+      bg: '#2A314B',
+      progress: {
+        filling: {
+          200: '#FBAF00',
+        },
+        full: {
+          200: '#4A6FA5',
+        },
+      }
+    },
+
     green: {
-      500: '#66A182'
+      50: "#00FF22",
+      200: "#00FF66",
+      500: "#66FF22",
     },
     darkBlue: {
       500: '#007EA7',
@@ -78,13 +98,19 @@ const theme = extendTheme({
     },
     lightBlue: {
       200: '#EBF4FF',
-      500: '#BEDCFE'
+      500: '#BEDCFE',
     },
+  },
+  styles: {
+    global: (props) => ({
+      'html, body': {
+        bg: props.colorMode === 'dark' ? 'dark.bg' : 'light.bg',
+      },
+    }),
   },
   components: {
     Button,
     Divider,
-    Progress,
     Heading,
   },
   fonts: {

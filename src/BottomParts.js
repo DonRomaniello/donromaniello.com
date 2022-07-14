@@ -10,7 +10,6 @@ import {
 
 import {
   Box,
-  Center,
   Flex,
 } from '@chakra-ui/react';
 

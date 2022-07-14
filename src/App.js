@@ -52,7 +52,7 @@ function App() {
 
 
   return (
-    <ChakraProvider theme={theme}>c
+    <ChakraProvider theme={theme}>
         <TopBar
           posts={posts}
           setPreCachedThumbnails={setPreCachedThumbnails}
