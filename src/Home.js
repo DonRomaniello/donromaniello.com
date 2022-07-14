@@ -3,7 +3,6 @@ import React from 'react'
 import {
   Box,
   Button,
-  Center,
   Heading,
   Link,
   ListItem,
@@ -16,7 +15,7 @@ import {
 function Home () {
 
   return (
-    // <Center>
+    <>
     <VStack>
       <Box>
         <Text
@@ -74,7 +73,7 @@ function Home () {
         </Link>
       </Wrap>
     </VStack>
-    // </Center>
+    </>
   )
 }
 

@@ -63,10 +63,8 @@ function ProgressHamburger(props) {
   const progressColor = () => {
     if (colorMode === 'dark') {
       if (fullyScrolled) {
-        console.log("fullscroll", colorMode === 'dark')
         return 'dark.progress.full'
       }
-      console.log("unfullscroll", colorMode === 'dark')
       return 'dark.progress.filling'
     } else if (colorMode === 'light') {
         if (fullyScrolled) {
