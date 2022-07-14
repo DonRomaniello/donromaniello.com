@@ -14,7 +14,7 @@ import {
 import { getDocuments,
          getImage } from './modules/index.js';
 
-import theme from './config/theme'
+import theme from './styling/theme'
 
 import TopBar from './TopBar'
 

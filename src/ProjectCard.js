@@ -52,12 +52,13 @@ function ProjectCard(props){
         padding='2vh'
         w={cardDimensions}
         h={cardDimensions}
-        borderBottom='1px'
-        borderColor={colorMode === "dark" ? "white" : 'black'}
+        borderRadius='2%'
+        bg='card.10'
         _hover={{
-          border:'1px',
-          }}>
-
+          bg:'card.40',
+          }}
+        transition='background 2s'
+          >
           <Image
           src={thumbnail}
           maxH={imageDimensions}

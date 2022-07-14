@@ -18,9 +18,11 @@ const Button = {
     width: '120px',
     borderRadius: '0px',
     borderBottom: '1px',
-    transition:'border .2s',
+    transition:'border .2s, background 2s, border-radius .2s',
     _hover:{
-      border:'1px'
+      border:'1px',
+      background: 'card.40',
+      borderRadius: '7px'
     }
   }),
   variants: {
@@ -60,6 +62,16 @@ const Heading = {
   }
 }
 
+const Progress = {
+  styles: {
+    global: (props) => ({
+      bg: props.colorMode === 'dark' ? '#2A314B' : 'light.bg',
+    }),
+  },
+  transitionDuration: "slow",
+}
+
+
 const theme = extendTheme({
   initialColorMode: 'light',
   useSystemColorMode: false,
@@ -76,17 +88,16 @@ const theme = extendTheme({
       }
     },
     dark: {
-      bg: '#2A314B',
+      bg: '#161A27',
       progress: {
         filling: {
-          200: '#FBAF00',
+          200: '#F5AB00',
         },
         full: {
-          200: '#4A6FA5',
+          200: '#334B71',
         },
       }
     },
-
     green: {
       50: "#00FF22",
       200: "#00FF66",
@@ -100,6 +111,10 @@ const theme = extendTheme({
       200: '#EBF4FF',
       500: '#BEDCFE',
     },
+    card: {
+      10: 'rgba(51, 75, 113, .1)',
+      40: 'rgba(51, 75, 113, .4)',
+    },
   },
   styles: {
     global: (props) => ({
@@ -112,6 +127,7 @@ const theme = extendTheme({
     Button,
     Divider,
     Heading,
+    Progress,
   },
   fonts: {
     heading: `'Raleway', sans-serif`,

@@ -83,7 +83,7 @@ function Project() {
         maxH={isMobile ? '100%' : '80vh'}
         objectFit='scale-down'
         borderRadius='5px'
-        border='1px'
+        // border='1px'
         />
         </Center>
         </Skeleton>
