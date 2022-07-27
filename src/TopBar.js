@@ -1,10 +1,19 @@
-import React from 'react';
+import React, {
+      useEffect,
+} from 'react';
 
-import { useSelector } from 'react-redux';
+import {
+  useDispatch,
+  useSelector } from 'react-redux';
 
 import {
   selectIsMobile,
 } from './store/features/isMobile'
+
+import {
+  selectNavMinDimension,
+  setNavMinDimension,
+ } from './store/features/navMinDimension';
 
 import {
   selectTitleAddendum,
@@ -17,6 +26,7 @@ import {
   Box,
   Flex,
   Heading,
+  Spacer,
   useColorMode,
   useDisclosure
 } from '@chakra-ui/react';
@@ -30,17 +40,26 @@ function TopBar(props) {
           setPreCachedHeadshot,
           setPreCachedThumbnails }  = props;
 
+  const dispatch = useDispatch();
+
   const titleAddendum = useSelector(selectTitleAddendum);
 
   const scrolledPastHeader = useSelector(selectScrolledPastHeader);
 
   const isMobile = useSelector(selectIsMobile);
 
-  const navverMinDimension = (isMobile ? '10vw' : '75px')
+  const navverMinDimension = useSelector(selectNavMinDimension)
 
   const { isOpen, onToggle } = useDisclosure();
 
   const {colorMode} = useColorMode();
+
+  useEffect(() => {
+
+    dispatch(setNavMinDimension((isMobile ? '10vw' : '75px')))
+
+
+  }, [])
 
   return (
     <>
@@ -75,20 +94,22 @@ function TopBar(props) {
           borderBottom='1px'
           borderColor={colorMode === "dark" ? "darkBlue.700" : 'lightBlue.200'}
           >
+      <Spacer />
           <Heading
-          variant='topBarMajor'
+          variant={isOpen ? 'topBarMajor' : 'topBarMajorShown'}
           opacity={scrolledPastHeader ? '100' : '0'}
           filter={scrolledPastHeader ? 'blur(0px)' : 'blur(100px)'}
           fontSize={isMobile ? '1em' : '2em'}
           >{titleAddendum}
           </Heading>
           <Heading
-          variant='topBarMajor'
+          variant={isOpen ? 'topBarMajor' : 'topBarMajorShown'}
           opacity={scrolledPastHeader ? '0' : '100'}
           filter={scrolledPastHeader ? 'blur(100px)' : 'blur(0px)'}
           fontSize={isMobile ? '1em' : '2em'}
         >The Website of Don Romaniello
           </Heading>
+      <Spacer />
         </Flex>
       </Flex>
       </>

@@ -57,7 +57,7 @@ function ProjectCard(props){
         _hover={{
           bg:'card.40',
           }}
-        transition='background 2s'
+        transition='background 1s'
           >
           <Image
           src={thumbnail}

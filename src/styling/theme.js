@@ -1,4 +1,6 @@
 import { extendTheme } from "@chakra-ui/react"
+import { isMobile } from '../store/features/isMobile';
+import { navMinDimension } from '../store/features/navMinDimension';
 
 const Divider = {
   defaultProps: {
@@ -52,8 +54,21 @@ const Heading = {
   },
   variants: {
     topBarMajor: (props) => ({
-      margin: '0vh',
+      margin: '0',
       maxH: '62%',
+      width: '100%',
+      paddingLeft: '1vw',
+      transition: "font-size .2s, opacity .2s, filter .05s",
+      position: 'absolute',
+      borderBottom: '',
+    }),
+    topBarMajorShown: (props) => ({
+      margin: 'auto',
+      marginRight: props.navMinDimension,
+      // marginLeft: '10',
+      textAlign: 'center',
+      maxH: '62%',
+      width: '100%',
       paddingLeft: '1vw',
       transition: "font-size .2s, opacity .2s, filter .05s",
       position: 'absolute',
