@@ -87,24 +87,24 @@ const theme = extendTheme({
   useSystemColorMode: false,
   colors: {
     light: {
-      bg: '#E8F1F2',
+      bg: '#EFEFEF',
       progress: {
         filling: {
-          500: '#FF934F',
+          500: '#D0D6B3',
         },
         full: {
-          500: '#4A6FA5',
+          500: '#7FAAAE',
         },
       }
     },
     dark: {
-      bg: '#161A27',
+      bg: '#283C3E',
       progress: {
         filling: {
-          200: '#F5AB00',
+          200: '#D0D6B3',
         },
         full: {
-          200: '#334B71',
+          200: '#AAAE7F',
         },
       }
     },
