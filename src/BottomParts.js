@@ -9,6 +9,10 @@ import {
 } from './store/features/isMobile'
 
 import {
+  selectNavMinDimension,
+} from './store/features/navMinDimension'
+
+import {
   Box,
   Flex,
 } from '@chakra-ui/react';
@@ -29,7 +33,8 @@ function BottomBar(props) {
 
   const isMobile = useSelector(selectIsMobile);
 
-  const navverMinDimension = (isMobile ? '10vw' : '75px')
+  const navMinDimension = useSelector(selectNavMinDimension)
+
 
   const { posts,
           preCachedHeadshot,
@@ -40,7 +45,7 @@ function BottomBar(props) {
       <Flex
       mt='20px'
       flex='1'
-      padding={navverMinDimension}
+      padding={navMinDimension.value + navMinDimension.unit}
       alignContent='center'
       justify='center'
       >

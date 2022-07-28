@@ -1,7 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  navMinDimension: '10vw'
+  navMinDimension: {
+   value: 10,
+   unit: 'vw'
+  }
 }
 
 export const navMinDimension = createSlice({

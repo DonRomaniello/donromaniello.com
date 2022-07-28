@@ -48,7 +48,7 @@ function TopBar(props) {
 
   const isMobile = useSelector(selectIsMobile);
 
-  const navverMinDimension = useSelector(selectNavMinDimension)
+  const navMinDimension = useSelector(selectNavMinDimension)
 
   const { isOpen, onToggle } = useDisclosure();
 
@@ -56,10 +56,11 @@ function TopBar(props) {
 
   useEffect(() => {
 
-    dispatch(setNavMinDimension((isMobile ? '10vw' : '75px')))
+    dispatch(setNavMinDimension((isMobile ?
+                                { value: 10, unit: 'vw'} :
+                                { value: 75, unit: 'px'})))
 
-
-  }, [])
+  }, [isMobile, dispatch])
 
   return (
     <>
@@ -68,13 +69,13 @@ function TopBar(props) {
         position='fixed'
         top='0'
         transition='height .2s'
-        h={navverMinDimension}
+        h={navMinDimension.value + navMinDimension.unit}
         minWidth='max-content'
         direction='columns'
         zIndex='banner'
     >
       <Box
-        w={isOpen ? '100vw' : navverMinDimension}
+        w={isOpen ? '100vw' : navMinDimension.value + navMinDimension.unit}
         transition="width .2s"
         borderBottom='1px'
         borderColor={colorMode === "dark" ? "darkBlue.700" : 'lightBlue.200'}
@@ -97,6 +98,7 @@ function TopBar(props) {
       <Spacer />
           <Heading
           variant={isOpen ? 'topBarMajor' : 'topBarMajorShown'}
+          paddingRight={(navMinDimension.value * 3) + navMinDimension.unit}
           opacity={scrolledPastHeader ? '100' : '0'}
           filter={scrolledPastHeader ? 'blur(0px)' : 'blur(100px)'}
           fontSize={isMobile ? '1em' : '2em'}
@@ -104,6 +106,7 @@ function TopBar(props) {
           </Heading>
           <Heading
           variant={isOpen ? 'topBarMajor' : 'topBarMajorShown'}
+          paddingRight={(navMinDimension.value * 3) + navMinDimension.unit}
           opacity={scrolledPastHeader ? '0' : '100'}
           filter={scrolledPastHeader ? 'blur(100px)' : 'blur(0px)'}
           fontSize={isMobile ? '1em' : '2em'}

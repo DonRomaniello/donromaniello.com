@@ -1,6 +1,4 @@
 import { extendTheme } from "@chakra-ui/react"
-import { isMobile } from '../store/features/isMobile';
-import { navMinDimension } from '../store/features/navMinDimension';
 
 const Divider = {
   defaultProps: {
@@ -48,32 +46,29 @@ const Button = {
 const Heading = {
   defaultProps: {
   },
-  baseStyle: {
+  baseStyle: (props) => ({
     marginBottom: '2vh',
     borderBottom: '1px'
-  },
+  }),
   variants: {
-    topBarMajor: (props) => ({
-      margin: '0',
-      maxH: '62%',
-      width: '100%',
-      paddingLeft: '1vw',
-      transition: "font-size .2s, opacity .2s, filter .05s",
-      position: 'absolute',
-      borderBottom: '',
-    }),
-    topBarMajorShown: (props) => ({
-      margin: 'auto',
-      marginRight: props.navMinDimension,
-      // marginLeft: '10',
-      textAlign: 'center',
-      maxH: '62%',
-      width: '100%',
-      paddingLeft: '1vw',
-      transition: "font-size .2s, opacity .2s, filter .05s",
-      position: 'absolute',
-      borderBottom: '',
-    }),
+    topBarMajor: {
+        maxH: '62%',
+        width: '100%',
+        paddingLeft: '1vw',
+        transition: "font-size .2s, opacity .2s, filter .05s",
+        position: 'absolute',
+        borderBottom: '',
+        margin: '0',
+    },
+    topBarMajorShown: {
+        margin: 'auto',
+        textAlign: 'center',
+        maxH: '62%',
+        width: '100%',
+        transition: "font-size .2s, opacity .2s, filter .05s",
+        position: 'absolute',
+        borderBottom: '',
+      },
   }
 }
 
