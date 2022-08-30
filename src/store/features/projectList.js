@@ -5,7 +5,7 @@ import { getAllDocumentsForStore } from '../helpers/getAllDocumentsForStore';
 export const fetchProjects = createAsyncThunk(
   'fetchProjectsStatus',
   async () => {
-    const response = await getAllDocumentsForStore('projects');
+    const response = await getAllDocumentsForStore('projects', 'prominence');
     return response
   }
 )
@@ -21,10 +21,8 @@ const projectsSlice = createSlice({
   reducers: {
   },
   extraReducers: (builder) => {
-
     builder.addCase(fetchProjects.fulfilled, (state, action) => {
-
-      state.projects = action.payload
+      state.projects = action.payload.sort((a, b) => a.prominence - b.prominence)
     })
   },
 })
