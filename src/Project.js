@@ -104,6 +104,14 @@ function Project() {
           The Code
         </Button>
       </Link>
+      {project.data.liveUrl &&
+      <Link href={project.data.liveUrl} isExternal>
+        <Button
+          variant={isMobile ? 'projectMobile' : 'project'}
+        >
+          Link
+        </Button>
+      </Link>}
       </VStack>
     </Center>
     </>
