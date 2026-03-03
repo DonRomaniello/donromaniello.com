@@ -1,0 +1,58 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<Base title={project.data.title}>
+  <article>
+    <header>
+      <h1>{project.data.title}</h1>
+      <p class="desc">{project.data.description}</p>
+      <div class="meta">
+        {project.data.github && <a href={project.data.github} target="_blank" rel="noopener">Source code</a>}
+        {project.data.url && <a href={project.data.url} target="_blank" rel="noopener">Live site</a>}
+      </div>
+      {project.data.tech && (
+        <p class="tech">{project.data.tech.join(' · ')}</p>
+      )}
+    </header>
+    <Content />
+  </article>
+</Base>
+
+<style>
+  header {
+    margin-bottom: 2rem;
+  }
+
+  .desc {
+    color: var(--muted);
+  }
+
+  .meta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .meta a {
+    font-size: 0.9rem;
+  }
+
+  .tech {
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+  }
+</style>
